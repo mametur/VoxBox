@@ -78,8 +78,6 @@ _Week 1_
 1. [https://www.mountaingoatsoftware.com/agile/user-stories](https://www.mountaingoatsoftware.com/agile/user-stories)
 
 # week-1 discussion points
-
-1. User stories: discuss the user- stories that we have till now and select a collective and finale user story.
-2. Wireframes: create a wireframe(at least a sample) and discuss over it..(we will be using Figma);
+[issue](https://github.com/gelilaa/VoxBox/issues/3)
 
 > ## conclusion
