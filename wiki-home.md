@@ -31,9 +31,9 @@ _Week 1_
 
 [Issues](https://github.com/gelilaa/VoxBox/issues/2)
 
-[User-story]()
+[User-story](https://github.com/gelilaa/VoxBox/blob/master/project-planning/backlog.md)
 
-[Wireframe]()
+[Wireframe]() [discussion issue](https://github.com/gelilaa/VoxBox/issues/4)
 
 # Roles of contributors
 
@@ -58,6 +58,13 @@ _Week 1_
 - Git-comments
 - Issues
 
+### Dev-Ops
+
+- .....
+
+
+[discussion issue](https://github.com/gelilaa/VoxBox/issues/7)
+
 ### UI/UX
 
 - [Figma](https://www.figma.com/), …
@@ -66,10 +73,13 @@ _Week 1_
 
 - React, …
 
+[discussion issue](https://github.com/gelilaa/VoxBox/issues/5)
 ### Back-end
 
 - MySQL, …
 - [Lucidchart](https://www.lucidchart.com/), …
+
+[discussion issues](https://github.com/gelilaa/VoxBox/issues/6)
 
 # Reading Stuff
 
@@ -78,6 +88,14 @@ _Week 1_
 1. [https://www.mountaingoatsoftware.com/agile/user-stories](https://www.mountaingoatsoftware.com/agile/user-stories)
 
 # week-1 discussion points
-[issue](https://github.com/gelilaa/VoxBox/issues/3)
+[week-1-meeting- 1](https://github.com/gelilaa/VoxBox/issues/3)
 
 > ## conclusion
+ on week-1-meeting-1 
+   we have disscussed in depth what the user stroy should be and categorized the stories in three major groups: must haves , should haves and could haves.
+   
+   [User-story](https://github.com/gelilaa/VoxBox/blob/master/project-planning/backlog.md)
+   
+   And also we have discussed that by tommorow we should have at least a sample wireframe that would help us envision the project.
+   All contributors had attended the meeting and we have scheduled  a meeting for 16 dec 2020 At 12:00 noon 
+   
