@@ -1,4 +1,4 @@
-const express = require('express');
+/*const express = require('express');
 const path = require('path');
 const jwt = require('jsonwebtoken');
 const withAuth = require('../middleware');
@@ -66,4 +66,4 @@ app.get('/checkToken', withAuth, function (req, res) {
   res.sendStatus(200);
 });
 
-module.exports = app;
+module.exports = app;*/
