@@ -2,13 +2,12 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [master, develop]
   pull_request:
-    branches: [ master ]
+    branches: [master, develop]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -16,21 +15,19 @@ jobs:
         node-version: [11.x, 12.x, 14.x]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: Install Frontend dependencies
-      run: npm ci
-      working-directory: client
-    - name: Install Backend & Project dependencies
-      run: npm ci
-    - name: Run tests
-      run: npm run test
-      env:
-        DB_HOST: localhost
-        DB_NAME: foo
-        DB_USER: bar
-        DB_PASSWORD: foobar
-        JWT_SECRET: fuzz
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install Frontend dependencies
+        run: npm ci
+        working-directory: client
+      - name: Install Backend & Project dependencies
+        run: npm ci
+        env:
+          DB_HOST: localhost
+          DB_NAME: foo
+          DB_USER: bar
+          DB_PASSWORD: foobar
+          JWT_SECRET: fuzz
