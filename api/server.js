@@ -13,5 +13,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', require('./routes/home.js'));
 app.use('/', require('./routes/login.js'));
+app.use('/', require('./routes/signIn.js'));
 
 module.exports = app;
