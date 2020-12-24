@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@babel/helper-compilation-targets": "^7.12.5",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -34,11 +33,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:5000",
-  "devDependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.12.1"
-  },
-  "resolutions": {
-    "@babel/preset-env": "7.5.5"
-  }
+  "proxy": "http://localhost:5000"
 }
