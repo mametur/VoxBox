@@ -1,9 +1,12 @@
-const express = require("express");
-const path = require("path");
-const jwt = require("jsonwebtoken");
-const withAuth = require("../middleware");
-const User = require("../models/User");
+
+const express = require('express');
+const path = require('path');
+const jwt = require('jsonwebtoken');
+const withAuth = require('../middleware/withAuth.js');
+const User = require('../models/User');
+const verifyEmail = require('../middleware/verifySignUp.js');
 const Post = require("../models/post");
+
 
 const { JWT_SECRET } = require("../../config/config.js");
 
@@ -21,8 +24,10 @@ app.get("/secret", withAuth, function (req, res) {
   res.send("You are visiting a protected page.");
 });
 
-app.post("/register", async (req, res) => {
-  const { name, email, password } = req.body;
+
+app.post('/register', verifyEmail, async (req, res) => {
+	const { name, email, password } = req.body;
+
 
   try {
     await User.create({
