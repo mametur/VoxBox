@@ -22,7 +22,6 @@ app.post('/signin', async (req, res) => {
 			}
 
 			const passwordIsValid = bcrypt.compareSync(password, user.password);
-			console.log('user ', passwordIsValid);
 			if (!passwordIsValid) {
 				return res.status(401).send({
 					accessToken: null,
@@ -42,3 +41,11 @@ app.post('/signin', async (req, res) => {
 		});
 });
 module.exports = app;
+
+/*
+Find User record in database by email
+If email is existed, check password is Valid or NOT
+      -> If password is valid, create JWT then return JWT token back to client
+  -> Other case, Error code will be returned
+
+*/

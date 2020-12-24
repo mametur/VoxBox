@@ -74,3 +74,10 @@ app.get('/checkToken', withAuth, function (req, res) {
 });
 
 module.exports = app;
+
+/*
+-> Verify  Email
+    -> If NOT Duplicate ( Email)
+    ->  save User Info to database by Sequlieze ORM
+  -> Othercase, Eror code will be returned
+*/
