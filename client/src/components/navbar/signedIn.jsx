@@ -9,10 +9,10 @@ export const SignedIn = () =>{
   return (
     <Nav >
     <Nav.Link  href="/profile/:id"> 
-      <Button variant="outline-primary" className="navbar-button">My Profile</Button>
+      <Button variant="outline-primary" className="navbar-button" block>My Profile</Button>
     </Nav.Link>
     <Nav.Link eventKey={2} href="/">
-      <Button variant="outline-primary" className="logout-button">Logout</Button>
+      <Button variant="outline-primary" className="logout-button" block>Logout</Button>
     </Nav.Link>
   </Nav>
 
