@@ -2,4 +2,24 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: black;
+}
+
+.logo{
+  width: 10rem;
+  margin-left: auto 10px;
+  
+}
+
+.brand-name {
+  width: 100px;
+  color: #FCA73D;
+  display: inline-block;
+}
+.img-wrapper{
+  display: inline-block
+}
+
+.btn-logout {
+  background-color: red;
 }
