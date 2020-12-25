@@ -17,10 +17,11 @@ app.get("/posts", (req, res) => {
   })
     .then((data) => {
       console.log(data);
-      res.send(data);
+      res.status(200).send(data);
     })
     .catch((err) => {
       console.log(err);
+      res.sendStatus(400);
     });
 });
 
@@ -41,10 +42,11 @@ app.get("/posts/:id", (req, res) => {
   })
     .then((data) => {
       console.log(data);
-      res.send(data);
+      res.status(200).send(data);
     })
     .catch((err) => {
       console.log(err);
+      res.sendStatus(400);
     });
 });
 
@@ -65,10 +67,11 @@ app.get("/posts/:city", (req, res) => {
   })
     .then((data) => {
       console.log(data);
-      res.send("data");
+      res.status(200).send("data");
     })
     .catch((err) => {
       console.log(err);
+      res.status(400);
     });
 });
 
@@ -92,7 +95,7 @@ app.post("/posts/:id", (req, res) => {
   Post.create(post)
     .then((data) => {
       console.log(data);
-      res.send(data);
+      res.status(201).send(data);
     })
     .catch((err) => {
       res.status(500).send({
@@ -110,10 +113,11 @@ app.delete("/posts/:id", (req, res) => {
   })
     .then((data) => {
       console.log(data);
-      res.send("Post is deleted!");
+      res.status(200).send("Post is deleted!");
     })
     .catch((err) => {
       console.log(err);
+      res.status(400);
     });
 });
 

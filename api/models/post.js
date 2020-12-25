@@ -3,17 +3,29 @@ const sequelize = require("../db/db.js");
 const User = require("./User.js");
 
 const Post = sequelize.define("posts", {
-  id: {
+  post_id: {
     type: Sequelize.INTEGER(11),
     allowNull: false,
     autoIncrement: true,
     primaryKey: true,
   },
 
-  topic: Sequelize.STRING(250),
-  discription: Sequelize.STRING(400),
-  city: Sequelize.STRING(255),
-  user_id: Sequelize.INTEGER(11),
+  topic: {
+    type: Sequelize.STRING(250),
+    allowNull: false,
+  },
+  discription: {
+    type: Sequelize.STRING(400),
+    allowNull: false,
+  },
+  city: {
+    type: Sequelize.STRING(255),
+    allowNull: false,
+  },
+  user_id: {
+    type: Sequelize.INTEGER(11),
+    allowNull: false,
+  },
   published: Sequelize.BOOLEAN,
   // Timestamps
   createdAt: Sequelize.DATE,
