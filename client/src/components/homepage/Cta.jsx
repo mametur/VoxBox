@@ -10,9 +10,9 @@ export const Cta = () => {
                     <Image src={HomeImg} className="home-img-mob" alt="Home image" />
                 </Col>
                 <Col xs={12} className="cta-section">
-                    <p class="cta-title">Nothing is as strong as the heart of a volunteer</p>
+                    <p className="cta-title">Nothing is as strong as the heart of a volunteer</p>
                     <div className="cta">
-                        <p class="cta-quote">The strong of the community is reflected by the passionate action of its members. Together with <span>Volunteer xChange Box</span>, find a volunteer activity in your area or call for a help from your community.</p>
+                        <p className="cta-quote">The strong of the community is reflected by the passionate action of its members. Together with <span>Volunteer xChange Box</span>, find a volunteer activity in your area or call for a help from your community.</p>
                         <Button>Join VoxBox Now</Button>
                     </div>
                 </Col>

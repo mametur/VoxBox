@@ -22,6 +22,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .cta-quote {
@@ -29,6 +30,7 @@ body {
   font-style: normal;
   font-weight: 600;
   text-align: center;
+  width: 90%;
 }
 
 .cta button {
