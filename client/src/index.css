@@ -2,4 +2,241 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: black;
+}
+
+/* Cta section */
+
+.cta-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cta-title {
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.cta-quote {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600;
+  text-align: center;
+  width: 90%;
+}
+
+.cta button {
+  background: #FCA73D;
+  color: #FFFFFF;
+  font-weight: bold;
+  border-radius: 100px;
+  border-style: none;
+}
+
+.cta button:hover {
+  transform: scale(1.1);
+  background: #FCA73D;
+}
+
+/* About us section */
+.row-about h3 {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: bold;
+  text-align: center;
+  line-height: 27px;
+  color: #0D7E6A;
+}
+
+.span1 {
+  color: #FCA73D;
+}
+
+.span2 {
+  font-weight: bold;
+}
+
+/* Tablets and Computer */
+@media (min-width: 576px) {
+  .row-cta {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    background-image: url("./assets/pexels-anna-shvets.jpg");
+    background-position: 50% 50%;
+    background-size: cover;
+   }
+
+   .home-img {
+     display: none;
+   }
+
+   .cta-section {
+     position: absolute;
+     height: 100%;
+     width: 100%;
+     background: rgba(0, 0, 0, 0.5);
+     justify-content: center;
+   }
+
+   .cta {
+    text-align: center;
+   }
+
+   .cta-title {
+    font-size: 60px;
+    line-height: 82px;
+    text-align: center;
+    color: #FFFFFF;
+   }
+
+   .cta-quote {
+    font-size: 26px;
+    line-height: 35px;
+    color: #FFFFFF;
+   }
+
+   .cta-quote span {
+    color: #FCA73D;
+  }
+
+  .cta button {
+    margin-top: 20px;
+    width: 297px;
+    height: 59px;
+  }
+
+  /* About us section */
+
+  .row-about {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 50px;
+    margin: 20px;
+  }
+
+  .about-us-img {
+    width: 100%;
+    min-height: 200px;
+    min-width: 200px;
+    height: auto;
+  }
+
+  .row-about h3 {
+    font-size: 32px;
+    text-align: left;
+    margin-bottom: 20px;
+  }
+
+  .row-about p {
+    font-family: Open Sans;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 27px;
+    text-align: left;
+  }
+}
+
+/* Portrait phones and smaller */
+@media (max-width: 575px) {
+ 
+  .home-img-mob {
+    margin: 0;
+    width: 100%;
+    height: auto;
+  }
+
+  .cta-section {
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px #E5E5E5;
+    border-radius: 15px;
+    padding: 10px;
+  }
+
+  .cta-title {
+    font-size: 28px;
+    line-height: 38px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #0D7E6A;
+    padding: 0 15px 0;
+  }
+
+  .cta {
+    padding: 15px;
+    margin: 15px;
+    background: #FFF0DE;
+    border-radius: 10px;
+  }
+
+  .cta-quote {
+    font-size: 17px;
+    line-height: 23px;
+    color: #FCA73D;
+  }
+
+  .cta-quote span {
+    color: #0D7E6A;
+  }
+
+  .cta button {
+    width: 170px;
+    height: 45.5px;
+  }
+
+  /* About us section */
+  .row-about {
+    margin: 15px;
+    padding: 10px;
+  }
+
+  .about-us-img {
+    margin: 0;
+    width: 100%;
+    height: auto;
+  }
+
+  .row-about p {
+    font-family: Open Sans;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 27px;
+    text-align: center;
+  }
+
+  .row-about h3 {
+    font-size: 27px;
+  }
+}
+  /* Navbar */
+  
+.logo{
+  width: 10rem;
+  margin-left: auto 10px;
+  
+}
+
+.brand-name {
+  width: 100px;
+  color: #FCA73D;
+  display: inline-block;
+}
+.img-wrapper{
+  display: inline-block
+}
+
+.btn-logout {
+  background-color: red;
 }
