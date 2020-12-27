@@ -4,7 +4,7 @@ import withAuth from './withAuth';
 import Home from './Home';
 import Secret from './Secret';
 import Login from './Login';
-import Email from './footer/Email'
+import Footer from './footer/Footer'
 
 class App extends Component {
   render() {
@@ -22,7 +22,7 @@ class App extends Component {
           <Route path="/login" component={Login} />
         </Switch> } 
 
-        <Email/>
+        <Footer/>
 
       </div>
     );
