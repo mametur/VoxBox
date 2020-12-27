@@ -4,3 +4,4 @@ client/build/*
 .env
 client/yarn.lock
 *.log
+package.json
