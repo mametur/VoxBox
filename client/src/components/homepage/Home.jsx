@@ -5,7 +5,6 @@ import { Cta } from './Cta'
 export const Home = () => {
     return (
         <div>
-            Home
            <Cta />
            <AboutUs /> 
         </div>
