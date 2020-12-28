@@ -43,7 +43,6 @@ app.get("/posts/:id", (req, res) => {
       {
         model: Comment,
         attributes: ["comment_content"],
-        limit: 1 
       },
     ],
   })
