@@ -1,6 +1,7 @@
 const express = require("express");
 const User = require("../models/User");
-const Post = require("../models/post");
+const Post = require("../models/Post");
+const Comment = require("../models/Comment");
 
 const app = express();
 // to get all the posts
@@ -25,18 +26,23 @@ app.get("/posts", (req, res) => {
     });
 });
 
-// to get one persons post
-app.get("/posts/:id", (req, res) => {
-  const user = req.params;
 
-  Post.findAll({
-    where: { user_id: user.id },
+// to get one post
+app.get("/posts/:id", (req, res) => {
+  const post = req.params;
+
+  Post.findOne({
+    where: { post_id: post.id },
     attributes: ["topic", "discription", "city"],
     include: [
       {
         model: User,
         as: "user",
         attributes: ["name", "email"],
+      },
+      {
+        model: Comment,
+        attributes: ["comment_content"],
       },
     ],
   })
