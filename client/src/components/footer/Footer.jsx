@@ -22,7 +22,7 @@ function Footer() {
             </ul>
             </div> 
 
-            <div className = "col-md-4 m-auto-0">
+            <div className = "col-md-4 m-auto-0 me-n1">
             <img src = {logoVox} style = {{height:'4em', width:'4em'}} 
             alt = "Voxbox logo" className='m-4 rounded'/>
             <img src = {logo_HYF} style = {{height:'5em', width:'5em'}} 
