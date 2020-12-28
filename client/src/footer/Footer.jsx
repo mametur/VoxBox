@@ -18,14 +18,14 @@ class Footer extends Component {
 
     render() {
         return ( 
-            <div style = {{backgroundColor:'#397e6b', color:'white'}}className = "footer text-white  row p-2 fixed-bottom" >
+            <div style = {{backgroundColor:'#397e6b', color:'white'}} className = "footer text-white  row p-2" >
             <div className = "col-md-8" >
             <ul style={{listStyleType: 'none'}}>
-            <li className = "card-title">Contact VoxBox</li>
+            <li style={{fontWeight: 'bold', marginBottom: 5}}>Contact VoxBox</li>
             <li><FaGithub /><a href = { this.state.repoUrl }  style={this.styles} > https://github.com/gelilaa/VoxBox </a></li>
             <li><BsEnvelope /><a href = { this.state.email }  style={this.styles} > voxbox@gmail.com </a></li>
             </ul></div > 
-            <div className = "col-md-4" style = {{margin: 'auto 0'}}>
+            <div className = "col-md-4" style={{margin: 'auto 0'}}>
             <img src = {logoVox} style = {{height:'4em', width:'4em', borderRadius:'10px'}} 
             alt = "Voxbox logo" className='m-4'/>
             <img src = { logo_HYF } style = {{height:'5em', width:'5em'}} 
