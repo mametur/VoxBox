@@ -13,17 +13,19 @@ function Footer() {
      });
 
         return ( 
-            <div style = {{backgroundColor:'#397e6b', color:'white'}} className = "footer text-white  row p-2" >
+            <div style = {{backgroundColor:'#397e6b'}} className = "footer text-white row p-2 text-center text-md-left" >
             <div className = "col-md-8" >
             <ul style={{listStyleType: 'none'}}>
-            <li style={{fontWeight: 'bold', marginBottom: 5}}>Contact VoxBox</li>
-            <li><FaGithub /><a href = { state.repoUrl }  style={{color:'white'}} > https://github.com/gelilaa/VoxBox </a></li>
-            <li><BsEnvelope /><a href = { state.email }  style={{color:'white'}} > voxbox@gmail.com </a></li>
-            </ul></div > 
-            <div className = "col-md-4" style={{margin: 'auto 0'}}>
-            <img src = {logoVox} style = {{height:'4em', width:'4em', borderRadius:'10px'}} 
-            alt = "Voxbox logo" className='m-4'/>
-            <img src = { logo_HYF } style = {{height:'5em', width:'5em'}} 
+            <li className='mb-4 font-weight-bold'>Contact VoxBox</li>
+            <li><FaGithub /><a href = { state.repoUrl } className = "text-white" > https://github.com/gelilaa/VoxBox </a></li>
+            <li><BsEnvelope /><a href = { state.email } className = "text-white" > voxbox@gmail.com </a></li>
+            </ul>
+            </div> 
+
+            <div className = "col-md-4 m-auto-0">
+            <img src = {logoVox} style = {{height:'4em', width:'4em'}} 
+            alt = "Voxbox logo" className='m-4 rounded'/>
+            <img src = {logo_HYF} style = {{height:'5em', width:'5em'}} 
             alt = "HYF logo" /></div>
             </div >
         );
