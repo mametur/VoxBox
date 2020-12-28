@@ -1,39 +1,47 @@
-/* const { cryptPassword } = require('../utils/encryption');
-const { sequelize, Model, DataTypes } = require('sequelize');
-const sequelize = require('../db/db.js');
+const bcrypt = require("bcrypt");
+const Sequelize = require("sequelize");
+const sequelize = require("../db/db.js");
 
-class User extends Model {
-	constructor({ email, password }) {
-		super();
-		this.email = email;
-		this.password = password;
-	}
-
-	validPassword(password) {
-		return bcrypt.compare(password, this.password);
-	}
-}
-
-User.init(
-	{
-		email: DataTypes.STRING,
-		password: DataTypes.STRING,
+const User = sequelize.define("user", {
+	user_id: {
+	  type: Sequelize.INTEGER,
+	  autoIncrement: true,
+	  allowNull: false,
+	  primaryKey: true,
 	},
-	{
-		sequelize,
-		modelName: 'user',
-	}
-);
+	name: {
+	  type: Sequelize.STRING,
+	  allowNull: false,
+	},
+	email: {
+	  type: Sequelize.STRING,
+	  allowNull: false,
+	  unique: true,
+	},
+	password: {
+	  type: Sequelize.STRING,
+	  allowNull: false,
+	},
+
+	// Timestamps
+	createdAt: Sequelize.DATE,
+	updatedAt: Sequelize.DATE,
+  });
+  
 
 User.beforeCreate((user, options) => {
-	return cryptPassword(user.password)
-		.then((success) => {
-			user.password = success;
-		})
-		.catch((err) => {
-			if (err) console.log(err);
-		});
+	return bcrypt
+    .hash(user.password, 10)
+    .then((hash) => {
+      user.password = hash;
+    })
+    .catch((err) => {
+      throw new Error(err);
+    });
 });
 
+// create all the defined tables in the specified database.
+
+
 module.exports = User;
-*/
+
