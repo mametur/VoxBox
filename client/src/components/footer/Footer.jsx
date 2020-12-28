@@ -1,29 +1,24 @@
-import React, {
-    Component
-} from "react";
+import React from "react";
+import { useState } from 'react'
 import logo_HYF from '../../logo_HYF.svg';
 import logoVox from '../../assets/logoVox.png'
 import { BsEnvelope } from 'react-icons/bs';
 import { FaGithub } from 'react-icons/fa';
 
-class Footer extends Component {
-    state = {
+function Footer() {
+
+     const [state, setState] = useState({
         email: "mailto:voxbox@gmail.com",
         repoUrl: "https://github.com/gelilaa/VoxBox",
-    };
+     });
 
-    styles = {
-        color: 'white'
-    };
-
-    render() {
         return ( 
             <div style = {{backgroundColor:'#397e6b', color:'white'}} className = "footer text-white  row p-2" >
             <div className = "col-md-8" >
             <ul style={{listStyleType: 'none'}}>
             <li style={{fontWeight: 'bold', marginBottom: 5}}>Contact VoxBox</li>
-            <li><FaGithub /><a href = { this.state.repoUrl }  style={this.styles} > https://github.com/gelilaa/VoxBox </a></li>
-            <li><BsEnvelope /><a href = { this.state.email }  style={this.styles} > voxbox@gmail.com </a></li>
+            <li><FaGithub /><a href = { state.repoUrl }  style={{color:'white'}} > https://github.com/gelilaa/VoxBox </a></li>
+            <li><BsEnvelope /><a href = { state.email }  style={{color:'white'}} > voxbox@gmail.com </a></li>
             </ul></div > 
             <div className = "col-md-4" style={{margin: 'auto 0'}}>
             <img src = {logoVox} style = {{height:'4em', width:'4em', borderRadius:'10px'}} 
@@ -32,7 +27,6 @@ class Footer extends Component {
             alt = "HYF logo" /></div>
             </div >
         );
-    }
-}
+};
 
 export default Footer;
