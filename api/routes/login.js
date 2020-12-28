@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const withAuth = require('../middleware/withAuth.js');
 const User = require('../models/User');
 const verifyEmail = require('../middleware/verifySignUp.js');
-const Post = require("../models/post");
+const Post = require("../models/Post");
 
 
 const { JWT_SECRET } = require("../../config/config.js");

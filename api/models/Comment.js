@@ -2,8 +2,6 @@ const Sequelize = require("sequelize");
 const sequelize = require("../db/db.js");
 const User = require("./User.js");
 const Post = require("./Post.js")
-const bodyParser = require('body-parser');
-
 
 //Comment model
 const Comment = sequelize.define('thread', {
