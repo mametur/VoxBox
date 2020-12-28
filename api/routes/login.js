@@ -1,69 +1,81 @@
-/*const express = require('express');
+
+const express = require('express');
 const path = require('path');
 const jwt = require('jsonwebtoken');
-const withAuth = require('../middleware');
+const withAuth = require('../middleware/withAuth.js');
 const User = require('../models/User');
+const verifyEmail = require('../middleware/verifySignUp.js');
+const Post = require("../models/post");
 
-const {JWT_SECRET} = require('../config');
+
+const { JWT_SECRET } = require("../../config/config.js");
 
 const app = express();
 
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+app.get("/", function (req, res) {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-app.get('/home', function (req, res) {
-  res.send('Welcome!');
+app.get("/home", function (req, res) {
+  res.send("Welcome!");
 });
 
-app.get('/secret', withAuth, function (req, res) {
-  res.send('You are visiting a protected page.');
+app.get("/secret", withAuth, function (req, res) {
+  res.send("You are visiting a protected page.");
 });
 
-app.post('/register', async (req, res) => {
-  const {email, password} = req.body;
-  const user = new User({email, password});
+
+app.post('/register', verifyEmail, async (req, res) => {
+	const { name, email, password } = req.body;
+
 
   try {
-    await user.save();
+    await User.create({
+      name: name,
+      password: password,
+      email: email,
+    });
+    res.status(200).send({
+      status: 200,
+      message: "Data Save Successfully",
+    });
   } catch (e) {
-    res.sendStatus(500)
+    console.log(e);
+    res.sendStatus(500);
     return;
   }
-
-  res.sendStatus(200);
 });
 
-app.post('/authenticate', async (req, res) => {
-  const {email, password} = req.body;
+app.post("/authenticate", async (req, res) => {
+  const { email, password } = req.body;
 
   let user = null;
 
   try {
-    user = await User.findOne({where: {email}});
+    user = await User.findOne({ where: { email } });
   } catch (e) {
-    res.sendStatus(401)
+    res.sendStatus(401);
     return;
   }
 
   if (!user) {
-    res.sendStatus(401)
+    res.sendStatus(401);
     return;
   }
 
   if (user.validPassword(password)) {
     // Issue token
-    const payload = {email};
+    const payload = { email };
     const token = jwt.sign(payload, JWT_SECRET, {
-      expiresIn: '1h'
+      expiresIn: "1h",
     });
 
-    res.cookie('token', token, {httpOnly: true}).sendStatus(200);
+    res.cookie("token", token, { httpOnly: true }).sendStatus(200);
   }
 });
 
-app.get('/checkToken', withAuth, function (req, res) {
+app.get("/checkToken", withAuth, function (req, res) {
   res.sendStatus(200);
 });
 
-module.exports = app;*/
+module.exports = app;
