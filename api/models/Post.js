@@ -2,7 +2,7 @@ const Sequelize = require("sequelize");
 const sequelize = require("../db/db.js");
 const User = require("./User.js");
 
-const Post = sequelize.define("posts", {
+const Post = sequelize.define("post", {
   post_id: {
     type: Sequelize.INTEGER(11),
     allowNull: false,
@@ -33,14 +33,16 @@ const Post = sequelize.define("posts", {
 });
 
 // create one-to-many relation
-
+//test
 User.hasMany(Post, {
-  as: "posts",
+  as: "post",
   foreignKey: "user_id",
 });
 Post.belongsTo(User, {
   as: "user",
   foreignKey: "user_id",
 });
+
+
 
 module.exports = Post;
