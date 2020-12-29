@@ -9,7 +9,11 @@ const User = sequelize.define('user', {
 		allowNull: false,
 		primaryKey: true,
 	},
-	name: {
+	firstName: {
+		type: Sequelize.STRING,
+		allowNull: false,
+	},
+	lastName: {
 		type: Sequelize.STRING,
 		allowNull: false,
 	},
@@ -38,11 +42,5 @@ User.beforeCreate((user, options) => {
 			throw new Error(err);
 		});
 });
-
-// create all the defined tables in the specified database.
-sequelize
-	.sync()
-	.then(() => console.log("users table has been successfully created, if one doesn't exist"))
-	.catch((error) => console.log('This error occured', error));
 
 module.exports = User;

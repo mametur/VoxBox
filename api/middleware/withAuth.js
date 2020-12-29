@@ -1,6 +1,15 @@
 const jwt = require('jsonwebtoken');
 const { JWT_SECRET } = require('../../config/config.js');
 
+/**
+ *
+ * @author Mamé Azad <https://github.com/mametur>
+ *
+ * JWT authentication middleware
+ * @param {function}(req,res,next)  callback function get JWT from client, validation jwt
+ * @return {object}  error Unauthorized or after validation go to next callback function
+ */
+
 const withAuth = function (req, res, next) {
 	const token = req.headers['x-access-token'];
 
