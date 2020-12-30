@@ -4,15 +4,17 @@ const Post = require("../models/Post");
 const Comment = require("../models/Comment");
 
 const app = express();
-// to get all the posts
+
+// Responds with all the posts topic(title),help description, help needed city
+//and filter it with created date
 app.get("/posts", (req, res) => {
   Post.findAll({
-    attributes: ["topic", "discription", "post_city", "createdAt"],
+    attributes: ["topic", "description", "post_city", "createdAt"],
     include: [
       {
         model: User,
         as: "user",
-        attributes: ["first_name", "email"],
+        attributes: ["firstName", "email"],
       },
     ],
     order: [["createdAt", "DESC"]],
@@ -27,18 +29,19 @@ app.get("/posts", (req, res) => {
     });
 });
 
-// to get one post
+// Responds with one post topic(title),help description,
+//help needed city with its comments and includes user's name and email
 app.get("/posts/:id", (req, res) => {
   const post = req.params;
 
   Post.findOne({
     where: { post_id: post.id },
-    attributes: ["topic", "discription", "city"],
+    attributes: ["topic", "description", "city"],
     include: [
       {
         model: User,
         as: "user",
-        attributes: ["name", "email"],
+        attributes: ["firstName", "email"],
       },
       {
         model: Comment,
@@ -56,7 +59,8 @@ app.get("/posts/:id", (req, res) => {
     });
 });
 
-//to get postes with a city name
+//responds with posts that are  filltered with a city name
+
 app.get("/posts/:city", (req, res) => {
   const city = req.params;
 
@@ -81,7 +85,7 @@ app.get("/posts/:city", (req, res) => {
     });
 });
 
-///to create a post
+///Creates a new post for a user
 app.post("/posts/:id", (req, res) => {
   const user = req.params;
   if (!req.body.topic) {
@@ -109,9 +113,10 @@ app.post("/posts/:id", (req, res) => {
       });
     });
 });
+// Deletes a post
 app.delete("/posts/:id", (req, res) => {
   const user = req.params.id;
-  console.log(user);
+  //console.log(user);
   Post.destroy({
     where: {
       id: user,

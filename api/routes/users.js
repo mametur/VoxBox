@@ -1,13 +1,13 @@
 const express = require("express");
 const User = require("../models/User");
 const Post = require("../models/Post");
-const Comment = require("../models/Comment");
 
 const app = express();
-// to get all the users
+
+// Responds with all  users firstName lastName and email
 app.get("/users", (req, res) => {
   User.findAll({
-    attributes: ["first_name", "last_name", "email"],
+    attributes: ["firstName", "lastName", "email"],
   })
     .then((data) => {
       console.log(data);
@@ -19,7 +19,7 @@ app.get("/users", (req, res) => {
     });
 });
 
-// // to get one person and their posts
+//  Responds with  one person and their posts
 app.get("/users/:id", (req, res) => {
   const user = req.params;
 
@@ -29,7 +29,7 @@ app.get("/users/:id", (req, res) => {
       {
         model: Post,
         as: "post",
-        attributes: ["topic", "discription", "post_city"],
+        attributes: ["topic", "description", "post_city"],
       },
     ],
   })
@@ -43,7 +43,7 @@ app.get("/users/:id", (req, res) => {
     });
 });
 
-///to update the users'information
+//Updates (adds) user's aboutme, Language preference and current city
 
 app.put("/users/:id", (req, res) => {
   const user = req.params;
