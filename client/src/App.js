@@ -3,6 +3,7 @@ import {BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Home } from './components/homepage/Home';
 import NavBar from './components/navbar/navBar.jsx'
 import Footer from './components/footer/Footer.jsx'
+import SignUp from './components/auth/SignUp.jsx'
 import './App.scss'
 
 const Hello = () => {
@@ -17,6 +18,7 @@ function App() {
 
        <Switch>
          <Route exact path="/" component={Home} />
+         <Route path="/signup" component={SignUp} />
        </Switch>
 
       {/* footer */}
