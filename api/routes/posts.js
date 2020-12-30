@@ -8,7 +8,7 @@ const app = express();
 // to get all the posts
 app.get("/posts", authenticated, (req, res) => {
   Post.findAll({
-    attributes: ["topic", "description", "city"],
+    attributes: ["topic", "description", "post_city"],
     include: [
       {
         model: User,
