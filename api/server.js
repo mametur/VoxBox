@@ -14,13 +14,12 @@ app.use(express.static(path.join(__dirname, "public")));
 sequelize
   .sync()
   .then(() =>
-    console.log(
-      "tables has been successfully created, if one doesn't exist"
-    )
+    console.log("tables has been successfully created, if one doesn't exist")
   )
   .catch((error) => console.log("This error occured", error));
 app.use("/", require("./routes/home.js"));
 app.use("/", require("./routes/login.js"));
 app.use("/", require("./routes/posts.js"));
+app.use("/", require("./routes/users.js"));
 
 module.exports = app;

@@ -7,14 +7,15 @@ const app = express();
 // to get all the posts
 app.get("/posts", (req, res) => {
   Post.findAll({
-    attributes: ["topic", "discription", "city"],
+    attributes: ["topic", "discription", "post_city", "createdAt"],
     include: [
       {
         model: User,
         as: "user",
-        attributes: ["name", "email"],
+        attributes: ["first_name", "email"],
       },
     ],
+    order: [["createdAt", "DESC"]],
   })
     .then((data) => {
       console.log(data);
@@ -25,7 +26,6 @@ app.get("/posts", (req, res) => {
       res.sendStatus(400);
     });
 });
-
 
 // to get one post
 app.get("/posts/:id", (req, res) => {
@@ -93,7 +93,7 @@ app.post("/posts/:id", (req, res) => {
 
   const post = {
     topic: req.body.topic,
-    city: req.body.city,
+    post_city: req.body.post_city,
     discription: req.body.discription,
     published: req.body.published ? req.body.published : false,
     user_id: user.id,

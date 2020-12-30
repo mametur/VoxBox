@@ -9,7 +9,11 @@ const User = sequelize.define("user", {
     allowNull: false,
     primaryKey: true,
   },
-  name: {
+  first_name: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  last_name: {
     type: Sequelize.STRING,
     allowNull: false,
   },
@@ -18,11 +22,24 @@ const User = sequelize.define("user", {
     allowNull: false,
     unique: true,
   },
+
   password: {
     type: Sequelize.STRING,
     allowNull: false,
   },
-
+  introduction: {
+    type: Sequelize.STRING,
+    defaultValue: "",
+  },
+  language: {
+    type: Sequelize.STRING,
+    defaultValue: "",
+  },
+  user_city: {
+    type: Sequelize.STRING,
+    defaultValue: "",
+  },
+  // created user about, user city  and user languages
   // Timestamps
   createdAt: Sequelize.DATE,
   updatedAt: Sequelize.DATE,
