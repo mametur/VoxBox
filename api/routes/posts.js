@@ -2,22 +2,20 @@ const express = require("express");
 const User = require("../models/User");
 const Post = require("../models/Post");
 const Comment = require("../models/Comment");
+const authenticated = require("../middleware/withAuth");
 
 const app = express();
-
-// Responds with all the posts topic(title),help description, help needed city
-//and filter it with created date
-app.get("/posts", (req, res) => {
+// to get all the posts
+app.get("/posts", authenticated, (req, res) => {
   Post.findAll({
-    attributes: ["topic", "description", "post_city", "createdAt"],
+    attributes: ["topic", "description", "city"],
     include: [
       {
         model: User,
         as: "user",
-        attributes: ["firstName", "email"],
+        attributes: ["firstName", "lastName", "email"],
       },
     ],
-    order: [["createdAt", "DESC"]],
   })
     .then((data) => {
       console.log(data);
@@ -29,9 +27,8 @@ app.get("/posts", (req, res) => {
     });
 });
 
-// Responds with one post topic(title),help description,
-//help needed city with its comments and includes user's name and email
-app.get("/posts/:id", (req, res) => {
+// to get one post
+app.get("/posts/:id", authenticated, (req, res) => {
   const post = req.params;
 
   Post.findOne({
@@ -41,7 +38,7 @@ app.get("/posts/:id", (req, res) => {
       {
         model: User,
         as: "user",
-        attributes: ["firstName", "email"],
+        attributes: ["firstName", "lastName", "email"],
       },
       {
         model: Comment,
@@ -59,9 +56,8 @@ app.get("/posts/:id", (req, res) => {
     });
 });
 
-//responds with posts that are  filltered with a city name
-
-app.get("/posts/:city", (req, res) => {
+//to get postes with a city name
+app.get("/posts/:city", authenticated, (req, res) => {
   const city = req.params;
 
   Post.findAll({
@@ -71,7 +67,7 @@ app.get("/posts/:city", (req, res) => {
       {
         model: User,
         as: "user",
-        attributes: ["name", "email"],
+        attributes: ["firstName", "lastName", "email"],
       },
     ],
   })
@@ -86,7 +82,7 @@ app.get("/posts/:city", (req, res) => {
 });
 
 ///Creates a new post for a user
-app.post("/posts/:id", (req, res) => {
+app.post("/posts/:id", authenticated, (req, res) => {
   const user = req.params;
   if (!req.body.topic) {
     res.status(400).send({
@@ -98,7 +94,7 @@ app.post("/posts/:id", (req, res) => {
   const post = {
     topic: req.body.topic,
     post_city: req.body.post_city,
-    discription: req.body.discription,
+    description: req.body.discription,
     published: req.body.published ? req.body.published : false,
     user_id: user.id,
   };

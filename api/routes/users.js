@@ -1,11 +1,12 @@
 const express = require("express");
 const User = require("../models/User");
 const Post = require("../models/Post");
+const authenticated = require("../middleware/withAuth");
 
 const app = express();
 
 // Responds with all  users firstName lastName and email
-app.get("/users", (req, res) => {
+app.get("/users", authenticated, (req, res) => {
   User.findAll({
     attributes: ["firstName", "lastName", "email"],
   })
@@ -20,7 +21,7 @@ app.get("/users", (req, res) => {
 });
 
 //  Responds with  one person and their posts
-app.get("/users/:id", (req, res) => {
+app.get("/users/:id", authenticated, (req, res) => {
   const user = req.params;
 
   User.findOne({
@@ -45,7 +46,7 @@ app.get("/users/:id", (req, res) => {
 
 //Updates (adds) user's aboutme, Language preference and current city
 
-app.put("/users/:id", (req, res) => {
+app.put("/users/:id", authenticated, (req, res) => {
   const user = req.params;
   const value = {
     introduction: req.body.introduction,

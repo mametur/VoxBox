@@ -2,6 +2,7 @@ import React from 'react';
 import {BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Home } from './components/homepage/Home';
 import NavBar from './components/navbar/navBar.jsx'
+import Footer from './components/footer/Footer.jsx'
 import './App.scss'
 
 const Hello = () => {
@@ -19,6 +20,7 @@ function App() {
        </Switch>
 
       {/* footer */}
+      <Footer />
       </div>
     </BrowserRouter>
    

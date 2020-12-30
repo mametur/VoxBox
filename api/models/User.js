@@ -55,6 +55,4 @@ User.beforeCreate((user, options) => {
     });
 });
 
-// create all the defined tables in the specified database.
-
 module.exports = User;
