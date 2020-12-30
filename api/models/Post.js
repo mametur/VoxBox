@@ -14,11 +14,11 @@ const Post = sequelize.define("post", {
     type: Sequelize.STRING(250),
     allowNull: false,
   },
-  discription: {
+  description: {
     type: Sequelize.STRING(400),
     allowNull: false,
   },
-  city: {
+  post_city: {
     type: Sequelize.STRING(255),
     allowNull: false,
   },
@@ -42,7 +42,5 @@ Post.belongsTo(User, {
   as: "user",
   foreignKey: "user_id",
 });
-
-
 
 module.exports = Post;
