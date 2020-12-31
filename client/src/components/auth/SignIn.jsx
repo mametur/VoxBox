@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { Form, Button, Container, Row, Col} from 'react-bootstrap'
-import { BrowserRouter } from 'react-router-dom'
+
 
 const SignIn = () => {
 
@@ -18,7 +18,6 @@ const SignIn = () => {
   }
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log('login', state)
 
     const data = state;
 
@@ -31,7 +30,10 @@ const SignIn = () => {
       })
       .then(response => response.json())
       .then(data => {
-        console.log('Success:', data);
+        if(data === 200){
+          console.log('success')
+        }else{console.log('error', data)}
+        
       })
       .catch((error) => {
         console.error('Error:', error);
