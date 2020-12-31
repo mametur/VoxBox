@@ -43,7 +43,7 @@ app.post("/user/signin", async (req, res) => {
         expiresIn: "1h",
       });
 
-      res.cookie("token", token, { httpOnly: true }).sendStatus(200);
+      res.cookie("token", token, { httpOnly: true }).send('200');
     })
     .catch((err) => {
       res.status(500).send({ message: err.message });

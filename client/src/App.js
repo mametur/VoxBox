@@ -6,6 +6,7 @@ import Footer from './components/footer/Footer.jsx'
 import SignUp from './components/auth/SignUp.jsx'
 import SignIn from './components/auth/SignIn'
 import './App.scss'
+import './index.css';
 
 
 function App() {

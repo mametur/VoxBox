@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { Form, Button, Container, Row, Col} from 'react-bootstrap'
+import { BrowserRouter } from 'react-router-dom'
 
 const SignIn = () => {
 
@@ -21,7 +22,7 @@ const SignIn = () => {
 
     const data = state;
 
-    fetch('/api/authenticate', {
+    fetch('/api/user/signin', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -36,18 +37,27 @@ const SignIn = () => {
         console.error('Error:', error);
       });
   }
+  const style = {
+    boxShadow: '2px 2px 10px 2px #F2F2F2',
+    borderRadius: '10px', 
+    padding: '25px', 
+    maxWidth: '570px',
+    height: '500px',
+    marginBottom: '6%',
+    marginTop: '6%'
+  }
 
 
   return (
-    <Container style={{border: '1px solid gray', padding: '25px', maxWidth: '450px'}}> 
+    <Container style={style}> 
     <Row className="justify-content-center">
     <Col xs sm md lg xl>
+    <h2 className="text-primary row justify-content-center">Login</h2>
       <Form>
-      <Form.Group>
-        <Form.Control type="email" placeholder="Email" id="email" onChange={handleChange} />
-        <Form.Control type="password" placeholder="Password" id="password" onChange={handleChange} />
-
-        <Button variant="primary" type="submit" block onClick={handleSubmit}>
+      <Form.Group><Form.Control type="email" placeholder="Email" id="email" onChange={handleChange} /></Form.Group>
+      <Form.Group><Form.Control type="password" placeholder="Password" id="password" onChange={handleChange} /></Form.Group>
+      <Form.Group >
+      <Button style={{marginTop: '180px'}} variant="primary" type="submit" block onClick={handleSubmit} >
             Submit
         </Button>
       </Form.Group>
@@ -56,7 +66,6 @@ const SignIn = () => {
     </Row>
   </Container>
    
-
   )
 }
 

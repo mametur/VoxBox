@@ -13,7 +13,7 @@ function Footer() {
      });
 
         return ( 
-            <div style = {{backgroundColor:'#397e6b'}} className = "footer text-white row p-2 text-center text-md-left" >
+            <div style = {{backgroundColor:'#397e6b', width: '100%'}} className = "footer text-white row p-2 text-center text-md-left" >
             <div className = "col-md-8" >
             <ul style={{listStyleType: 'none'}}>
             <li className='mb-4 font-weight-bold'>Contact VoxBox</li>
