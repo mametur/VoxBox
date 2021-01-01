@@ -43,7 +43,7 @@ const SignIn = () => {
     boxShadow: '2px 2px 10px 2px #F2F2F2',
     borderRadius: '10px', 
     padding: '25px', 
-    maxWidth: '570px',
+    maxWidth: '400px',
     height: '300px',
     marginBottom: '6%',
     marginTop: '6%'
