@@ -8,7 +8,7 @@ const app = express();
 // Responds with all  users firstName lastName and email
 app.get("/users", authenticated, (req, res) => {
   User.findAll({
-    attributes: ["firstName", "lastName", "email"],
+    attributes: ["firstName", "lastName", "email", "avatar", "user_id"],
   })
     .then((data) => {
       console.log(data);
@@ -53,6 +53,7 @@ app.put("/users/:id", authenticated, (req, res) => {
     introduction: req.body.introduction,
     language: req.body.language,
     user_city: req.body.user_city,
+    avatar: req.body.avatar,
   };
   const where = { where: { user_id: user.id } };
 

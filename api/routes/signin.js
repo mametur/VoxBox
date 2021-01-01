@@ -44,8 +44,9 @@ app.post("/user/signin", async (req, res) => {
       });
       const userInfo = {
         user_id: user.user_id,
-        fistName: user.firstName,
+        firstName: user.firstName,
         lastName: user.lastName,
+        avatar: user.avatar,
       };
       res.cookie("token", token, { httpOnly: true }).status(200).send(userInfo);
     })

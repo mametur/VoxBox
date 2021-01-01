@@ -9,14 +9,15 @@ const app = express();
 // avatar and user id
 app.get("/posts", authenticated, (req, res) => {
   Post.findAll({
-    attributes: ["topic", "description", "post_city"],
+    attributes: ["post_id", "topic", "description", "post_city"],
     include: [
       {
         model: User,
         as: "user",
-        attributes: ["firstName", "lastName", "email"],
+        attributes: ["user_id", "firstName", "lastName", "email", "avatar"],
       },
     ],
+    order: [["post_id", "DESC"]],
   })
     .then((data) => {
       console.log(data);
@@ -39,7 +40,7 @@ app.get("/posts/:id", authenticated, (req, res) => {
       {
         model: User,
         as: "user",
-        attributes: ["firstName", "lastName", "email"],
+        attributes: ["user_id", "firstName", "lastName", "email", "avatar"],
       },
       {
         model: Comment,
@@ -65,12 +66,11 @@ app.get("/posts/city/:post_city", authenticated, (req, res) => {
 
   Post.findAll({
     where: { post_city: city.post_city },
-    attributes: ["topic", "description", "post_city"],
     include: [
       {
         model: User,
         as: "user",
-        attributes: ["firstName", "lastName", "email"],
+        attributes: ["user_id", "firstName", "lastName", "email", "avatar"],
       },
     ],
   })
@@ -104,7 +104,7 @@ app.post("/posts/:id", authenticated, (req, res) => {
   Post.create(post)
     .then((data) => {
       console.log(data);
-      res.status(201).send(data);
+      res.status(200).send(data);
     })
     .catch((err) => {
       res.status(500).send({
