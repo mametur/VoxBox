@@ -1,9 +1,9 @@
-const express = require("express");
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
-const User = require("../models/User");
+const express = require('express');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const User = require('../models/User');
 
-const { JWT_SECRET } = require("../../config/config.js");
+const { JWT_SECRET } = require('../../config/config.js');
 
 const app = express();
 /**
@@ -17,42 +17,47 @@ const app = express();
  * @return {object}  set jwt on client site  or error message invalid email or password
  */
 
-app.post("/user/signin", async (req, res) => {
-  const { email, password } = req.body;
+app.post('/user/signin', async (req, res) => {
+	const { email, password } = req.body;
 
-  User.findOne({
-    where: {
-      email: email,
-    },
-  })
-    .then((user) => {
-      if (!user) {
-        return res.status(404).send({ message: "User not found!" });
-      }
+	User.findOne({
+		where: {
+			email: email,
+		},
+	})
+		.then((user) => {
+			if (!user) {
+				return res.status(404).send({ message: 'User not found!' });
+			}
 
-      const passwordIsValid = bcrypt.compareSync(password, user.password);
-      if (!passwordIsValid) {
-        return res.status(401).send({
-          accessToken: null,
-          message: "invalid email or password!",
-        });
-      }
+			const passwordIsValid = bcrypt.compareSync(password, user.password);
+			if (!passwordIsValid) {
+				return res.status(401).send({
+					accessToken: null,
+					message: 'invalid email or password!',
+				});
+			}
 
-      const payload = { email };
-      const token = jwt.sign(payload, JWT_SECRET, {
-        expiresIn: "1h",
-      });
-      const userInfo = {
-        user_id: user.user_id,
-        firstName: user.firstName,
-        lastName: user.lastName,
-        avatar: user.avatar,
-      };
-      res.cookie("token", token, { httpOnly: true }).status(200).send(userInfo);
-    })
-    .catch((err) => {
-      res.status(500).send({ message: err.message });
-    });
+			const payload = { email };
+			const token = jwt.sign(payload, JWT_SECRET, {
+				expiresIn: '1h',
+			});
+			const userInfo = {
+				user_id: user.user_id,
+				firstName: user.firstName,
+				lastName: user.lastName,
+				avatar: user.avatar,
+			};
+
+			const data = {
+				status: 200,
+				message: userInfo,
+			};
+			res.cookie('token', token, { httpOnly: true }).status(200).json(userInfo);
+		})
+		.catch((err) => {
+			res.status(500).send({ message: err.message });
+		});
 });
 module.exports = app;
 
