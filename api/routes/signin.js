@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
-const { JWT_SECRET } = require('../../config/config.js');
+const { JWT_SECRET } = require('../config.js');
 
 const app = express();
 /**
