@@ -4,8 +4,10 @@ import logo_HYF from '../../logo_HYF.svg';
 import logoVox from '../../assets/logoVox.png'
 import { BsEnvelope } from 'react-icons/bs';
 import { FaGithub } from 'react-icons/fa';
+import { Redirect } from "react-router-dom";
 
 function Footer() {
+
 
      const [state, setState] = useState({
         email: "mailto:voxbox@gmail.com",
@@ -13,6 +15,7 @@ function Footer() {
      });
 
         return ( 
+
             <div style = {{backgroundColor:'#397e6b', width: '100%', marginTop: 'auto'}} className = "footer text-white row p-2 text-center text-md-left" >
             <div className = "col-md-8" >
             <ul style={{listStyleType: 'none'}}>

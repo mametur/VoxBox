@@ -44,14 +44,14 @@ const SignIn = () => {
     borderRadius: '10px', 
     padding: '25px', 
     maxWidth: '570px',
-    height: '500px',
+    height: '300px',
     marginBottom: '6%',
     marginTop: '6%'
   }
 
 
   return (
-    <Container style={style}> 
+    <Container style={style} className="justify-content-center"> 
     <Row className="justify-content-center">
     <Col xs sm md lg xl>
     <h2 className="text-primary row justify-content-center">Login</h2>
@@ -59,8 +59,8 @@ const SignIn = () => {
       <Form.Group><Form.Control type="email" placeholder="Email" id="email" onChange={handleChange} /></Form.Group>
       <Form.Group><Form.Control type="password" placeholder="Password" id="password" onChange={handleChange} /></Form.Group>
       <Form.Group >
-      <Button style={{marginTop: '180px'}} variant="primary" type="submit" block onClick={handleSubmit} >
-            Submit
+      <Button style={{marginTop: '80px'}} variant="primary" type="submit" block onClick={handleSubmit} >
+            Login
         </Button>
       </Form.Group>
     </Form>

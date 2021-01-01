@@ -51,25 +51,21 @@ const SignUp = () => {
 
   return (
     <Container style={style}> 
-    <Row className="justify-content-center">
-    <Col xs sm md lg xl>
-    <h2 className="text-primary row justify-content-center">Sign Up</h2>
-      <Form>
-      <Form.Group><Form.Control type="text" placeholder="Name" id="firstName" onChange={handleChange}/></Form.Group>
-      <Form.Group><Form.Control type="text" placeholder="Last Name" id="lastName" onChange={handleChange}/></Form.Group>
-      <Form.Group><Form.Control type="email" placeholder="Email" id="email" onChange={handleChange} /></Form.Group>
-      <Form.Group><Form.Control type="password" placeholder="Password" id="password" onChange={handleChange} /></Form.Group>
-      <Form.Group >
-      <Button style={{marginTop: '80px'}} variant="primary" type="submit" block onClick={handleSubmit}>
-            Submit
-        </Button>
-      </Form.Group>
-    </Form>
-    </Col>
-    </Row>
-  </Container>
-   
-
+      <Row className="justify-content-center">
+        <Col xs sm md lg xl>
+        <h2 className="text-primary row justify-content-center">Sign Up</h2>
+          <Form>
+            <Form.Group><Form.Control type="text" placeholder="Name" id="firstName" onChange={handleChange}/></Form.Group>
+            <Form.Group><Form.Control type="text" placeholder="Last Name" id="lastName" onChange={handleChange}/></Form.Group>
+            <Form.Group><Form.Control type="email" placeholder="Email" id="email" onChange={handleChange} /></Form.Group>
+            <Form.Group><Form.Control type="password" placeholder="Password" id="password" onChange={handleChange} /></Form.Group>
+            <Form.Group >
+              <Button style={{marginTop: '80px'}} variant="primary" type="submit" block onClick={handleSubmit}>Submit</Button>
+            </Form.Group>
+          </Form>
+        </Col>
+      </Row>
+    </Container>
   )
 }
 
