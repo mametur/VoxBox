@@ -26,6 +26,7 @@ app.get("/users/:id", authenticated, (req, res) => {
 
   User.findOne({
     where: { user_id: user.id },
+    attributes: { exclude: ["password"] },
     include: [
       {
         model: Post,

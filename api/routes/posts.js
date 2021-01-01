@@ -33,7 +33,7 @@ app.get("/posts/:id", authenticated, (req, res) => {
 
   Post.findOne({
     where: { post_id: post.id },
-    attributes: ["topic", "description", "city"],
+    attributes: ["topic", "description", "post_city"],
     include: [
       {
         model: User,
@@ -57,12 +57,13 @@ app.get("/posts/:id", authenticated, (req, res) => {
 });
 
 //to get postes with a city name
-app.get("/posts/:city", authenticated, (req, res) => {
+app.get("/posts/city/:post_city", authenticated, (req, res) => {
   const city = req.params;
+  console.log(city);
 
   Post.findAll({
-    where: { city: city.city },
-    attributes: ["topic", "discription", "city"],
+    where: { post_city: city.post_city },
+    attributes: ["topic", "description", "post_city"],
     include: [
       {
         model: User,
@@ -73,7 +74,7 @@ app.get("/posts/:city", authenticated, (req, res) => {
   })
     .then((data) => {
       console.log(data);
-      res.status(200).send("data");
+      res.status(200).send(data);
     })
     .catch((err) => {
       console.log(err);
@@ -94,7 +95,7 @@ app.post("/posts/:id", authenticated, (req, res) => {
   const post = {
     topic: req.body.topic,
     post_city: req.body.post_city,
-    description: req.body.discription,
+    description: req.body.description,
     published: req.body.published ? req.body.published : false,
     user_id: user.id,
   };
@@ -110,12 +111,12 @@ app.post("/posts/:id", authenticated, (req, res) => {
     });
 });
 // Deletes a post
-app.delete("/posts/:id", (req, res) => {
-  const user = req.params.id;
-  //console.log(user);
+app.delete("/posts/:id", authenticated, (req, res) => {
+  const post = req.params.id;
+  // console.log(post);
   Post.destroy({
     where: {
-      id: user,
+      post_id: post,
     },
   })
     .then((data) => {
