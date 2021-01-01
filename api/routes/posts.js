@@ -6,6 +6,7 @@ const authenticated = require("../middleware/withAuth");
 
 const app = express();
 // to get all the posts
+// avatar and user id
 app.get("/posts", authenticated, (req, res) => {
   Post.findAll({
     attributes: ["topic", "description", "post_city"],
@@ -59,7 +60,8 @@ app.get("/posts/:id", authenticated, (req, res) => {
 //to get postes with a city name
 app.get("/posts/city/:post_city", authenticated, (req, res) => {
   const city = req.params;
-  console.log(city);
+  // console.log(city);
+  // user id and post id avatar
 
   Post.findAll({
     where: { post_city: city.post_city },

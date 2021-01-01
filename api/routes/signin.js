@@ -42,8 +42,12 @@ app.post("/user/signin", async (req, res) => {
       const token = jwt.sign(payload, JWT_SECRET, {
         expiresIn: "1h",
       });
-
-      res.cookie("token", token, { httpOnly: true }).sendStatus(200);
+      const userInfo = {
+        user_id: user.user_id,
+        fistName: user.firstName,
+        lastName: user.lastName,
+      };
+      res.cookie("token", token, { httpOnly: true }).status(200).send(userInfo);
     })
     .catch((err) => {
       res.status(500).send({ message: err.message });
