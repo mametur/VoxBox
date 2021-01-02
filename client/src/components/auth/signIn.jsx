@@ -1,15 +1,9 @@
 import React from 'react'
 import { useState } from 'react'
 import { Form, Button, Container, Row, Col} from 'react-bootstrap'
-import { useSelector, useDispatch} from 'react-redux'
 
 
 const SignIn = () => {
-
-  const isLoggedIn = useSelector(state => state.auth.isLoggedIn) 
-  const dispatch = useDispatch()
-
-  console.log(isLoggedIn)
 
   const [state, setState] = useState({
     email: '',
@@ -36,7 +30,6 @@ const SignIn = () => {
       })
       .then(response =>{    
         if (response.ok){
-          dispatch({type: 'Login_Success'})
           return response.json()
         }else{
           throw new Error ('Something went wrong status code:',response.status)
@@ -54,9 +47,6 @@ const SignIn = () => {
         })
       });
   }
-
-  console.log('after login',isLoggedIn)
-
   const style = {
     boxShadow: '2px 2px 10px 2px #F2F2F2',
     borderRadius: '10px', 
