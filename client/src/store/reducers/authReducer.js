@@ -4,8 +4,15 @@ const initState = {
 
 const authReducer = (state = initState, action)=> {
 
-return state
-
+  switch(action.type){
+    case 'Login_Success':
+      return {
+        ...state,
+        isLoggedIn: true
+      }
+      default:
+        return state
+  }
 }
 
 export default authReducer
