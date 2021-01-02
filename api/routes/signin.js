@@ -27,7 +27,7 @@ app.post('/user/signin', async (req, res) => {
 	})
 		.then((user) => {
 			if (!user) {
-				return res.status(404).send({ message: 'User not found!' });
+				return res.status(404).send({ message: 'invalid email or password!' });
 			}
 
 			const passwordIsValid = bcrypt.compareSync(password, user.password);
@@ -47,11 +47,6 @@ app.post('/user/signin', async (req, res) => {
 				firstName: user.firstName,
 				lastName: user.lastName,
 				avatar: user.avatar,
-			};
-
-			const data = {
-				status: 200,
-				message: userInfo,
 			};
 			res.cookie('token', token, { httpOnly: true }).status(200).json(userInfo);
 		})

@@ -29,15 +29,15 @@ const SignIn = () => {
           body: JSON.stringify(data),
       })
       .then(response =>{    
-        if (response.ok){
-          return response.json()
-        }else{
-          throw new Error ('Something went wrong status code:',response.status)
+        if (response.ok) {
+          return response.json();
+        } else { 
+          throw new Error("invalid email or password!") 
         }
     })
       .then(data => {
-          console.log('user data', data);  
-          alert('Welcome '+ data.firstName) 
+        console.log('user logged in:', data);
+        alert('Welcome '+ data.firstName)
       })
       .catch((error) => {
         console.error({
