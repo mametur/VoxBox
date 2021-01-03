@@ -13,19 +13,19 @@ export const login = (credentials) => {
       body: JSON.stringify(data),
   })
   .then(response =>{    
-    if (response.ok){
-      dispatch({type: 'Login_Success'})
-      return response.json()
-    }else{
-      dispatch({type: 'Login_Failed'})
-      throw new Error ('Something went wrong status code:',response.status)
+    if (!response.ok){
+      console.log('response', response)
+      throw new Error (`invalid password or user name!!!`)
     }
+    return response.json()
 })
   .then(data => {
       console.log('user data', data);  
+      dispatch({type: 'Login_Success'})
       alert('Welcome '+ data.firstName) 
   })
   .catch((error) => {
+    dispatch({type: 'Login_Failed', payload:  error.message})
     console.error({
       'Error message': error.message,
       'name' : error.name,

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import { Form, Button, Container, Row, Col} from 'react-bootstrap'
+import { Form, Button, Container, Row, Col, Alert} from 'react-bootstrap'
 import { useSelector, useDispatch } from 'react-redux'
 import { login } from '../../store/actions/loginActions'
 
@@ -11,9 +11,6 @@ const SignIn = () => {
     email: '',
     password: ''
   })
-
-  const isLoggedIn = useSelector(state => state.auth.isLoggedIn)
-  console.log(isLoggedIn)
 
   const dispatch = useDispatch()
 
@@ -41,7 +38,7 @@ const SignIn = () => {
     marginTop: '6%'
   }
 
-
+const loginError = useSelector(state => state.auth.loginError)
   return (
     <Container style={style} className="justify-content-center"> 
     <Row className="justify-content-center">
@@ -51,6 +48,9 @@ const SignIn = () => {
       <Form.Group><Form.Control type="email" placeholder="Email" id="email" onChange={handleChange} /></Form.Group>
       <Form.Group><Form.Control type="password" placeholder="Password" id="password" onChange={handleChange} /></Form.Group>
       <Form.Group >
+
+      {(loginError)? <Alert variant="danger">{loginError}</Alert> : null}
+
       <Button style={{marginTop: '80px'}} variant="primary" type="submit" block onClick={handleSubmit} >
             Login
         </Button>
