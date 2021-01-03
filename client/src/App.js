@@ -3,13 +3,13 @@ import {BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Home } from './components/homepage/Home';
 import NavBar from './components/navbar/navBar.jsx'
 import Footer from './components/footer/Footer.jsx'
+import SignUp from './components/auth/SignUp.jsx'
+import SignIn from './components/auth/SignIn.jsx'
 import './App.scss'
 import { Newsfeed } from './components/newsfeed/Newsfeed';
 import { Card } from "./components/newsfeed/Card";
+import './index.css';
 
-const Hello = () => {
-  return  <h1>Hello World</h1>
-}
 
 function App() {
   return (
@@ -20,6 +20,8 @@ function App() {
        <Switch>
          <Route exact path="/" component={Home} />
          <Route exact path="/newsfeed" component={Newsfeed} />
+         <Route path="/signup" component={SignUp} />
+         <Route path="/signin" component={SignIn} />
        </Switch>
 
       {/* footer */}

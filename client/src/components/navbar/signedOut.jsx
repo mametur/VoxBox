@@ -9,7 +9,7 @@ export const SignedOut = (props) =>{
     <Nav.Link  href="/signUp"> 
       <Button variant="outline-primary" block>Sign up</Button>
     </Nav.Link>
-    <Nav.Link eventKey={2} href="/login">
+    <Nav.Link eventKey={2} href="/signin">
       <Button variant="outline-primary" block >Login</Button>
     </Nav.Link>
   </Nav>

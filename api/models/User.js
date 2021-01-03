@@ -9,7 +9,11 @@ const User = sequelize.define("user", {
     allowNull: false,
     primaryKey: true,
   },
-  name: {
+  firstName: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  lastName: {
     type: Sequelize.STRING,
     allowNull: false,
   },
@@ -22,7 +26,19 @@ const User = sequelize.define("user", {
     type: Sequelize.STRING,
     allowNull: false,
   },
-
+  introduction: {
+    type: Sequelize.STRING,
+    defaultValue: "",
+  },
+  language: {
+    type: Sequelize.STRING,
+    defaultValue: "",
+  },
+  user_city: {
+    type: Sequelize.STRING,
+    defaultValue: "",
+  },
+  // created user about, user city  and user languages
   // Timestamps
   createdAt: Sequelize.DATE,
   updatedAt: Sequelize.DATE,
@@ -38,7 +54,5 @@ User.beforeCreate((user, options) => {
       throw new Error(err);
     });
 });
-
-// create all the defined tables in the specified database.
 
 module.exports = User;
