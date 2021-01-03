@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
 import { Form, Button, Container, Row, Col} from 'react-bootstrap'
-import { useSelector, useDispatch } from 'react-redux'
 
 
 const SignIn = () => {
@@ -10,11 +9,6 @@ const SignIn = () => {
     email: '',
     password: ''
   })
-
-  const isLoggedIn = useSelector(state => state.auth.isLoggedIn)
-  console.log(isLoggedIn)
-
-  const dispatch = useDispatch()
 
   const handleChange = (event)=>{
     setState({
@@ -36,10 +30,8 @@ const SignIn = () => {
       })
       .then(response =>{    
         if (response.ok){
-          dispatch({type: 'Login_Success'})
           return response.json()
         }else{
-          dispatch({type: 'Login_Failed'})
           throw new Error ('Something went wrong status code:',response.status)
         }
     })
