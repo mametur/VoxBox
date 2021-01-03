@@ -1,5 +1,5 @@
 const initState = {
-  isLoggedIn: false
+  isLoggedIn: null
 }
 
 const authReducer = (state = initState, action)=> {
@@ -9,6 +9,16 @@ const authReducer = (state = initState, action)=> {
       return {
         ...state,
         isLoggedIn: true
+      }
+    case 'Login_Failed':
+      return {
+        ...state,
+        isLoggedIn: false
+      }
+    case 'Logged_Out':
+      return{
+        ...state,
+        isLoggedIn: false
       }
       default:
         return state

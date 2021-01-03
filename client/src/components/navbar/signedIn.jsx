@@ -1,20 +1,26 @@
 import React from 'react'
 import { Nav, Button } from 'react-bootstrap'
+import { NavLink } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 
 
 
 
 export const SignedIn = () =>{
 
+  const dispatch = useDispatch()
+
+  const logOutHanler = ()=> {
+    dispatch({
+      type: 'Logged_Out'
+    })
+  }
+
   return (
     <Nav >
-    <Nav.Link  href="/profile/:id"> 
-      <Button variant="outline-primary" className="navbar-button" block>My Profile</Button>
-    </Nav.Link>
-    <Nav.Link eventKey={2} href="/">
-      <Button variant="outline-primary" className="logout-button" block>Logout</Button>
-    </Nav.Link>
-  </Nav>
+      <NavLink to="/profile/:id"><Button variant="outline-primary" className="navbar-button" block>My Profile</Button></NavLink>
+      <NavLink to="/"> <Button variant="outline-primary" className="logout-button" block onClick={logOutHanler}>Logout</Button></NavLink>
+    </Nav>
 
   )
 }
