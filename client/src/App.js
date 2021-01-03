@@ -10,12 +10,14 @@ import './index.css';
 
 
 import { checkAuthState } from './store/actions/loginActions'
+import { checkUserState } from './store/actions/userActions'
 import { useDispatch } from 'react-redux'
 
 function App() {
 	const dispatch = useDispatch()
 
 	dispatch(checkAuthState())
+	dispatch(checkUserState())
 
 	return (
 		<BrowserRouter>

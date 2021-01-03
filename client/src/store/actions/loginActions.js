@@ -1,5 +1,6 @@
 import store from '../store'
 
+
 export const login = (credentials) => {
   return function loginThunk (dispatch, getState){
 
@@ -22,7 +23,12 @@ export const login = (credentials) => {
   .then(data => {
       console.log('user data', data);
       dispatch({type: 'Login_Success'})
-      localStorage.setItem('isLoggedIn', true)  
+      dispatch({type: 'User_LoggedIn', payload: data})
+      localStorage.setItem('isLoggedIn', true)
+      localStorage.setItem('firstName', data.firstName)  
+      localStorage.setItem('lastName', data.lastName)  
+      localStorage.setItem('user_id', JSON.stringify(data.user_id))  
+      localStorage.setItem('avatar', data.avatar)  
 
       alert('Welcome '+ data.firstName) 
   })
@@ -43,6 +49,7 @@ export const logOut = () => {
   return function logOutThunk(dispatch, getState){
       localStorage.clear();
       dispatch({ type: 'Logged_Out'})
+      dispatch({type: 'User_LoogedOut'})
   }
 }
 
