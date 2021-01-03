@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { Navbar, Image, Nav, Container, Row, Col} from 'react-bootstrap'
+import { Navbar, Image, Container, Row, Col} from 'react-bootstrap'
 import { SignedOut } from './signedOut.jsx'
 import { SignedIn } from './signedIn.jsx'
 import { NavLink } from 'react-router-dom'
