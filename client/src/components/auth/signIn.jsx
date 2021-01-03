@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { Form, Button, Container, Row, Col} from 'react-bootstrap'
 import { useSelector, useDispatch } from 'react-redux'
+import { login } from '../../store/actions/loginActions'
 
 
 const SignIn = () => {
@@ -25,35 +26,10 @@ const SignIn = () => {
   const handleSubmit = (event) => {
     event.preventDefault()
 
-    const data = state;
+    const data = {...state};
 
-    fetch('/api/user/signin', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data),
-      })
-      .then(response =>{    
-        if (response.ok){
-          dispatch({type: 'Login_Success'})
-          return response.json()
-        }else{
-          dispatch({type: 'Login_Failed'})
-          throw new Error ('Something went wrong status code:',response.status)
-        }
-    })
-      .then(data => {
-          console.log('user data', data);  
-          alert('Welcome '+ data.firstName) 
-      })
-      .catch((error) => {
-        console.error({
-          'Error message': error.message,
-          'name' : error.name,
-          'stack':error.stack
-        })
-      });
+    dispatch(login(data))
+   
   }
   const style = {
     boxShadow: '2px 2px 10px 2px #F2F2F2',
