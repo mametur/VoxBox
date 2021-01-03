@@ -8,7 +8,15 @@ import SignIn from './components/auth/signin.jsx';
 import './App.scss';
 import './index.css';
 
+
+import { checkAuthState } from './store/actions/loginActions'
+import { useDispatch } from 'react-redux'
+
 function App() {
+	const dispatch = useDispatch()
+
+	dispatch(checkAuthState())
+
 	return (
 		<BrowserRouter>
 			<div className="App">

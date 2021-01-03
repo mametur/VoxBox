@@ -2,6 +2,7 @@ import React from 'react'
 import { Nav, Button } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
+import { logOut } from '../../store/actions/loginActions'
 
 
 
@@ -11,9 +12,7 @@ export const SignedIn = () =>{
   const dispatch = useDispatch()
 
   const logOutHanler = ()=> {
-    dispatch({
-      type: 'Logged_Out'
-    })
+    dispatch(logOut())
   }
 
   return (

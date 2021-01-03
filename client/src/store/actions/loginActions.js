@@ -20,12 +20,15 @@ export const login = (credentials) => {
     return response.json()
 })
   .then(data => {
-      console.log('user data', data);  
+      console.log('user data', data);
       dispatch({type: 'Login_Success'})
+      localStorage.setItem('isLoggedIn', true)  
+
       alert('Welcome '+ data.firstName) 
   })
   .catch((error) => {
     dispatch({type: 'Login_Failed', payload:  error.message})
+    localStorage.clear()
     console.error({
       'Error message': error.message,
       'name' : error.name,
@@ -36,4 +39,24 @@ export const login = (credentials) => {
 
 }
 
+export const logOut = () => {
+  return function logOutThunk(dispatch, getState){
+      localStorage.clear();
+      dispatch({ type: 'Logged_Out'})
+  }
+}
+
+export const checkAuthState = () => {
+  return function checkAuthStateThunk(dispatch, getState){
+    const isLoggedIn = localStorage.getItem('isLoggedIn')
+    if(isLoggedIn){
+      dispatch({type: 'Login_Success'})
+    }else{
+      dispatch(logOut())
+    }
+  }
+}
+
+store.dispatch(checkAuthState)
+store.dispatch(logOut)
 store.dispatch(login)
