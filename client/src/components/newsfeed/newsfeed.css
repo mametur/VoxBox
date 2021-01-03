@@ -1,0 +1,294 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Newsfeed Header */
+
+.header {
+    height: 320px;
+    position: relative;
+    background-image: url("../../assets/pexels-gustavo-fring.jpg");
+    background-position: 50% 50%;
+    background-size: cover;
+}
+
+.overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+
+}
+
+.header-div {
+  display: flex;  
+  flex-wrap: wrap;
+}
+
+.user-name {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    color: #FFFFFF;
+}
+
+.btn-post {  
+    background: #FCA73D;
+    border-radius: 100px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    color: #FFFFFF;
+}
+
+/* Search Bar */
+
+.search {
+    text-align: center;
+    align-items: center;
+}
+
+.search-title {
+    background: #0D7E6A;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-form {
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+/* Card and Cards*/
+.card-div {
+    margin-top: 15px;  
+}
+
+.card-up {
+    display: flex;
+    flex-direction: row;
+    background: #F2F2F2;
+}
+
+.card-img {
+    width: 80px;
+    mix-blend-mode: multiply;
+}
+
+.card-name {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    color: #0D7E6A; 
+    margin-top: 15px;
+}
+
+.card-up-right {
+    font-family: Open Sans;
+    font-style: italic;
+    font-weight: 400;
+    text-align: right;
+    color: rgba(51, 51, 51, 1);
+}
+
+.card-title {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    color: #0D7E6A;
+}
+
+.card-desc {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    color: #333333;
+}
+
+.see-more {
+    color: #FCA73D;
+    cursor: pointer;
+}
+
+/* Portrait phones and smaller */
+@media (max-width: 575px) {
+    
+    /* Newsfeed Header */
+
+    .header-div {
+        align-items: center;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .header-div img {
+        width: 35%;
+        height: 70%;
+        margin: 10px;
+    }
+
+    .user-name {
+        font-size: 25px;
+        line-height: 24px;
+    }
+
+    .btn-post {
+        width: 180px;
+        height: 40px;   
+        box-shadow: 0px 1px 5px #BDBDBD;
+        font-size: 17px;
+        line-height: 24px;
+    }
+
+    /* Search Bar */
+
+    
+    .search-title {
+        height: 73px;
+        font-size: 25px;
+        line-height: 34px;
+    }
+
+    .search-input {
+        padding: 15px 50px 15px;
+    }
+    .search-form {
+        background: #FFFFFF;
+        border: 2px solid #FCA73D;
+    }
+
+    /* Card */
+
+    .card-name {
+        font-size: 17px;
+        line-height: 23px;
+    }
+
+    .card-up-right {
+        font-size: 17px;
+        line-height: 20px;
+    }
+
+    .card-title {
+        font-size: 20px;
+        line-height: 27px;
+    }
+
+    .card-desc {
+        font-size: 17px;
+        line-height: 23px;
+    }
+   
+}
+
+/* Tablets and Computer */
+@media (min-width: 576px) {
+    
+    /* Newsfeed Header */
+
+    .header-div {
+        align-items: center;
+        padding-top: 50px;
+        padding-left: 100px;
+    }
+    
+    .header-div img {
+        width: 70%;
+        height: 70%;
+        min-width: 100px;
+        min-height: 100px;
+    }
+
+    .user-name {
+        font-size: 40px;
+        line-height: 24px;
+    }
+
+    .btn-post {
+        margin-top: 20px;
+        width: 30%;
+        height: 25%;
+        min-width: 200px;
+    }
+
+    /* Search Bar */
+
+    .search {
+        background: #0D7E6A;
+        height: 100px;
+    }
+
+    .search-title {
+        font-size: 36px;
+        line-height: 49px;
+        display: flex;
+        justify-content: left;
+        padding-left: 100px;
+    }
+
+    .search-input {
+        padding: 15px 50px 15px;
+    }
+
+    .search-form {
+        min-width: 180px;
+        max-width: 450px;
+    }
+
+    /* Card-Cards */
+
+    .card-wrap {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .card-div {
+        width: 40%;
+        height: fit-content;
+        margin: 20px;
+    }
+
+    .card-name {
+        font-size: 20px;
+        line-height: 27px;
+    }
+
+    .card-up-right {
+        font-size: 20px;
+        line-height: 26px;
+    }
+
+    .card-title {
+        font-size: 22px;
+        line-height: 30px;
+    }
+
+    .card-desc {
+        font-size: 20px;
+        line-height: 27px;
+    }
+}
+
+@media (min-width : 769px) {
+    /* Card */
+
+    .card-wrap {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .card-div {
+        width: 30%;
+        height: fit-content;
+        margin: 10px;
+    }
+}
+
