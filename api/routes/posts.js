@@ -44,7 +44,14 @@ app.get("/posts/:id", authenticated, (req, res) => {
       },
       {
         model: Comment,
-        attributes: ["comment_content"],
+        include: [
+          {
+            model: User,
+            as: "user",
+            attributes: ["user_id", "firstName", "lastName", "avatar"],
+          },
+        ],
+
       },
     ],
   })
