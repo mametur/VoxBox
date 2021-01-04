@@ -64,6 +64,3 @@ export const checkAuthState = () => {
   }
 }
 
-store.dispatch(checkAuthState)
-store.dispatch(logOut)
-store.dispatch(login)

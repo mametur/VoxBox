@@ -17,5 +17,5 @@ export const checkUserState = () => {
 }
 
 
-store.dispatch(checkUserState)
+
 
