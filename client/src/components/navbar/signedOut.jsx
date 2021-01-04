@@ -6,10 +6,10 @@ export const SignedOut = (props) =>{
 
   return (
     <Nav >
-    <Nav.Link  href="/signUp"> 
+    <Nav.Link  href="/signup"> 
       <Button variant="outline-primary" block>Sign up</Button>
     </Nav.Link>
-    <Nav.Link eventKey={2} href="/login">
+    <Nav.Link eventKey={2} href="/signin">
       <Button variant="outline-primary" block >Login</Button>
     </Nav.Link>
   </Nav>

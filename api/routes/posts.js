@@ -6,16 +6,18 @@ const authenticated = require("../middleware/withAuth");
 
 const app = express();
 // to get all the posts
+// avatar and user id
 app.get("/posts", authenticated, (req, res) => {
   Post.findAll({
-    attributes: ["topic", "description", "post_city"],
+    attributes: ["post_id", "topic", "description", "post_city"],
     include: [
       {
         model: User,
         as: "user",
-        attributes: ["firstName", "lastName", "email"],
+        attributes: ["user_id", "firstName", "lastName", "email", "avatar"],
       },
     ],
+    order: [["post_id", "DESC"]],
   })
     .then((data) => {
       console.log(data);
@@ -33,12 +35,12 @@ app.get("/posts/:id", authenticated, (req, res) => {
 
   Post.findOne({
     where: { post_id: post.id },
-    attributes: ["topic", "description", "city"],
+    attributes: ["topic", "description", "post_city"],
     include: [
       {
         model: User,
         as: "user",
-        attributes: ["firstName", "lastName", "email"],
+        attributes: ["user_id", "firstName", "lastName", "email", "avatar"],
       },
       {
         model: Comment,
@@ -57,23 +59,24 @@ app.get("/posts/:id", authenticated, (req, res) => {
 });
 
 //to get postes with a city name
-app.get("/posts/:city", authenticated, (req, res) => {
+app.get("/posts/city/:post_city", authenticated, (req, res) => {
   const city = req.params;
+  // console.log(city);
+  // user id and post id avatar
 
   Post.findAll({
-    where: { city: city.city },
-    attributes: ["topic", "discription", "city"],
+    where: { post_city: city.post_city },
     include: [
       {
         model: User,
         as: "user",
-        attributes: ["firstName", "lastName", "email"],
+        attributes: ["user_id", "firstName", "lastName", "email", "avatar"],
       },
     ],
   })
     .then((data) => {
       console.log(data);
-      res.status(200).send("data");
+      res.status(200).send(data);
     })
     .catch((err) => {
       console.log(err);
@@ -94,14 +97,14 @@ app.post("/posts/:id", authenticated, (req, res) => {
   const post = {
     topic: req.body.topic,
     post_city: req.body.post_city,
-    description: req.body.discription,
+    description: req.body.description,
     published: req.body.published ? req.body.published : false,
     user_id: user.id,
   };
   Post.create(post)
     .then((data) => {
       console.log(data);
-      res.status(201).send(data);
+      res.status(200).send(data);
     })
     .catch((err) => {
       res.status(500).send({
@@ -110,12 +113,12 @@ app.post("/posts/:id", authenticated, (req, res) => {
     });
 });
 // Deletes a post
-app.delete("/posts/:id", (req, res) => {
-  const user = req.params.id;
-  //console.log(user);
+app.delete("/posts/:id", authenticated, (req, res) => {
+  const post = req.params.id;
+  // console.log(post);
   Post.destroy({
     where: {
-      id: user,
+      post_id: post,
     },
   })
     .then((data) => {
