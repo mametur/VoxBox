@@ -8,14 +8,15 @@ const app = express();
 // to get all the posts
 app.get("/posts", authenticated, (req, res) => {
   Post.findAll({
-    attributes: ["topic", "description", "city"],
+    attributes: ["post_id", "topic", "description", "post_city", "createdAt"],
     include: [
       {
         model: User,
         as: "user",
-        attributes: ["firstName", "lastName", "email"],
+        attributes: ["user_id", "firstName", "lastName", "email"], 
       },
     ],
+    order: [["post_id", "DESC"]],
   })
     .then((data) => {
       console.log(data);
