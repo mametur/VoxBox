@@ -31,8 +31,25 @@ app.post('/signup', verifyEmail, async (req, res) => {
 			message: 'Data Save Successfully',
 		});
 	} catch (e) {
-		console.log(e);
-		res.sendStatus(500);
+		if (e.errors) {
+			console.log('my errror', e);
+			switch (e.errors[0].path) {
+				case 'email':
+					res.status(401).send({ status: 401, message: ' Your email is not valid' });
+					break;
+				case 'password':
+					res.status(401).send({ status: 401, message: 'Password length has to be between 5 and 15 characters' });
+					break;
+				case 'firstName':
+					res.status(401).send({ status: 401, message: 'First name is too short' });
+					break;
+				case 'lastName':
+					res.status(401).send({ status: 401, message: 'Last name is too short' });
+					break;
+			}
+			return;
+		}
+		res.status(500).send(e);
 		return;
 	}
 });

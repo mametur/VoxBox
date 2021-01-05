@@ -4,11 +4,21 @@ import { Home } from './components/homepage/Home';
 import NavBar from './components/navbar/navBar.jsx';
 import Footer from './components/footer/Footer.jsx';
 import SignUp from './components/auth/SignUp.jsx';
-import SignIn from './components/auth/SignIn.jsx';
+import SignIn from './components/auth/signin.jsx';
 import './App.scss';
 import './index.css';
 
+
+import { checkAuthState } from './store/actions/loginActions'
+import { checkUserState } from './store/actions/userActions'
+import { useDispatch } from 'react-redux'
+
 function App() {
+	const dispatch = useDispatch()
+
+	dispatch(checkAuthState())
+	dispatch(checkUserState())
+
 	return (
 		<BrowserRouter>
 			<div className="App">
