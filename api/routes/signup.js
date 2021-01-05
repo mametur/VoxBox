@@ -32,7 +32,7 @@ app.post('/signup', verifyEmail, async (req, res) => {
 		});
 	} catch (e) {
 		console.log(e);
-		res.sendStatus(500);
+		res.status(500).send(e);
 		return;
 	}
 });

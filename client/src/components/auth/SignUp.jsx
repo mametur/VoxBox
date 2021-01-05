@@ -1,15 +1,17 @@
 import React from 'react'
 import { useState } from 'react'
-import { Form, Button, Container, Row, Col} from 'react-bootstrap'
+import { Form, Button, Container, Row, Col, Alert} from 'react-bootstrap'
 
 const SignUp = () => {
 
   const [state, setState] = useState({
-    firstName: '',
-    lastName: '',
-    password: '',
-    email: '',
+    firstName: null,
+    lastName: null,
+    password: null,
+    email: null,
   })
+
+  const [signUpErrors, setSignUpErrors] = useState()
 
   const handleChange = (event)=>{
     setState({
@@ -19,7 +21,6 @@ const SignUp = () => {
   }
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log('submit', state)
 
     const data = state;
 
@@ -32,7 +33,11 @@ const SignUp = () => {
       })
       .then(response => response.json())
       .then(data => {
-        console.log('Success:', data);
+        console.log('response:', data);
+        if(data.errors.length){
+          console.log('errors', data.errors)
+          setSignUpErrors(data.errors)
+        }
       })
       .catch((error) => {
         console.error('Error:', error);
@@ -55,10 +60,13 @@ const SignUp = () => {
         <Col xs sm md lg xl>
         <h2 className="text-primary row justify-content-center">Sign Up</h2>
           <Form>
-            <Form.Group><Form.Control type="text" placeholder="Name" id="firstName" onChange={handleChange}/></Form.Group>
-            <Form.Group><Form.Control type="text" placeholder="Last Name" id="lastName" onChange={handleChange}/></Form.Group>
-            <Form.Group><Form.Control type="email" placeholder="Email" id="email" onChange={handleChange} /></Form.Group>
-            <Form.Group><Form.Control type="password" placeholder="Password" id="password" onChange={handleChange} /></Form.Group>
+            <Form.Group><Form.Control type="text" placeholder="Name" id="firstName" onChange={handleChange} required/></Form.Group>
+            <Form.Group><Form.Control type="text" placeholder="Last Name" id="lastName" onChange={handleChange} required/></Form.Group>
+            <Form.Group><Form.Control type="email" placeholder="Email" id="email" onChange={handleChange} required/></Form.Group>
+            <Form.Group><Form.Control type="password" placeholder="Password" id="password" onChange={handleChange} required/></Form.Group>
+
+            {(signUpErrors)? <Alert variant="danger">{signUpErrors.message}</Alert> : null}
+
             <Form.Group >
               <Button style={{marginTop: '80px'}} variant="primary" type="submit" block onClick={handleSubmit}>Submit</Button>
             </Form.Group>
