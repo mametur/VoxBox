@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { Form, Button, Container, Row, Col, Alert} from 'react-bootstrap'
+import { Redirect } from 'react-router-dom'
 
 const SignUp = () => {
 
@@ -10,6 +11,8 @@ const SignUp = () => {
     password: null,
     email: null,
   })
+
+  const [signedUp, setSignedUp] = useState()
 
   const [signUpErrors, setSignUpErrors] = useState()
 
@@ -34,9 +37,12 @@ const SignUp = () => {
       .then(response => response.json())
       .then(data => {
         console.log('response:', data);
-        if(data.errors.length){
-          console.log('errors', data.errors)
-          setSignUpErrors(data.errors)
+        if(data.status < 200 || data.status > 300){
+          console.log('errors', data.message)
+          setSignUpErrors(data.message)
+        }else{
+          setSignUpErrors(null)
+          setSignedUp(true)
         }
       })
       .catch((error) => {
@@ -54,6 +60,8 @@ const SignUp = () => {
     marginTop: '6%'
   }
 
+  if(signedUp) return (<Redirect to="signin" />)
+
   return (
     <Container style={style}> 
       <Row className="justify-content-center">
@@ -65,7 +73,7 @@ const SignUp = () => {
             <Form.Group><Form.Control type="email" placeholder="Email" id="email" onChange={handleChange} required/></Form.Group>
             <Form.Group><Form.Control type="password" placeholder="Password" id="password" onChange={handleChange} required/></Form.Group>
 
-            {(signUpErrors)? <Alert variant="danger">{signUpErrors.message}</Alert> : null}
+            {(signUpErrors)? <Alert variant="danger">{signUpErrors}</Alert> : null}
 
             <Form.Group >
               <Button style={{marginTop: '80px'}} variant="primary" type="submit" block onClick={handleSubmit}>Submit</Button>

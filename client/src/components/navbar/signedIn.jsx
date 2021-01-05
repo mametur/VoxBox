@@ -17,7 +17,7 @@ export const SignedIn = () =>{
 
   return (
     <Nav >
-      <NavLink to="/profile/:id"><Button variant="outline-primary" className="navbar-button" block>My Profile</Button></NavLink>
+      <NavLink to="/profile/:id"><Button variant="outline-primary" className="navbar-button" block >My Profile</Button></NavLink>
       <NavLink to="/"> <Button variant="outline-primary" className="logout-button" block onClick={logOutHanler}>Logout</Button></NavLink>
     </Nav>
 
