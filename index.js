@@ -4,6 +4,7 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 const api = require('./api/server');
 
@@ -12,14 +13,19 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {
-  console.log(req.method + ': ' + req.path);
-  next();
+	console.log(req.method + ': ' + req.path);
+	next();
 });
 
-app.use('/', express.static(__dirname + '/client/build/'))
+// app.use('/', express.static(__dirname + '/client/build/'))
 
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/client/build/index.html');
+// app.get('/', (req, res) => {
+//   res.sendFile(__dirname + '/client/build/index.html');
+// });
+app.use(express.static(path.join(__dirname, '/client/build')));
+
+app.get('/*', function (req, res) {
+	res.sendFile(path.join(__dirname, '/client/build', 'index.html'));
 });
 
 app.use('/api', api);

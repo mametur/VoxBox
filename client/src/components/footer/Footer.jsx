@@ -4,7 +4,7 @@ import logo_HYF from '../../logo_HYF.svg';
 import logoVox from '../../assets/logoVox.png'
 import { BsEnvelope } from 'react-icons/bs';
 import { FaGithub } from 'react-icons/fa';
-import { Redirect } from "react-router-dom";
+
 
 function Footer() {
 
@@ -30,7 +30,7 @@ function Footer() {
             alt = "Voxbox logo" className='m-4 rounded'/>
             <img src = {logo_HYF} style = {{height:'5em', width:'5em'}} 
             alt = "HYF logo" /></div>
-            </div >
+            </div>
         );
 };
 
