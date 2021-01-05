@@ -13,14 +13,14 @@ const User = sequelize.define('user', {
 		type: Sequelize.STRING,
 		allowNull: false,
 		validate: {
-			len: [2, 25],
+			len: [2, 50],
 		},
 	},
 	lastName: {
 		type: Sequelize.STRING,
 		allowNull: false,
 		validate: {
-			len: [5, 25],
+			len: [2, 50],
 		},
 	},
 	email: {
@@ -35,7 +35,7 @@ const User = sequelize.define('user', {
 		type: Sequelize.STRING,
 		allowNull: false,
 		validate: {
-			len: [5, 25],
+			len: [5, 15],
 		},
 	},
 	introduction: {
