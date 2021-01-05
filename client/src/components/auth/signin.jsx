@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
-import { Form, Button, Container, Row, Col} from 'react-bootstrap'
+import { Form, Button, Container, Row, Col, Alert} from 'react-bootstrap'
+import { useSelector, useDispatch } from 'react-redux'
+import { login } from '../../store/actions/loginActions'
 
 
 const SignIn = () => {
@@ -9,6 +11,8 @@ const SignIn = () => {
     email: '',
     password: ''
   })
+
+  const dispatch = useDispatch()
 
   const handleChange = (event)=>{
     setState({
@@ -19,33 +23,10 @@ const SignIn = () => {
   const handleSubmit = (event) => {
     event.preventDefault()
 
-    const data = state;
+    const data = {...state};
 
-    fetch('/api/user/signin', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data),
-      })
-      .then(response =>{    
-        if (response.ok) {
-          return response.json();
-        } else { 
-          throw new Error("invalid email or password!") 
-        }
-    })
-      .then(data => {
-        console.log('user logged in:', data);
-        alert('Welcome '+ data.firstName)
-      })
-      .catch((error) => {
-        console.error({
-          'Error message': error.message,
-          'name' : error.name,
-          'stack':error.stack
-        })
-      });
+    dispatch(login(data))
+   
   }
   const style = {
     boxShadow: '2px 2px 10px 2px #F2F2F2',
@@ -57,6 +38,7 @@ const SignIn = () => {
     marginTop: '6%'
   }
 
+const loginError = useSelector(state => state.auth.loginError)
 
   return (
     <Container style={style} className="justify-content-center"> 
@@ -67,6 +49,9 @@ const SignIn = () => {
       <Form.Group><Form.Control type="email" placeholder="Email" id="email" onChange={handleChange} /></Form.Group>
       <Form.Group><Form.Control type="password" placeholder="Password" id="password" onChange={handleChange} /></Form.Group>
       <Form.Group >
+
+      {(loginError)? <Alert variant="danger">{loginError}</Alert> : null}
+
       <Button style={{marginTop: '80px'}} variant="primary" type="submit" block onClick={handleSubmit} >
             Login
         </Button>
