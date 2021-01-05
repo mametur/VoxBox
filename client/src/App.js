@@ -4,9 +4,8 @@ import { Home } from './components/homepage/Home';
 import NavBar from './components/navbar/navBar.jsx'
 import Footer from './components/footer/Footer.jsx'
 import SignUp from './components/auth/SignUp.jsx'
-import SignIn from './components/auth/SignIn.jsx'
+import SignIn from './components/auth/signin.jsx'
 import { Newsfeed } from './components/newsfeed/Newsfeed';
-import { Card } from "./components/newsfeed/Card";
 import './App.scss';
 import './index.css';
 

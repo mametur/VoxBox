@@ -251,9 +251,9 @@
     }
 
     .card-div {
-        width: 40%;
+        width: 45%;
         height: fit-content;
-        margin: 20px;
+        margin: 5px;
     }
 
     .card-name {
@@ -262,8 +262,9 @@
     }
 
     .card-up-right {
+        width: 60%;
         font-size: 20px;
-        line-height: 26px;
+        line-height: 36px;
     }
 
     .card-title {

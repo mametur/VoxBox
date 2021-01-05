@@ -19,6 +19,8 @@ export const Cards = (props) => {
 
     }
 
+    console.log(data)
+
     useEffect(()=>{
         getData();
     }, []);
@@ -36,8 +38,8 @@ export const Cards = (props) => {
     return (
         
         <Container className="card-wrap justify-content-center">
-            {filteredData.length === 0 ? <div class="spinner-border text-success m-5" role="status">
-                                            <span class="sr-only">Loading...</span>
+            {filteredData.length === 0 ? <div className="spinner-border text-success m-5" role="status">
+                                            <span className="sr-only">Loading...</span>
                                         </div> :
                filteredData.map(
                    post => <Box post={post} />

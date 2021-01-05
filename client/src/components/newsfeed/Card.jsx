@@ -1,7 +1,6 @@
 import React from 'react'
 import { Card } from "react-bootstrap"
 import { Link } from 'react-router-dom';
-import AvatarImg from "../../assets/avatar_5.jpg"
 
 export const Box = ({post}) => {
 
@@ -24,14 +23,15 @@ export const Box = ({post}) => {
         <Card className="card-div">
             <Card.Body className="card-up">
                 <Card.Body>
-                    <Link to ={`/profile/${post.user.user_id}`}><Card.Img className="card-img" variant="top" src={AvatarImg} rounded/>  </Link>
+                    <Link to ={`/profile/${post.user.user_id}`}><Card.Img className="card-img" variant="top" src=
+                    {require(`../../assets/${post.user.avatar}`)} rounded/>  </Link>
                     <Card.Text className="card-name">{post.user.firstName} {post.user.lastName}</Card.Text>
                 </Card.Body>
                 <Card.Body className="card-up-right">
                     <Card.Text>{post.post_city}</Card.Text>
                     <Card.Text>Category</Card.Text>
                     <Card.Text>{convert(post.createdAt)}</Card.Text>
-                </Card.Body>
+                </Card.Body>    
             </Card.Body>
            
            <Card.Body>
