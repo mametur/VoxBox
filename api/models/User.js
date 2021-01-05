@@ -38,6 +38,10 @@ const User = sequelize.define("user", {
     type: Sequelize.STRING,
     defaultValue: "",
   },
+  avatar: {
+    type: Sequelize.STRING,
+    defaultValue: "user.png",
+  },
   // created user about, user city  and user languages
   // Timestamps
   createdAt: Sequelize.DATE,
