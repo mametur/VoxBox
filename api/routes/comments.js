@@ -8,9 +8,9 @@ const app = express();
 
 //Create a new comment on a post 
 app.post("/post/comment", authenticated, (req, res) => {
-	const commentContent = req.body.comment;
+	const commentContent = (req.body.comment).trim();
 
-	if (!commentContent || commentContent === " ") {
+	if (!commentContent) {
 		res.status(400).send({
 		  status: 400,
 		  message: "You should write a comment!",
@@ -31,7 +31,10 @@ app.post("/post/comment", authenticated, (req, res) => {
 	//Creating the comment and saving to the database
     Comment.create(comment)
 		.then((data) => {
-			res.status(201).send(data);
+			res.status(201).send({
+				status: 201,
+				message: data
+			});
 		})
 		.catch((err) => {
 			res.status(500).send({
@@ -82,7 +85,10 @@ app.put("/post/comment/:id", authenticated, (req, res) => {
 				});
 				return;
 				}
-			res.json(data).status(200);
+			res.status(200).send({
+				status: 200,
+				message: "Your comment has been updated"
+			});
 		})
 		.catch((err) => {
 			res.status(501).send({
@@ -130,7 +136,10 @@ app.delete("/post/comment/:id", authenticated, (req, res) => {
 			});
 			return;
 		}
-		  res.status(200).send("A comment is deleted!");
+		  res.status(200).send({
+			  status: 200,
+			  message: "Your comment has been deleted!"
+		  });
 		})
 		.catch((err) => {
 		  console.log(err);
