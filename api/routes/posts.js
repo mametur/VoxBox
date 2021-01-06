@@ -9,12 +9,11 @@ const app = express();
 // avatar and user id
 app.get("/posts", authenticated, (req, res) => {
   Post.findAll({
-    attributes: ["post_id", "topic", "description", "post_city"],
     include: [
       {
         model: User,
         as: "user",
-        attributes: ["user_id", "firstName", "lastName", "email", "avatar"],
+        attributes: ["user_id", "firstName", "lastName", "email", "avatar",],
       },
     ],
     order: [["post_id", "DESC"]],
@@ -44,7 +43,14 @@ app.get("/posts/:id", authenticated, (req, res) => {
       },
       {
         model: Comment,
-        attributes: ["comment_content"],
+        include: [
+          {
+            model: User,
+            as: "user",
+            attributes: ["user_id", "firstName", "lastName", "avatar"],
+          },
+        ],
+
       },
     ],
   })
@@ -98,6 +104,7 @@ app.post("/posts/:id", authenticated, (req, res) => {
     topic: req.body.topic,
     post_city: req.body.post_city,
     description: req.body.description,
+    category: req.body.category,
     published: req.body.published ? req.body.published : false,
     user_id: user.id,
   };
