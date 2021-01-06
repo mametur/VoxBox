@@ -9,7 +9,7 @@ const app = express();
 // avatar and user id
 app.get("/posts", authenticated, (req, res) => {
   Post.findAll({
-    attributes: ["post_id", "topic", "description", "post_city"],
+    attributes: ["post_id", "topic", "description", "post_city", "createdAt"],
     include: [
       {
         model: User,

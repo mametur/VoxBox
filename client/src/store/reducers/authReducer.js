@@ -17,13 +17,13 @@ const authReducer = (state = initState, action)=> {
     case 'Login_Failed':
       return {
         ...state,
-        isLoggedIn: false,
+        isLoggedIn: null,
         loginError: action.payload
       }
     case 'Logged_Out':
       return{
         ...state,
-        isLoggedIn: false,
+        isLoggedIn: null,
         loginError: null
       }
       default:

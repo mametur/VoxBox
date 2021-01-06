@@ -1,7 +1,8 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Form, Button, Container, Row, Col, Alert} from 'react-bootstrap'
 import { useSelector, useDispatch } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 import { login } from '../../store/actions/loginActions'
 
 
@@ -11,6 +12,9 @@ const SignIn = () => {
     email: '',
     password: ''
   })
+
+  const loginError = useSelector(state => state.auth.loginError)
+  const userLoggedIn = useSelector(state => state.user.userLoggedIn)
 
   const dispatch = useDispatch()
 
@@ -38,8 +42,9 @@ const SignIn = () => {
     marginTop: '6%'
   }
 
-const loginError = useSelector(state => state.auth.loginError)
-
+  if(userLoggedIn) return (<Redirect to="/newsfeed" />)
+  
+  
   return (
     <Container style={style} className="justify-content-center"> 
     <Row className="justify-content-center">

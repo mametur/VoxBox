@@ -11,6 +11,7 @@ const { JWT_SECRET } = require('../config.js');
  */
 
 const withAuth = function (req, res, next) {
+
 	const token = req.cookies.token || req.headers['x-access-token'];
 
 	if (!token) {
