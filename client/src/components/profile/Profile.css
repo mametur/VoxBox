@@ -1,0 +1,142 @@
+*,
+ ::after,
+ ::before {
+    box-sizing: border-box;
+}
+
+.card-profile {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    margin: 10px;
+    background: #F2F2F2;
+    font-size: .8em;
+    text-align: center;
+    padding: 10px
+}
+
+.title-name {
+    color: #0D7E6A;
+    font-size: 18px;
+    line-height: 35px;
+}
+
+.title-about {
+    color: #0D7E6A;
+    font-size: 18px;
+    line-height: 35px;
+    border-bottom: 2px solid #FCA73D;
+}
+
+.title-help {
+    color: #0D7E6A;
+    font-size: 16px;
+    line-height: 20px;
+    margin-top: 60px;
+}
+
+.help {
+    color: #CC0A0A;
+}
+
+.icon {
+    text-align: center;
+    color: #D8D8D8;
+    font-size: 0.9em;
+    margin-bottom: 2px;
+}
+
+.bio-icon {
+    /*
+    margin-bottom: 2px;
+    left: 545px;
+    top: 498px;
+    border-radius: 4px;
+    display: inline-block;
+    float: left; */
+    background: #F2F2F2;
+    font-size: 1.5em;
+    color: #4f4f4f;
+    width: 45px;
+    height: 45px;
+    text-align: center;
+}
+
+.bio-h2 {
+    font-size: 1em;
+    font-weight: 400;
+    font-style: italic;
+    color: #BDBDBD;
+    /* display: inline-block; */
+}
+
+.card-help {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 10px;
+    background: #F2F2F2;
+    font-size: .8em;
+    padding: 10px;
+}
+
+.card-comment {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 10px;
+    background: #F2F2F2;
+    font-size: .8em;
+    padding: 10px;
+}
+
+.help-comment {
+    display: flex;
+    flex-direction: column;
+    border-color: white;
+}
+
+.form-comment input {
+    width: 100%;
+    height: 40px;
+    font-size: 1em;
+}
+
+.form-comment input[type=text] {
+    border: 0 solid #F2F2F2;
+}
+
+.rowC {
+    display: flex;
+    flex-direction: row;
+    margin-left: 5%;
+    margin-top: 5%;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.colR {
+    /* display: flex; */
+    flex-direction: column;
+    display: block;
+    float: left;
+    padding-left: 20px;
+    /* align-items: left; */
+}
+
+.clearfix::after {
+    content: '';
+    clear: both;
+    display: table;
+    /* overflow: auto; */
+}
+
+.left {
+    float: left;
+    color: #333333;
+    margin: 20px 0;
+}
+
+.right {
+    float: right;
+    color: #333333;
+    margin: 20px 0;
+}
