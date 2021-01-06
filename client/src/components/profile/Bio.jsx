@@ -23,36 +23,6 @@ useEffect(() => {
 
 return (
 
-//     <div>
-//       <div className="card-bio">
-//         <h1 className="title-about">About Me</h1>    
-//         <p className='icon'><BiWine/></p>     
-// <div className='colR'>
-//         <h2 >Get to know me</h2>
-//         <p>{profileBio.title}</p>
-// </div>
-//         <p className='icon'><BiBulb/></p>
-//       <div className='colR'>
-//         <h2>Why are you joining VoxBox?</h2>
-//         <p>{profileBio.title}</p>
-// </div>
-
-//         <p className='icon'><BiRocket/></p>
-//       <div className='colR'>
-//         <h2>Hobbies or skills that you want to do or use in VoxBox?</h2>
-//         <p>{profileBio.title}</p>
-//    </div>
-
-//         <p className='icon'><BsChat/></p>
-//       <div className='colR'>
-//         <h2>What language(s) do you speak, or wish to practice?</h2>
-//         <p>{profileBio.title}</p>
-// </div> 
-//       </div>
-//     </div>
-
-
-
 <div className="my-3 p-3 bg-white rounded box-shadow">
   <h1 className="title-about pb-2 mb-0">About Me</h1>    
 

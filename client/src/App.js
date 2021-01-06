@@ -4,56 +4,40 @@ import { Home } from './components/homepage/Home';
 import NavBar from './components/navbar/navBar.jsx'
 import Footer from './components/footer/Footer.jsx'
 import SignUp from './components/auth/SignUp.jsx'
-import SignIn from './components/auth/SignIn.jsx'
-import ProfileDetails from './components/profile/ProfileDetails.jsx'
-import HelpDetails from './components/profile/HelpDetails.jsx'
-
-
-import './App.scss'
+import SignIn from './components/auth/signin.jsx'
+import { Newsfeed } from './components/newsfeed/Newsfeed';
+import './App.scss';
 import './index.css';
 
 
+import { checkAuthState } from './store/actions/loginActions'
+import { checkUserState } from './store/actions/userActions'
+import { useDispatch } from 'react-redux'
+
 function App() {
-    return ( <
-        BrowserRouter >
-        <
-        div className = "App" >
-        <
-        NavBar / >
 
-        <
-        Switch >
-        <
-        Route exact path = "/"
-        component = { Home }
-        /> <
-        Route path = "/signup"
-        component = { SignUp }
-        /> <
-        Route path = "/signin"
-        component = { SignIn }
-        /> 
+	const dispatch = useDispatch()
+		dispatch(checkAuthState())
+		dispatch(checkUserState());
+		
 
-        <
-        Route path = "/Profile"
-        component = { ProfileDetails }
-        />
+	return (
+		<BrowserRouter>
+			<div className="App">
+				<NavBar />
 
-        <
-        Route path = "/Help"
-        component = { HelpDetails }
-        />
+				<Switch>
+					<Route exact path="/" component={Home} />
+					<Route path="/signup" component={SignUp} />
+					<Route path="/signin" component={SignIn} />
+					<Route exact path="/newsfeed" component={Newsfeed} />
+				</Switch>
 
-        <
-        /Switch>
-
-        { /* footer */ } <
-        Footer / >
-        <
-        /div> < /
-        BrowserRouter >
-
-    );
+				{/* footer */}
+				<Footer />
+			</div>
+		</BrowserRouter>
+	);
 }
 
 export default App;
