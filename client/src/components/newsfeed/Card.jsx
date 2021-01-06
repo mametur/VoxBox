@@ -29,7 +29,7 @@ export const Box = ({post}) => {
                 </Card.Body>
                 <Card.Body className="card-up-right">
                     <Card.Text>{post.post_city}</Card.Text>
-                    <Card.Text>Category</Card.Text>
+                    <Card.Text>{post.category}</Card.Text>
                     <Card.Text>{convert(post.createdAt)}</Card.Text>
                 </Card.Body>    
             </Card.Body>
