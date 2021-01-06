@@ -7,6 +7,7 @@ export const checkUserState = () => {
       lastName: localStorage.getItem('lastName'),
       user_id: JSON.parse(localStorage.getItem('user_id')),
       avatar: localStorage.getItem('avatar'),
+      userLoggedIn: JSON.parse(localStorage.getItem('userLoggedIn'))
     }
     if(user.firstName){
       dispatch({type: 'User_LoggedIn', payload: user})

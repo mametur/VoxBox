@@ -7,7 +7,7 @@ export const SignedOut = (props) =>{
 
   return (
     <Nav >
-    <NavLink to="/signup"><Button variant="outline-primary" block>Sign up</Button></NavLink>
+    <NavLink to="/signup"><Button variant="outline-primary" block >Sign up</Button></NavLink>
    <NavLink to="/signin"><Button variant="outline-primary" block >Login</Button></NavLink>
   </Nav>
 

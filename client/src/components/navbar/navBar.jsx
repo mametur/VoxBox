@@ -18,7 +18,7 @@ const NavBar = () => {
     <Row>
       <Col xs={12} md={12}> 
         <Navbar className="brand" collapseOnSelect expand="md" bg="transparent">
-        <NavLink to="/"><div className="align-middle mr-3 img-wrapper"><Image src={Logo} rounded className="logo"/></div></NavLink>
+        <NavLink to="/newsfeed"><div className="align-middle mr-3 img-wrapper"><Image src={Logo} rounded className="logo"/></div></NavLink>
          
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end" >

@@ -16,9 +16,9 @@ import { useDispatch } from 'react-redux'
 
 function App() {
 	const dispatch = useDispatch()
-
-	dispatch(checkAuthState())
-	dispatch(checkUserState())
+		dispatch(checkAuthState())
+		dispatch(checkUserState());
+		
 
 	return (
 		<BrowserRouter>
