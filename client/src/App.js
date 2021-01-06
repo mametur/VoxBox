@@ -6,6 +6,8 @@ import Footer from './components/footer/Footer.jsx'
 import SignUp from './components/auth/SignUp.jsx'
 import SignIn from './components/auth/signin.jsx'
 import { Newsfeed } from './components/newsfeed/Newsfeed';
+import HelpDetails from './components/profile/HelpDetails';
+
 import './App.scss';
 import './index.css';
 
@@ -31,6 +33,7 @@ function App() {
 					<Route path="/signup" component={SignUp} />
 					<Route path="/signin" component={SignIn} />
 					<Route exact path="/newsfeed" component={Newsfeed} />
+					<Route exact path="/help" component={HelpDetails} />
 				</Switch>
 
 				{/* footer */}

@@ -34,7 +34,6 @@ return (
   </div>
 </div>
 
-
 <div className="media pt-3">
   <p className='mr-2 rounded bio-icon'><BiBulb/></p>
   <div className='media-body pb-1 mb-0 small border-gray'>
