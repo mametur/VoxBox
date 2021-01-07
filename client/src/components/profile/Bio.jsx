@@ -30,7 +30,7 @@ useEffect(() => {
 
 return (
 
-<div className="my-3 p-3 bg-white rounded box-shadow">
+<div className="w-50 my-3 p-3 bg-white rounded box-shadow">
   <h1 className="title-about pb-2 mb-0">About Me</h1>    
 
 <div className="media pt-3">
