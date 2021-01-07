@@ -4,8 +4,15 @@ import './Profile.css';
 import { BsChat } from 'react-icons/bs';
 import { BiBulb,  BiRocket, BiWine} from "react-icons/bi";
 
-const Bio = () => {
+const Bio = (props) => {
     const [profileBio, setProfileBio] = useState('');
+
+    const user = props.user;
+    console.log('here is user obj from bio: ', user, user.user_id);
+
+    const post = props.post;
+    console.log('here is post obj from bio: ', post); 
+
 
 const bioData = async () => {
     try {

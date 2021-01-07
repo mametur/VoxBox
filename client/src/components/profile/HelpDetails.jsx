@@ -4,12 +4,17 @@ import Help from './Help';
 import Comment from './Comment';
 import './Profile.css';
 
-const HelpDetails = () => {
+const HelpDetails = (props) => {
+
+  const post = props.location.state.post;
+    console.log('here is post from HelpDetails with state is: ', post); 
+
+
 return (
   <div className ='rowC'>
-  <Profile />
+  <Profile user={post.user} post={post}/>
   <div className='help-comment'>
-  <Help />
+  <Help post={post} />
   <Comment />
   </div>
   </div>

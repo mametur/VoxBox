@@ -1,39 +1,27 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React from 'react';
 import './Profile.css';
-import { Button } from 'react-bootstrap'
 import { BsGeoAlt, BsCalendar } from 'react-icons/bs';
 
-const Help = () => {
-    const [profileHelp, setProfileHelp] = useState('');
+const Help = (props) => {
+    
+    const post = props.post;
+    console.log('this is from help: ', post);
 
-const helpData = async () => {
-    try {
-        const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
-        setProfileHelp(res.data[0]);
-        console.log(res);
-    } catch (error) {
-        console.log(error);
-    }
-};
-
-useEffect(() => {
-    helpData();
-}, []);
-
+    function convert(date){
+      let datearray = date.split("T");
+      let newdate = datearray[0].split("-");
+      const newdate2 = newdate[2] + "-" + newdate[1] + "-" + newdate[0];
+      return newdate2;  
+  }
+  
 return (
     <div>
-
       <div className="card-help">
-      <p className='icon left'><BsGeoAlt/> Location</p>
-      <p className='icon right'><BsCalendar/> Date</p>
-        <h1 className="title-help">{profileHelp.title}</h1>
-
-        <p>{profileHelp.body}</p>
-
+      <p className='icon left'><BsGeoAlt/> {post.post_city}</p>
+      <p className='icon right'><BsCalendar/> {convert(post.createdAt)}</p>
+      <h1 className="title-help">{post.topic}</h1>
+      <p>{post.description}</p>
       </div>
-
-
     </div>
   );
 };

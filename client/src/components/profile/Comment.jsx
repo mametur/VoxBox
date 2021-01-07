@@ -45,10 +45,8 @@ setComment(e.target.value)
         <Button style={{margin:'auto', marginTop:'10px', color:'white'}} onClick={submitComment}>Post A Comment</Button>
       </form>
         
-
       </div>
-
-
+      
     </div>
   );
 };

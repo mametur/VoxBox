@@ -46,15 +46,12 @@ function App() {
         Route exact path = "/newsfeed"
         component = { Newsfeed }
         /> <
-        Route exact path = "/help/1"
+        Route exact path = "/help/:id"
         component = { HelpDetails }
-        />  <
-        Route exact path = "/help/1"
-        component = { HelpDetails }
-        /> 
+        />  
 
         <
-        Route exact path = "/profile/1"
+        Route exact path = "/profile/:id"
         component = { ProfileDetails }
         /> 
 
