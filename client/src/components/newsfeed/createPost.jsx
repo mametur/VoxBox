@@ -51,6 +51,7 @@ const CreatePost = (props) => {
     backgroundColor: '#E5E5E5',
     maxWidth: '900px',
     marginTop: '20px',
+    marginBottom: '20px',
     borderRadius: '10px'
   }
 

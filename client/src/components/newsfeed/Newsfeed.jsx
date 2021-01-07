@@ -27,8 +27,8 @@ export const Newsfeed = () => {
     return (
         <div>
             <NewsfeedHeader formToggle={handlePostFormToggle}/>
-            <SearchBar searching={setSearchedValue}/>
             {postFormState.status? <CreatePost formToggle={handlePostFormToggle}/> : null}
+            <SearchBar searching={setSearchedValue}/>
             <Cards searchedValue={searchedValue} postFormState={postFormState}/>
         </div>
     )
