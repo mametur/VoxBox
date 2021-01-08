@@ -13,6 +13,8 @@ import './index.css';
 import { checkAuthState } from './store/actions/loginActions'
 import { checkUserState } from './store/actions/userActions'
 import { useDispatch } from 'react-redux'
+import HelpDetails from './components/profile/HelpDetails.jsx';
+import ProfileDetails from './components/profile/ProfileDetails.jsx';
 
 function App() {
 	const dispatch = useDispatch()
@@ -30,6 +32,8 @@ function App() {
 					<Route path="/signup" component={SignUp} />
 					<Route path="/signin" component={SignIn} />
 					<Route exact path="/newsfeed" component={Newsfeed} />
+					<Route exact path="/help/:id" component={HelpDetails} />
+					<Route exact path="/profile/:id" component={ProfileDetails} />
 				</Switch>
 
 				{/* footer */}
