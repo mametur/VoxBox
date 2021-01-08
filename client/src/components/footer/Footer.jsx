@@ -4,6 +4,7 @@ import logo_HYF from '../../logo_HYF.svg';
 import logoVox from '../../assets/logoVox.png'
 import { BsEnvelope } from 'react-icons/bs';
 import { FaGithub } from 'react-icons/fa';
+import './Footer.css';
 
 function Footer() {
 
@@ -11,24 +12,28 @@ function Footer() {
     const [state, setState] = useState({
         email: "mailto:voxbox@gmail.com",
         repoUrl: "https://github.com/gelilaa/VoxBox",
+        homePage: 'https://voxbox.herokuapp.com'
      });
 
         return ( 
 
-            <div style = {{backgroundColor:'#397e6b', width: '100%', marginTop: 'auto'}} className = "footer text-white row p-2 text-center text-md-left" >
-            <div className = "col-md-10" style={{paddingLeft:"50px"}}>
-            <ul style={{listStyleType: 'none'}}>
-            <li className='mb-4 font-weight-bold'>Contact VoxBox</li>
-            <li><FaGithub /><a href = { state.repoUrl } className = "text-white" > https://github.com/gelilaa/VoxBox </a></li>
-            <li><BsEnvelope /><a href = { state.email } className = "text-white" > info.voxbox@gmail.com </a></li>
+            <div className = "footer-outer row p-2 text-center text-md-left" >
+            
+            <div className = "col-6 ">
+            <ul className='footer-list' style={{paddingTop:'20px'}}>
+            <li ><a href = { state.homePage } >VoxBox</a></li>
+            <li><a href = { state.repoUrl } > <FaGithub /> </a></li>
+            <li><a href = { state.email } > <BsEnvelope /> </a></li>
             </ul>
             </div> 
 
-            <div className = "col-md-2 m-auto-0 me-n1">
-            <img src = {logoVox} style = {{height:'4em', width:'4em'}} 
-            alt = "Voxbox logo" className='m-4 rounded'/>
-            <img src = {logo_HYF} style = {{height:'5em', width:'5em'}} 
-            alt = "HYF logo" /></div>
+            <div className = "col-6 " style={{textAlign:'right', backgroundColor: '#397e6b'}}>
+            <ul className='footer-list apart'>
+            <li><img src = {logoVox} alt = "Voxbox logo" className='rounded'/></li>
+            <li style={{paddingRight:0, marginRight: 0}}><img src = {logo_HYF} alt = "HYF logo" /></li>
+            </ul>
+            </div>
+
             </div>
         );
 };
