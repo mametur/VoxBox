@@ -23,5 +23,7 @@ app.use("/", require("./routes/posts.js"));
 app.use("/", require("./routes/signin.js"));
 app.use("/", require("./routes/users.js"));
 app.use("/", require("./routes/forgot.js"));
+app.use("/", require("./routes/comments.js"));
+
 
 module.exports = app;
