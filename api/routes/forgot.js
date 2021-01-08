@@ -5,9 +5,18 @@ const User = require("../models/User");
 const jwt = require("jsonwebtoken");
 const { JWT_SECRET } = require("../config.js");
 const { cryptPassword } = require("../utils/encryption");
+const bcrypt = require("bcrypt");
 
 // outlook.com, hotmail.com, msn.com, live.com
-// those emails dont work...
+// those emails may not work with sendgrid
+
+// user forgets its password
+// user askes to reset it and provides its email address
+// user gets link with a token on their email
+// user clicks the email link and resets its password
+// user's new password get saved on the database with a hash
+// user can sign in with a new password
+
 const app = express();
 
 app.post("/forgot", async (req, res, next) => {
@@ -29,16 +38,14 @@ app.post("/forgot", async (req, res, next) => {
     const token = jwt.sign(payload, JWT_SECRET, {
       expiresIn: "1h",
     });
-    const link = `${req.protocol}://localhost:5000/api/reset/${token}`;
+    const link = `${req.protocol}://localhost:3000/verify/${token}/?id=${user.user_id}`;
+    // for huroku please use ${req.headers.host}  instead of localhost:3000 ;
 
-    // console.log(req.protocol); // "https"
-    // console.log(req.hostname); // "example.com"
     await sendEmail(
       email,
       "info.voxbox@gmail.com",
       "Reset Password",
-      `
-      
+      `  
 <!doctype html>
 <html lang="en-US">
 
@@ -64,7 +71,7 @@ app.post("/forgot", async (req, res, next) => {
                     <tr>
                         <td style="text-align:center;">
                           <a href="https://voxbox.herokuapp.com/" title="logo" target="_blank">
-                            <img width="60" src="../../client/src/assets/logoVox.png" title="logo" alt="logo">
+                            <img width="60" src="https://voxbox.herokuapp.com/static/media/logoVox.0a50ddd3.png" title="logo" alt="logo">
                           </a>
                         </td>
                     </tr>
@@ -80,8 +87,9 @@ app.post("/forgot", async (req, res, next) => {
                                 </tr>
                                 <tr>
                                     <td style="padding:0 35px;">
-                                        <h1 style="color:#1e1e2d; font-weight:500; margin:0;font-size:32px;font-family:'Rubik',sans-serif;">You have
-                                            requested to reset your password</h1>
+                                    <h1> Hello${user.firstName}
+                                        <h2 style="color:#1e1e2d; font-weight:500; margin:0;font-size:32px;font-family:'Rubik',sans-serif;">You have
+                                            requested to reset your password</h2>
                                         <span
                                             style="display:inline-block; vertical-align:middle; margin:29px 0 26px; border-bottom:1px solid #cecece; width:100px;"></span>
                                         <p style="color:#455056; font-size:15px;line-height:24px; margin:0;">
@@ -123,29 +131,43 @@ app.post("/forgot", async (req, res, next) => {
     return next(new Error(e));
   }
 });
-
-app.post("/reset/:token", async (req, res, next) => {
-  try {
-    const { password, email } = req.body;
-    // console.log(email);
-
-    const { token } = req.params;
-    const hash = cryptPassword(password);
-    await User.update(
-      { password: `${hash}` },
-      {
-        where: { email: email },
-      }
-    );
-
-    return res.status(200).send({
-      token,
-      user: { email },
-      message: "Password is changed!",
+const user = {};
+app.get("/reset/:token/:id", (req, res) => {
+  const id = req.params;
+  console.log("id", id);
+  User.findOne({
+    where: { user_id: id.id },
+  })
+    .then((data) => {
+      Object.assign(user, data);
+      console.log(data);
+      console.log("user test :", user);
+      res.status(200).send(data);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.sendStatus(400);
     });
-  } catch (e) {
-    return next(new Error(e));
-  }
 });
 
+app.post("/update_password", (req, res) => {
+  const { password, id } = req.body;
+  User.findOne({ where: { user_id: id } }).then((user) => {
+    //console.log(user);
+    if (!user) {
+      return res.status(404).send({ error: "User not found" });
+    }
+    bcrypt
+      .hash(password, 12)
+      .then((hash) => {
+        user.password = hash;
+        user.save().then((saveduser) => {
+          res.send({ message: "password updated success!" });
+        });
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  });
+});
 module.exports = app;
