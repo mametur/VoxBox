@@ -1,9 +1,7 @@
 import React from 'react'
 import { useState, useEffect} from 'react'
 import { Form, Button, Container, Row, Col, Alert} from 'react-bootstrap'
-import {  useDispatch } from 'react-redux'
-import { useParams, useLocation } from 'react-router-dom'
-import { Redirect } from 'react-router-dom'
+
 
 //by clicking a link in the email , user is asked to reset their email and verify it
 
