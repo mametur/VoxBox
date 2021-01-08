@@ -23,7 +23,7 @@ export const Cards = (props) => {
 
     useEffect(()=>{
         getData();
-    }, []);
+    }, [props.postFormState]);
 
     useEffect(()=>{
         const filtering = data.filter(item=>{
