@@ -6,9 +6,6 @@ import Footer from './components/footer/Footer.jsx'
 import SignUp from './components/auth/SignUp.jsx'
 import SignIn from './components/auth/signin.jsx'
 import { Newsfeed } from './components/newsfeed/Newsfeed';
-import HelpDetails from './components/profile/HelpDetails';
-import ProfileDetails from './components/profile/ProfileDetails';
-
 import './App.scss';
 import './index.css';
 
@@ -16,55 +13,35 @@ import './index.css';
 import { checkAuthState } from './store/actions/loginActions'
 import { checkUserState } from './store/actions/userActions'
 import { useDispatch } from 'react-redux'
+import HelpDetails from './components/profile/HelpDetails.jsx';
+import ProfileDetails from './components/profile/ProfileDetails.jsx';
 
 function App() {
+	const dispatch = useDispatch()
+		dispatch(checkAuthState())
+		dispatch(checkUserState());
+		
 
-    const dispatch = useDispatch()
-    dispatch(checkAuthState())
-    dispatch(checkUserState());
+	return (
+		<BrowserRouter>
+			<div className="App">
+				<NavBar />
 
+				<Switch>
+					<Route exact path="/" component={Home} />
+					<Route path="/signup" component={SignUp} />
+					<Route path="/signin" component={SignIn} />
+					<Route exact path="/newsfeed" component={Newsfeed} />
+					<Route exact path="/help/:id" component={HelpDetails} />
+					<Route exact path="/profile/:id" component={ProfileDetails} />
+				</Switch>
 
-    return ( <
-        BrowserRouter >
-        <
-        div className = "App" >
-        <
-        NavBar / >
+				{/* footer */}
+				<Footer />
+			</div>
+		</BrowserRouter>
+	);
 
-        <
-        Switch >
-        <
-        Route exact path = "/"
-        component = { Home }
-        /> <
-        Route path = "/signup"
-        component = { SignUp }
-        /> <
-        Route path = "/signin"
-        component = { SignIn }
-        /> <
-        Route exact path = "/newsfeed"
-        component = { Newsfeed }
-        /> <
-        Route exact path = "/help/:id"
-        component = { HelpDetails }
-        />  
-
-        <
-        Route exact path = "/profile/:id"
-        component = { ProfileDetails }
-        /> 
-
-        <
-        /
-        Switch >
-
-        { /* footer */ } <
-        Footer / >
-        <
-        /div> < /
-        BrowserRouter >
-    );
 }
 
 export default App;
