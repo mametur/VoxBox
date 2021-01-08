@@ -15,10 +15,14 @@ const Post = sequelize.define("post", {
     allowNull: false,
   },
   description: {
-    type: Sequelize.STRING(400),
+    type: Sequelize.TEXT,
     allowNull: false,
   },
   post_city: {
+    type: Sequelize.STRING(255),
+    allowNull: false,
+  },
+  category: {
     type: Sequelize.STRING(255),
     allowNull: false,
   },

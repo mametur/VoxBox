@@ -67,6 +67,7 @@ div.App{
 .cta button:hover {
   transform: scale(1.1);
   background: #FCA73D;
+  color: #FFFFFF;
 }
 
 /* About us section */

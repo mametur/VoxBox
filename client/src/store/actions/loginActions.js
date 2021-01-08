@@ -22,19 +22,20 @@ export const login = (credentials) => {
 })
   .then(data => {
       console.log('user data', data);
-      dispatch({type: 'Login_Success'})
-      dispatch({type: 'User_LoggedIn', payload: data})
       localStorage.setItem('isLoggedIn', true)
       localStorage.setItem('firstName', data.firstName)  
       localStorage.setItem('lastName', data.lastName)  
       localStorage.setItem('user_id', JSON.stringify(data.user_id))  
-      localStorage.setItem('avatar', data.avatar)  
-
-      alert('Welcome '+ data.firstName) 
+      localStorage.setItem('avatar', data.avatar)
+      localStorage.setItem('userLoggedIn', 'true')
+      
+      dispatch({type: 'Login_Success'})
+      dispatch({type: 'User_LoggedIn', payload: data})
+      
   })
   .catch((error) => {
-    dispatch({type: 'Login_Failed', payload:  error.message})
     localStorage.clear()
+    dispatch({type: 'Login_Failed', payload:  error.message})
     console.error({
       'Error message': error.message,
       'name' : error.name,
