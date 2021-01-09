@@ -7,10 +7,10 @@ import {Link} from 'react-router-dom';
 const Profile = (props) => {
 
     const user = props.user;
-    console.log('here is user obj from profile avatar: ', user, user.user_id);
+    
 
     const post = props.post;
-    console.log('here is post obj from profile avatar: ', post); 
+    
 
 return (
     <div>
