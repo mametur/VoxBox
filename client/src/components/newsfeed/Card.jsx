@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 
 export const Box = ({post}) => {
 
+    console.log('hello')
+
     function convert(date){
         let datearray = date.split("T");
         let newdate = datearray[0].split("-");

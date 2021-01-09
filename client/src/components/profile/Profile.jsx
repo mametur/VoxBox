@@ -3,6 +3,7 @@ import './Profile.css';
 import { Button } from 'react-bootstrap';
 import { BsEnvelope, BsGeoAlt } from 'react-icons/bs';
 import {Link} from 'react-router-dom';
+import { useSelector } from 'react-redux'
 
 const Profile = (props) => {
 
@@ -11,6 +12,16 @@ const Profile = (props) => {
 
     const post = props.post;
     console.log('here is post obj from profile avatar: ', post); 
+
+    const currentUser_id = useSelector(state => state.user.user_id)
+
+
+
+
+
+    const buttonStyle = {
+      color: 'white'
+    }
 
 return (
     <div>
@@ -23,11 +34,13 @@ return (
         <p>{post.post_city}</p>
         <p className='icon'><BsEnvelope/> Email Address</p>
         <p>{user.email}</p>
-        <p><Link to ={{
+        <p>{props.onpost ? <Link to ={{
                     pathname: `/profile/${user.user_id}`,
                     state: {post: post}
                 }}>
-        <Button style={{color:'white'}}>{user.firstName}'s profile</Button></Link>
+        <Button style={buttonStyle}>{user.firstName}'s profile</Button></Link> : null}
+
+        {(user.user_id === currentUser_id && props.onpost === false) ? <Button style={buttonStyle}>Edit Profile</Button> : null}
         </p>
       </div>
     </div>

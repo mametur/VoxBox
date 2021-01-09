@@ -10,7 +10,7 @@ const ProfileDetails = (props) => {
 
 return (
   <div className ='rowC'>
-    <Profile user={post.user} post={post}/>
+    <Profile user={post.user} post={post} onpost={false}/>
     <Bio user={post.user} post={post}/>
   </div>
 );

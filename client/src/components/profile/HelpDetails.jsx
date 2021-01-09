@@ -15,7 +15,7 @@ const HelpDetails = (props) => {
 
 return (
   <div className ='rowC'>
-  <Profile user={post.user} post={post}/>
+  <Profile user={post.user} post={post} onpost={true}/>
   <div className='help-comment'>
   <Help user={post.user} post={post} />
   <Comment />
