@@ -9,21 +9,22 @@ export const Cards = (props) => {
     const [filteredData, setFilteredData] = useState([])
 
     const getData = async () => {
-        const response = await fetch("/api/posts");
-
-        const data = await response.json();
-
-        setData(data);
-
-        setFilteredData(data);
-
+        
+        fetch("/api/posts")
+        .then((response)=>{
+            return response.json()
+        })
+        .then((data)=>{
+            setData(data);
+            setFilteredData(data);
+        }).catch((err)=>{
+            console.log(err)
+        })
     }
-
-    console.log(data)
 
     useEffect(()=>{
         getData();
-    }, []);
+    }, [props.postFormState]);
 
     useEffect(()=>{
         const filtering = data.filter(item=>{
@@ -42,7 +43,7 @@ export const Cards = (props) => {
                                             <span className="sr-only">Loading...</span>
                                         </div> :
                filteredData.map(
-                   post => <Box post={post} />
+                   post => <Box key={post.post_id} post={post} />
                )
         }
         </Container>

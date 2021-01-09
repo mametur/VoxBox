@@ -17,13 +17,16 @@ export const Box = ({post}) => {
         return desc;
     }
 
-    console.log(post)
+    
 
     return (
         <Card className="card-div">
             <Card.Body className="card-up">
                 <Card.Body>
-                    <Link to ={`/profile/${post.user.user_id}`}><Card.Img className="card-img" variant="top" src=
+                    <Link to ={{
+                        pathname: `/profile/${post.user.user_id}`,
+                        state: {post:post}
+                    }}><Card.Img className="card-img" variant="top" src=
                     {require(`../../assets/${post.user.avatar}`)} rounded/>  </Link>
                     <Card.Text className="card-name">{post.user.firstName} {post.user.lastName}</Card.Text>
                 </Card.Body>
@@ -37,7 +40,10 @@ export const Box = ({post}) => {
            <Card.Body>
                 <Card.Title className="card-title">{post.topic}</Card.Title>
                 <Card.Text className="card-desc">
-                {cutDescription(post.description)}...<Link to ={`/help/${post.post_id}`} className="see-more">see more</Link>
+                {cutDescription(post.description)}...<Link to ={{
+                    pathname: `/help/${post.post_id}`,
+                    state: {post: post}
+                }} className="see-more">see more</Link>
                 </Card.Text>
             </Card.Body>
         </Card>

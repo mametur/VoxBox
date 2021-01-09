@@ -5,11 +5,10 @@ import logoVox from '../../assets/logoVox.png'
 import { BsEnvelope } from 'react-icons/bs';
 import { FaGithub } from 'react-icons/fa';
 
-
 function Footer() {
 
 
-     const [state, setState] = useState({
+    const [state, setState] = useState({
         email: "mailto:voxbox@gmail.com",
         repoUrl: "https://github.com/gelilaa/VoxBox",
      });
