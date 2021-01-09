@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
+
 
 export const NewComment = ({thread}) => {
 
@@ -17,7 +19,10 @@ export const NewComment = ({thread}) => {
         <div>
            <div className="comment-box">
                <div className="comment-up">
-                   <h1 className="comment-user-name">{thread.user.firstName} {thread.user.lastName}</h1>
+                    <Link className="link" to ={{
+                        pathname: `/profile/${thread.user.user_id}`,
+                        state: {post:thread}
+                    }}><h2 className="comment-user-name">{thread.user.firstName} {thread.user.lastName}</h2></Link>
                    <p>replied on {convert(thread.createdAt)}</p>
                </div>
                <div className="comment-text">{thread.comment_content}</div>

@@ -179,6 +179,14 @@
     color: #0D7E6A;
 }
 
+.link:hover {
+    text-decoration-line: none;
+}
+
+.comment-user-name:hover {
+    color: #FCA73D;
+}
+
 .comment-text {
     font-family: Open Sans;
     font-style: normal;
@@ -186,5 +194,4 @@
     font-size: 16px;
     line-height: 30px;
     color: #333333;
-
 }
