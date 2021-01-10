@@ -19,7 +19,7 @@ export const Box = ({post}) => {
         return desc;
     }
 
-    console.log(post)
+    
 
     return (
         <Card className="card-div">
