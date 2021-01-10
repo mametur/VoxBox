@@ -46,6 +46,7 @@ const Comment = ({ post, setCommentFlag }) => {
           } onKeyDown={(event) => {
             if(event.keyCode == 13 && !event.shiftKey) {
               submitComment(event);
+              event.target.value = '';
             } else if (event.keyCode == 13 && event.shiftKey) {
               return null
             }
