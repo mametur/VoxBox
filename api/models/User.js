@@ -40,15 +40,18 @@ const User = sequelize.define('user', {
 	},
 	introduction: {
 		type: Sequelize.STRING,
-		defaultValue: '',
 	},
 	language: {
 		type: Sequelize.STRING,
-		defaultValue: '',
 	},
 	user_city: {
 		type: Sequelize.STRING,
-		defaultValue: '',
+	},
+	hobbies: {
+		type: Sequelize.STRING,
+	},
+	reason: {
+		type: Sequelize.STRING,
 	},
 	avatar: {
 		type: Sequelize.STRING,
