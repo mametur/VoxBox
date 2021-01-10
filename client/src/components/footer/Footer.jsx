@@ -17,9 +17,9 @@ function Footer() {
 
         return ( 
 
-            <div className = "footer-outer row p-2 text-center text-md-left" >
+            <div className = "footer-outer row p-2 text-center text-md-left" style={{backgroundColor: '#397e6b'}}>
             
-            <div className = "col-6 ">
+            <div className = "col-4 " style={{backgroundColor: '#397e6b'}}>
             <ul className='footer-list' style={{paddingTop:'20px'}}>
             <li ><a href = { state.homePage } >VoxBox</a></li>
             <li><a href = { state.repoUrl } > <FaGithub /> </a></li>
@@ -27,10 +27,16 @@ function Footer() {
             </ul>
             </div> 
 
-            <div className = "col-6 " style={{textAlign:'right', backgroundColor: '#397e6b'}}>
+            <div className = "col-4 " style={{backgroundColor: '#397e6b'}}>
+            <ul className='footer-list' style={{paddingTop:'20px'}}>
+            <li> Copyright © 2020 </li>
+            </ul>
+            </div>
+
+            <div className = "col-4 " style={{textAlign:'right', backgroundColor: '#397e6b'}}>
             <ul className='footer-list apart'>
             <li><img src = {logoVox} alt = "Voxbox logo" className='rounded'/></li>
-            <li style={{paddingRight:0, marginRight: 0}}><img src = {logo_HYF} alt = "HYF logo" /></li>
+            <li style={{paddingRight:0, marginRight: '-0'}}><img src = {logo_HYF} alt = "HYF logo" /></li>
             </ul>
             </div>
 
