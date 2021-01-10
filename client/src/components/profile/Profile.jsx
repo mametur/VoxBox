@@ -8,7 +8,7 @@ const Profile = (props) => {
 
     const user = props.user;
     const post = props.post;
-    
+
 return (
     <div className="column">
       <div className="card-profile">

@@ -7,9 +7,6 @@ import { BiBulb,  BiRocket, BiWine} from "react-icons/bi";
 const Bio = (props) => {
     const [profileBio, setProfileBio] = useState('');
 
-    // const user = props.user;
-    // const post = props.post;
-
 const bioData = async () => {
     try {
         const res = await axios.get("https://jsonplaceholder.typicode.com/todos");
