@@ -8,10 +8,10 @@ const Bio = (props) => {
     const [profileBio, setProfileBio] = useState('');
 
     const user = props.user;
-    console.log('here is user obj from bio: ', user, user.user_id);
+    // console.log('here is user obj from bio: ', user, user.user_id);
 
     const post = props.post;
-    console.log('here is post obj from bio: ', post); 
+    // console.log('here is post obj from bio: ', post); 
 
 
 const bioData = async () => {
@@ -30,7 +30,7 @@ useEffect(() => {
 
 return (
 
-<div className="w-50 my-3 p-3 bg-white rounded box-shadow column bio">
+<div className="w-50 my-3 p-3 bg-white rounded box-shadow column">
   <h1 className="title-about pb-2 mb-0">About Me</h1>    
 
 <div className="media pt-3">

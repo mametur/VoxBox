@@ -7,14 +7,13 @@ import {Link} from 'react-router-dom';
 const Profile = (props) => {
 
     const user = props.user;
-    console.log('here is user obj from profile avatar: ', user, user.user_id);
+    // console.log('here is user obj from profile avatar: ', user, user.user_id);
 
     const post = props.post;
-    console.log('here is post obj from profile avatar: ', post); 
+    // console.log('here is post obj from profile avatar: ', post); 
 
 return (
     <div className="column">
-
       <div className="card-profile">
         <img  src= {require(`../../assets/${user.avatar}`)} style={{ width: "50%", borderRadius: '50%', marginTop:'-25%'}} />
         <h1 className="title-name">{user.firstName + ' ' + user.lastName}</h1>

@@ -147,7 +147,7 @@
 
 @media screen and (max-width: 600px) {
     .column {
-        max-width: 100% !important;
+        width: 100% !important;
         display: block !important;
     }
     .rowC {
