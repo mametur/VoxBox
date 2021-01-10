@@ -8,17 +8,15 @@ const Bio = (props) => {
     const [profileBio, setProfileBio] = useState('');
 
     const user = props.user;
-    // console.log('here is user obj from bio: ', user, user.user_id);
-
+   
     const post = props.post;
-    // console.log('here is post obj from bio: ', post); 
-
+    
 
 const bioData = async () => {
     try {
         const res = await axios.get("https://jsonplaceholder.typicode.com/todos");
         setProfileBio(res.data[0]);
-        console.log(res);
+        
     } catch (error) {
         console.log(error);
     }
