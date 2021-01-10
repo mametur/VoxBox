@@ -8,10 +8,10 @@ import { useSelector } from 'react-redux'
 const Profile = (props) => {
 
     const user = props.user;
-    console.log('here is user obj from profile avatar: ', user, user.user_id);
+    
 
     const post = props.post;
-    console.log('here is post obj from profile avatar: ', post); 
+    
 
     const currentUser_id = useSelector(state => state.user.user_id)
 

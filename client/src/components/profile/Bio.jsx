@@ -13,13 +13,14 @@ const Bio = (props) => {
 
     const post = props.post;
   
+    
 
 
 const bioData = async () => {
     try {
         const res = await axios.get("https://jsonplaceholder.typicode.com/todos");
         setProfileBio(res.data[0]);
-        console.log(res);
+        
     } catch (error) {
         console.log(error);
     }

@@ -12,10 +12,10 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-app.use((req, res, next) => {
-	console.log(req.method + ': ' + req.path);
-	next();
-});
+// app.use((req, res, next) => {
+// 	console.log(req.method + ': ' + req.path);
+// 	next();
+// });
 
 // app.use('/', express.static(__dirname + '/client/build/'))
 
@@ -24,7 +24,7 @@ app.use((req, res, next) => {
 // });
 app.use(express.static(path.join(__dirname, '/client/build')));
 
-app.get('/*', function (req, res) {
+app.get('/', function (req, res) {
 	res.sendFile(path.join(__dirname, '/client/build', 'index.html'));
 });
 
