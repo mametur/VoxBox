@@ -10,7 +10,9 @@ const Comment = ({ post, setCommentFlag }) => {
 
   const [comments, setComments] = useState([])
 
-  const submitComment = () => {
+  const submitComment = (e) => {
+
+    e.preventDefault();
     // post on b/e routes
 
     setCommentFlag(state => !state)
@@ -35,14 +37,20 @@ const Comment = ({ post, setCommentFlag }) => {
 
       <div className="card-comment">
 
-        <form className='form-comment'>
+        <form className='form-comment' onSubmit={submitComment}>
           <label style={{ color: '#FCA73D' }}>
             Leave a Reply?
         </label><br />
-          <input type="text" name="comment" onChange={(e) => {
-            setComment(e.target.value)
+          <textarea  rows="4" cols="50" type="text" name="comment" onChange={(e) => {
+            setComment(e.target.value)}
+          } onKeyDown={(event) => {
+            if(event.keyCode == 13 && !event.shiftKey) {
+              submitComment(event);
+            } else if (event.keyCode == 13 && event.shiftKey) {
+              return null
+            }
           }} />
-          <Button style={{ margin: 'auto', marginTop: '10px', color: 'white' }} onClick={submitComment}>Post A Comment</Button>
+          <Button type="submit" style={{ margin: 'auto', marginTop: '10px', color: 'white' }} >Post A Comment</Button>
         </form>
 
       </div>
