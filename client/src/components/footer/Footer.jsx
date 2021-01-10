@@ -36,7 +36,7 @@ function Footer() {
             <div className = "col-4 " style={{textAlign:'right', backgroundColor: '#397e6b'}}>
             <ul className='footer-list apart'>
             <li><img src = {logoVox} alt = "Voxbox logo" className='rounded'/></li>
-            <li style={{paddingRight:0, marginRight: '-0'}}><img src = {logo_HYF} alt = "HYF logo" /></li>
+            <li ><img src = {logo_HYF} alt = "HYF logo" /></li>
             </ul>
             </div>
 

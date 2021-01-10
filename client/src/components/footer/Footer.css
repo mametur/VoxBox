@@ -1,8 +1,11 @@
-
+html, body {
+  margin: 0;
+  padding: 0;
+}
 .footer-outer {
   height: 12vh;
   background-color: #397e6b;
-  width: 100vw;
+  width: vw;
 }
 
 .footer-outer a {
@@ -33,6 +36,7 @@
 
 .footer-outer {
   height: 19vh;
+  /* padding-right: 0; */
 }
 
 .footer-list {
