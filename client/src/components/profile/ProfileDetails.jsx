@@ -19,7 +19,7 @@ console.log(editModeOn)
 return (
   <div className ='rowC'>
     <Profile user={post.user} post={post} onpost={false} editModeToggle={handleEditMode}/>
-    <Bio user={post.user} post={post} editMode={editModeOn.status}/>
+    <Bio editMode={editModeOn.status} editModeToggle={handleEditMode}/>
   </div>
 );
 
