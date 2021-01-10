@@ -5,7 +5,6 @@ import { BsGeoAlt, BsCalendar } from 'react-icons/bs';
 const Help = (props) => {
     
     const post = props.post;
-    // console.log('this is from help: ', post);
 
     function convert(date){
       let datearray = date.split("T");

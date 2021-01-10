@@ -6,7 +6,11 @@ import './Profile.css';
 const ProfileDetails = (props) => {
 
   const post = props.location.state.post;
+<<<<<<< HEAD
   // console.log('here is post from ProfileDetails with state is: ', post); 
+=======
+  
+>>>>>>> front-end
 
 return (
   <div className ='rowC'>
