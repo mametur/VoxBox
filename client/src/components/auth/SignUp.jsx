@@ -36,9 +36,9 @@ const SignUp = () => {
       })
       .then(response => response.json())
       .then(data => {
-        console.log('response:', data);
+        
         if(data.status < 200 || data.status > 300){
-          console.log('errors', data.message)
+          
           setSignUpErrors(data.message)
         }else{
           setSignUpErrors(null)

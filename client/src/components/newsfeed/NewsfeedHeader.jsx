@@ -9,7 +9,7 @@ export const NewsfeedHeader = (props) => {
     const userLastName = useSelector(state => state.user.lastName)
     const userAvatar = useSelector(state => state.user.avatar)
 
-    console.log(userFirstName, userLastName, userAvatar);
+    
 
     return (
 
