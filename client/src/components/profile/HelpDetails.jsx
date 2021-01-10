@@ -7,14 +7,6 @@ import './Profile.css';
 const HelpDetails = (props) => {
 
   const post = props.location.state.post;
-<<<<<<< HEAD
-    // console.log('here is post from HelpDetails with state is: ', post); 
-=======
-    
->>>>>>> front-end
-
-   
- 
 
 return (
   <div className ='rowC'>
