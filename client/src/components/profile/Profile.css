@@ -141,3 +141,27 @@
     color: #333333;
     margin: 20px 0;
 }
+
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 600px) {
+    .column {
+        max-width: 100% !important;
+        display: block !important;
+    }
+    .rowC {
+        display: flex;
+        flex-direction: column;
+        margin-left: 8%;
+        margin-top: 20%;
+        padding: 10px;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+
+/* LANDSCAPE */
+
+@media (orientation: landscape) {}

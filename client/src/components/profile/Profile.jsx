@@ -13,7 +13,7 @@ const Profile = (props) => {
     console.log('here is post obj from profile avatar: ', post); 
 
 return (
-    <div>
+    <div className="column">
 
       <div className="card-profile">
         <img  src= {require(`../../assets/${user.avatar}`)} style={{ width: "50%", borderRadius: '50%', marginTop:'-25%'}} />

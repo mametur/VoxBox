@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import './Profile.css';
 import { Button } from 'react-bootstrap'
@@ -18,20 +18,8 @@ const submitComment = () => {
 
 };
 
-const commentData = async () => {
-        const res = await axios.post("https://jsonplaceholder.typicode.com/posts", {comment})
-        .then( res => {
-          console.log(res.data);
-          console.log(res);
-        });
-};
-
-useEffect(() => {
-    commentData();
-}, []);
-
 return (
-    <div>
+  <div className="column">
 
       <div className="card-comment">
       
