@@ -27,8 +27,6 @@ const HelpDetails = (props) => {
     fetchData();
   }, [commentFlag])
 
-  console.log(commentFlag)
-
   return (
     <div className='rowC'>
       <Profile user={post.user} post={post} />
