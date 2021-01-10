@@ -4,8 +4,10 @@ const sendEmail = require("../utils/sendEmail");
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
 const { JWT_SECRET } = require("../config.js");
-const { cryptPassword } = require("../utils/encryption");
 const bcrypt = require("bcrypt");
+const jwt_decode = require("jwt-decode");
+
+//const { verifyToken } = require("../utils/encryption");
 
 // outlook.com, hotmail.com, msn.com, live.com
 // those emails may not work with sendgrid
@@ -33,13 +35,13 @@ app.post("/forgot", async (req, res, next) => {
     if (!user) {
       return res.status(404).send({ error: "User not found" });
     }
-
-    const payload = { email };
+    const id = user.user_id;
+    const payload = { email, id };
     const token = jwt.sign(payload, JWT_SECRET, {
       expiresIn: "1h",
     });
-    const link = `${req.protocol}://localhost:3000/verify/${token}/?id=${user.user_id}`;
-    // for huroku please use ${req.headers.host}  instead of localhost:3000 ;
+    const link = `${req.protocol}://localhost:3000/verify/?token=${token}`;
+    // for heroku please use ${req.headers.host}  instead of localhost:3000 ;
 
     await sendEmail(
       email,
@@ -87,7 +89,7 @@ app.post("/forgot", async (req, res, next) => {
                                 </tr>
                                 <tr>
                                     <td style="padding:0 35px;">
-                                    <h1> Hello${user.firstName}
+                                    <h1> Hello ${user.firstName}
                                         <h2 style="color:#1e1e2d; font-weight:500; margin:0;font-size:32px;font-family:'Rubik',sans-serif;">You have
                                             requested to reset your password</h2>
                                         <span
@@ -128,32 +130,42 @@ app.post("/forgot", async (req, res, next) => {
       message: "Password reset link has been successfully sent to your inbox",
     });
   } catch (e) {
-    return next(new Error(e));
+    return res.status(400).send({
+      error: "VOX0001",
+      message: "Unable to send the e-mail",
+    });
   }
 });
-const user = {};
-app.get("/reset/:token/:id", (req, res) => {
-  const id = req.params;
-  console.log("id", id);
+
+app.get("/reset", async (req, res) => {
+  const token = req.query.token;
+  console.log("token", token);
+  const decoded = jwt_decode(token);
+
   User.findOne({
-    where: { user_id: id.id },
+    where: { user_id: decoded.id },
   })
     .then((data) => {
-      Object.assign(user, data);
-      console.log(data);
-      console.log("user test :", user);
-      res.status(200).send(data);
+      res.status(200).send({ status: 200, message: "the token is working" });
     })
     .catch((err) => {
       console.log(err);
-      res.sendStatus(400);
+      res.status(400).send({ status: 400, message: "Token can't be found!" });
     });
 });
 
 app.post("/update_password", (req, res) => {
-  const { password, id } = req.body;
-  User.findOne({ where: { user_id: id } }).then((user) => {
-    //console.log(user);
+  const { password, token } = req.body;
+  const decoded = jwt_decode(token);
+
+  if (Date.now() <= decoded.exp * 1000) {
+    console.log(true, "token is not expired");
+  } else {
+    res.status(400).send({ status: 400, message: "The token has expried!" });
+    return;
+  }
+
+  User.findOne({ where: { user_id: decoded.id } }).then((user) => {
     if (!user) {
       return res.status(404).send({ error: "User not found" });
     }

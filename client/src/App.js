@@ -5,7 +5,7 @@ import NavBar from "./components/navbar/navBar.jsx";
 import Footer from "./components/footer/Footer.jsx";
 import SignUp from "./components/auth/SignUp.jsx";
 import SignIn from "./components/auth/signin.jsx";
-import { Newsfeed } from './components/newsfeed/Newsfeed';
+import { Newsfeed } from "./components/newsfeed/Newsfeed";
 import ForgotPassword from "./components/auth/forgot.jsx";
 import VerifyEmail from "./components/auth/verifyEmail.jsx";
 
@@ -31,9 +31,9 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route path="/signup" component={SignUp} />
           <Route path="/signin" component={SignIn} />
-    	    <Route exact path="/newsfeed" component={Newsfeed} />
+          <Route exact path="/newsfeed" component={Newsfeed} />
           <Route path="/forgot" component={ForgotPassword} />
-          <Route path="/verify/:token" component={VerifyEmail} />
+          <Route path="/verify" component={VerifyEmail} />
           <Route path="/update_password" component={VerifyEmail} />
         </Switch>
 
@@ -42,7 +42,6 @@ function App() {
       </div>
     </BrowserRouter>
   );
-
 }
 
 export default App;

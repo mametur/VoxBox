@@ -1,16 +1,17 @@
 import React from 'react'
 import { useState, useEffect} from 'react'
-import { Form, Button, Container, Row, Col, Alert} from 'react-bootstrap'
+import { Form, Button, Container, Row, Col, Alert,Toast} from 'react-bootstrap'
+import { Redirect } from 'react-router-dom'
 
 
 //by clicking a link in the email , user is asked to reset their email and verify it
 
 const VerifyEmail =(props)=>{
-    
-const id = new URLSearchParams(props.location.search).get('id');
+  
+const token = props.location.search;
 
   const [state, setState] = useState({
-    id:id ,
+    token:token,
     password: '',
    confirmPassword:'',
   })
@@ -71,12 +72,14 @@ const id = new URLSearchParams(props.location.search).get('id');
        
       .then(data => {
        console.log(data);
-       alert(data.message);
+      
         if(!data){
             console.log('error:', data)
+            setPassworderrors(data.message)
             
         }else{
-           setPasswordcorrect(data.message)
+           alert(data.message);
+           setPasswordcorrect(true)
             
         }
     }).catch((error) => {
@@ -89,6 +92,7 @@ const id = new URLSearchParams(props.location.search).get('id');
   }
   useEffect(() => {
         console.log("state now:",state)
+        console.log ('token', token)
     }, [])
   const style = {
     boxShadow: '2px 2px 10px 2px #F2F2F2',
@@ -99,7 +103,7 @@ const id = new URLSearchParams(props.location.search).get('id');
     marginBottom: '6%',
     marginTop: '6%'
   }
- // if(verifyemail) return (<Redirect to="signin" />)
+  if(passwordcorrect) return (<Redirect to="/signin" />)
   return(
     <Container style={style} className="justify-content-center"> 
     <Row className="justify-content-center">
