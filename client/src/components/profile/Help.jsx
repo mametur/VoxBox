@@ -19,7 +19,7 @@ return (
       <p className='icon left'><BsGeoAlt/> {post.post_city}</p>
       <p className='icon right'><BsCalendar/> {convert(post.createdAt)}</p>
       <h1 className="title-help">{post.topic}</h1>
-      <p>{post.description}</p>
+      <p className="help-description">{post.description}</p>
       </div>
     </div>
   );

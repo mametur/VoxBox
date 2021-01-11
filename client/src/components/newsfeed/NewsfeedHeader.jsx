@@ -16,10 +16,10 @@ export const NewsfeedHeader = (props) => {
         <Row className="header">
             <div className="overlay">
                 <div className="header-div">
-                    <Col xs={12} sm={2} >
+                    <Col xs={12} sm={1} >
                         <Image src={require(`../../assets/${userAvatar}`)} roundedCircle />
                     </Col>
-                    <Col xs={12} sm={10}>
+                    <Col xs={12} sm={11}>
                         <p className="user-name">Welcome, {userFirstName} {userLastName}</p>
                     </Col>
                     <Col xs={12} sm={6}>
