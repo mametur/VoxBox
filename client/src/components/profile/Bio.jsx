@@ -9,12 +9,13 @@ import { Form, Button } from 'react-bootstrap'
 const Bio = (props) => {
 
   const currentUser_id = useSelector(state => state.user.user_id)
+  const user_id = props.user_id
 
   const [profileBio, setProfileBio] = useState({});
 
 const fetchBioData = async () => {
     try {
-        const res = await axios.get("/api/users/" + currentUser_id);
+        const res = await axios.get("/api/users/" + user_id);
         setProfileBio(res.data);
         
     } catch (error) {
