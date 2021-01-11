@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import axios from 'axios';
 import './Profile.css';
 import { BsChat,BsGeoAlt } from 'react-icons/bs';
 import { BiBulb,  BiRocket, BiWine} from "react-icons/bi";
 import { Form, Button } from 'react-bootstrap'
+import { checkProfile } from '../../store/actions/userActions'
 
 const Bio = (props) => {
 
@@ -12,6 +13,8 @@ const Bio = (props) => {
   const user_id = props.user_id
 
   const [profileBio, setProfileBio] = useState({});
+
+ const dispatch = useDispatch();
 
 const fetchBioData = async () => {
     try {
@@ -28,6 +31,7 @@ const updateBioData = async (event) => {
   try {
       await axios.put("/api/users/" + currentUser_id, profileBio);
       props.editModeToggle()
+      dispatch(checkProfile(user_id))
       
   } catch (error) {
       console.log(error);
