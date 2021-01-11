@@ -28,8 +28,7 @@ const Profile = (props) => {
       fetchUser();
     }, [user_id, props.editMode]);
 
-    console.log('profile comp', user)
-
+  
     const buttonStyle = {
       color: 'white'
     }
