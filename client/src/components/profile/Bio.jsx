@@ -13,6 +13,8 @@ import avatar3 from '../../assets/avatar_3.jpg'
 import avatar4 from '../../assets/avatar_4.jpg'
 import avatar5 from '../../assets/avatar_5.jpg'
 import avatar6 from '../../assets/avatar_6.jpg'
+import avatar7 from '../../assets/avatar_7.jpg'
+import avatar8 from '../../assets/avatar_8.jpg'
 
 const Bio = (props) => {
 
@@ -76,7 +78,7 @@ const buttonStyle = {
 }
 
 const imgStyle = {
-  width: '70px',
+  width: '65px',
   marginLeft: '15px',
   cursor: 'pointer'
 }
@@ -143,6 +145,8 @@ return (
       <Image id="avatar_4" style={imgStyle} src={avatar4} onClick={handleAvatarChooser} rounded className="logo"/>
       <Image id="avatar_5" style={imgStyle} src={avatar5} onClick={handleAvatarChooser} rounded className="logo"/>
       <Image id="avatar_6" style={imgStyle} src={avatar6} onClick={handleAvatarChooser} rounded className="logo"/>
+      <Image id="avatar_7" style={imgStyle} src={avatar7} onClick={handleAvatarChooser} rounded className="logo"/>
+      <Image id="avatar_8" style={imgStyle} src={avatar8} onClick={handleAvatarChooser} rounded className="logo"/>
     </div>
   </div> : null
   }
