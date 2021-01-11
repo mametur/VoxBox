@@ -71,18 +71,17 @@
 
 .card-help {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
-    /* max-width: 400px; */
+    min-width: 300px;
     margin: 10px;
     background: #F2F2F2;
     font-size: .8em;
     padding: 10px;
     border-radius: 2px;
-
 }
 
 .card-comment {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
-    /* max-width: 400px; */
+    min-width: 300px;
     margin: 10px;
     background: #F2F2F2;
     font-size: .8em;
@@ -94,6 +93,7 @@
     flex-direction: column;
     border-color: white;
     width: 60%;
+    padding: 10px;
 }
 
 .form-comment input {
@@ -114,6 +114,18 @@
     padding: 10px;
     align-items: center;
     justify-content: center;
+    /* min-height: 2 */
+}
+
+.rowMore {
+    display: flex;
+    flex-direction: row;
+    margin-left: 8%;
+    margin-top: 8%;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    /* min-height: 2 */
 }
 
 .colR {
@@ -145,7 +157,7 @@
 }
 
 
-/* MEDIA QUERIES */
+/* MEDIA QUERIES -SMALLER DEVICES*/
 
 @media screen and (max-width: 600px) {
     .column {
@@ -158,13 +170,27 @@
     .rowC {
         display: flex;
         flex-direction: column;
-        /* margin-left: 8%; */
-        margin-top: 20%;
-        padding: 10px;
+        margin-top: 500px;
+        margin-right: 10px;
         align-items: center;
         justify-content: center;
-    
+        padding-bottom: 300px;
+        min-height: calc(100vh-50px);
     }
+
+    .rowMore {
+        display: flex;
+        flex-direction: column;
+        margin-top: 300px;
+        margin-right: 10px;
+        align-items: center;
+        justify-content: center;
+        /* padding-bottom: calc(100vh-50px); */
+        padding-bottom: 500px;
+        min-height: calc(100vh-50px);
+    }
+
+
     .card-profile {
         margin: auto;
 
@@ -174,6 +200,50 @@
         max-width: 320px;
         margin: auto;
         min-width: 200px;
-
+    }
+    .card-comment  {
+        margin:auto;
+        min-width: 200px;
+    }
+    .card-help  {
+        margin:auto;
+        margin-bottom: 10px;
+        min-width: 200px;
     }
 }
+
+ /* LANDSCAPE */
+
+ @media (orientation: landscape) {
+   .rowC {
+        display: flex;
+        flex-direction: row;
+         margin-top: 250px;
+        padding-bottom: 100px;
+    }
+     .rowMore {
+        display: flex;
+        flex-direction: row;
+         margin-top: 250px;
+        padding-bottom: 200px;
+    }
+ }
+
+  @media (orientation: landscape) and (max-width: 600px){
+    .card-profile {
+        margin-top: -160px;
+    }
+    .card-help {
+        margin-top: -160px;
+    }
+ }
+
+/* MEDIA QUERIES - EXTRA LARGE DEVICES */
+
+@media screen and (min-width: 576px) {
+    .rowC , .rowMore{
+        height: 100%;
+    }
+}
+
+ 

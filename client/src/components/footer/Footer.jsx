@@ -17,7 +17,7 @@ function Footer() {
 
         return ( 
 
-            <div className = "footer-outer row p-2 text-center text-md-left" style={{backgroundColor: '#397e6b'}}>
+            <div className = "footer-outer row text-center text-md-left" style={{backgroundColor: '#397e6b'}}>
             
             <div className = "col-4 " style={{backgroundColor: '#397e6b'}}>
             <ul className='footer-list' style={{paddingTop:'20px'}}>

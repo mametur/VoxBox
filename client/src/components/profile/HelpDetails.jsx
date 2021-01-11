@@ -9,7 +9,7 @@ const HelpDetails = (props) => {
   const post = props.location.state.post;
 
 return (
-  <div className ='rowC'>
+  <div className ='rowMore'>
   <Profile user={post.user} post={post}/>
   <div className='help-comment'>
   <Help user={post.user} post={post} />

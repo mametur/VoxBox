@@ -3,7 +3,7 @@ html, body {
   padding: 0;
 }
 .footer-outer {
-  height: 12vh;
+  height: 50px;
   background-color: #397e6b;
   width: 100vw;
   margin-bottom: 0;
@@ -39,7 +39,17 @@ html, body {
 
 .footer-outer {
   height: 19vh;
-  /* padding-right: 0; */
+}
+
+.footer-list {
+  padding-left: 2px;
+}
+ }
+
+ @media (min-width: 600px) { 
+
+.footer-outer {
+  height: 19vh;
 }
 
 .footer-list {
