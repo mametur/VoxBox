@@ -3,7 +3,7 @@ const validator = require('validator');
 const sendEmail = require('../utils/sendEmail');
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
-const { JWT_SECRET, HOST_NAME } = require('../config.js');
+const { JWT_SECRET, HOST_NAME, Protocol } = require('../config.js');
 const bcrypt = require('bcrypt');
 const jwt_decode = require('jwt-decode');
 
@@ -40,7 +40,7 @@ app.post('/forgot', async (req, res, next) => {
 		const token = jwt.sign(payload, JWT_SECRET, {
 			expiresIn: '1h',
 		});
-		const link = `${req.protocol}://${HOST_NAME}/verify/?token=${token}`;
+		const link = `${Protocol}://${HOST_NAME}/verify/?token=${token}`;
 		// for heroku please use ${req.headers.host}  instead of localhost:3000 ;
 
 		await sendEmail(
