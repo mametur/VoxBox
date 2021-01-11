@@ -1,14 +1,17 @@
 import React from 'react'
 import { useState, useEffect} from 'react'
-import { Form, Button, Container, Row, Col, Alert,Toast} from 'react-bootstrap'
+import { Form, Button, Container, Row, Col, Alert} from 'react-bootstrap'
 import { Redirect } from 'react-router-dom'
+import SweetAlert from 'react-bootstrap-sweetalert';
+
+
 
 
 //by clicking a link in the email , user is asked to reset their email and verify it
 
 const VerifyEmail =(props)=>{
   
-const token = props.location.search;
+const token = new URLSearchParams(props.location.search).get('token');
 
   const [state, setState] = useState({
     token:token,
@@ -64,7 +67,6 @@ const token = props.location.search;
         method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-             body: JSON.stringify(data),
           },
           body: JSON.stringify(data),
       })
@@ -78,7 +80,7 @@ const token = props.location.search;
             setPassworderrors(data.message)
             
         }else{
-           alert(data.message);
+         //  alert(data.message);
            setPasswordcorrect(true)
             
         }
@@ -103,7 +105,9 @@ const token = props.location.search;
     marginBottom: '6%',
     marginTop: '6%'
   }
-  if(passwordcorrect) return (<Redirect to="/signin" />)
+  if(passwordcorrect) return (<SweetAlert success title="Your password has been saved!" onConfirm = {function(){
+    window.location.href = '/signin';
+}}/>)
   return(
     <Container style={style} className="justify-content-center"> 
     <Row className="justify-content-center">
