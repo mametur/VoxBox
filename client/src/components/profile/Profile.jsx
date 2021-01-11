@@ -12,9 +12,6 @@ const Profile = (props) => {
     const user_id = props.user_id
     const currentUser_id = useSelector(state => state.user.user_id)
 
-    const post = props.post;
-
-
     const [user, setUser] = useState({});
 
     const fetchUser = async () => {
@@ -52,7 +49,6 @@ return (
         <p>{user.email}</p>
         <p>{props.onpost ? <Link to ={{
                     pathname: `/profile/${user.user_id}`,
-                    state: {post: post}
                 }}>
         <Button style={buttonStyle}>{user.firstName}'s profile</Button></Link> : null}
 

@@ -7,6 +7,7 @@ import './Profile.css';
 const HelpDetails = (props) => {
 
   const post = props.location.state.post;
+  const user_id = post.user.user_id
     
 
    
@@ -14,7 +15,7 @@ const HelpDetails = (props) => {
 
 return (
   <div className ='rowC'>
-  <Profile user={post.user} post={post} onpost={true}/>
+  <Profile user_id={user_id} post={post} onpost={true}/>
   <div className='help-comment'>
   <Help user={post.user} post={post} />
   <Comment />

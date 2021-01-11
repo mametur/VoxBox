@@ -52,7 +52,3 @@ export const Box = ({post}) => {
             
     )
 }
-
-
-{/* <h2>asdasdas dasdasdasda sdasdasdas dasdasd</h2>
-<p className="card-desc">asdasd</p> */}
