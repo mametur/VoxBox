@@ -40,7 +40,7 @@ app.post('/forgot', async (req, res, next) => {
 		const token = jwt.sign(payload, JWT_SECRET, {
 			expiresIn: '1h',
 		});
-		const link = `https://test-voxbox.herokuapp.com/verify/?token=${token}`;
+		const link = `${req.prot}://${HOST_NAME}/verify/?token=${token}`;
 		// for heroku please use ${req.headers.host}  instead of localhost:3000 ;
 
 		await sendEmail(

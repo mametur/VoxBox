@@ -2,7 +2,6 @@ import React from 'react'
 import { useState } from 'react'
 import { Form, Button, Container, Row, Col, Alert} from 'react-bootstrap'
 
-
 // user askes to reset its password by entering their email
 
 const ForgotPassword =(props)=>{
@@ -12,7 +11,7 @@ const ForgotPassword =(props)=>{
    
   })
    const [emailErrors, setEmailerrors] = useState();
-
+    console.log('hello test 1');
    const [success,setSuccess]= useState();
 
    
