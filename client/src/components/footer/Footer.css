@@ -5,7 +5,8 @@ html, body {
 .footer-outer {
   height: 12vh;
   background-color: #397e6b;
-  width: vw;
+  width: 100vw;
+margin-bottom: 0;
 }
 
 .footer-outer a {

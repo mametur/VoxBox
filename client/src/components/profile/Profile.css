@@ -11,7 +11,7 @@
     background: #F2F2F2;
     font-size: .8em;
     text-align: center;
-    padding: 10px
+    padding: 10px;
 }
 
 .title-name {
@@ -76,6 +76,8 @@
     background: #F2F2F2;
     font-size: .8em;
     padding: 10px;
+    border-radius: 2px;
+
 }
 
 .card-comment {
@@ -149,6 +151,9 @@
     .column {
         width: 100% !important;
         display: block !important;
+        margin: auto;
+        min-width: 200px;
+
     }
     .rowC {
         display: flex;
@@ -158,8 +163,17 @@
         padding: 10px;
         align-items: center;
         justify-content: center;
+    
+    }
+    .card-profile {
+        margin: auto;
+
     }
     .help-comment {
         width: 100%;
+        max-width: 320px;
+        margin: auto;
+        min-width: 200px;
+
     }
 }
