@@ -6,7 +6,9 @@ html, body {
   height: 12vh;
   background-color: #397e6b;
   width: 100vw;
-margin-bottom: 0;
+  margin-bottom: 0;
+  margin-top: 7em;
+  margin-right: 2em;
 }
 
 .footer-outer a {
