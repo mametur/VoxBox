@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux'
 import axios from 'axios';
 import './Profile.css';
-import { BsChat } from 'react-icons/bs';
+import { BsChat,BsGeoAlt } from 'react-icons/bs';
 import { BiBulb,  BiRocket, BiWine} from "react-icons/bi";
 import { Form, Button } from 'react-bootstrap'
 
@@ -86,13 +86,23 @@ return (
   </div>
 
   <div className="media pt-3">
-  <p className='mr-2 rounded bio-icon'><BsChat/></p>
-  <div className='media-body pb-1 mb-0 small border-gray'>
-  <h2 className="d-flex justify-content-between align-items-center w-100 bio-h2">What language(s) do you speak, or wish to practice?</h2>
-  {props.editMode ?  <Form.Group><Form.Control type="text" id="language" onChange={handleChange} required/></Form.Group> :
-  <p className="d-block">{profileBio.language}</p>}
+    <p className='mr-2 rounded bio-icon'><BsChat/></p>
+    <div className='media-body pb-1 mb-0 small border-gray'>
+      <h2 className="d-flex justify-content-between align-items-center w-100 bio-h2">What language(s) do you speak, or wish to practice?</h2>
+       {props.editMode ?  <Form.Group><Form.Control type="text" id="language" onChange={handleChange} required/></Form.Group> :
+      <p className="d-block">{profileBio.language}</p>}
+    </div>
   </div>
-  </div>
+
+  {
+    props.editMode ?  <div className="media pt-3">
+    <p className='mr-2 rounded bio-icon'><BsGeoAlt/></p>
+    <div className='media-body pb-1 mb-0 small border-gray'>
+      <h2 className="d-flex justify-content-between align-items-center w-100 bio-h2">Which city do you live?</h2>
+       <Form.Group><Form.Control type="text" id="user_city" onChange={handleChange} required/></Form.Group>
+    </div>
+  </div> : null
+  }
   {props.editMode ? <Button style={buttonStyle} variant="primary" onClick={updateBioData} type="submit" >Submit</Button> : null}
  
 </div>

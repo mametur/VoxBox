@@ -26,7 +26,7 @@ const Profile = (props) => {
   
     useEffect(() => {
       fetchUser();
-    }, [user_id]);
+    }, [user_id, props.editMode]);
 
     console.log('profile comp', user)
 
@@ -42,7 +42,7 @@ return (
       user.avatar ?  <div className="card-profile">
         <img  src= {require(`../../assets/${user.avatar}`)} style={{ width: "50%", borderRadius: '50%', marginTop:'-25%'}} />
         <h1 className="title-name">{user.firstName + ' ' + user.lastName}</h1>
-        <p className="help">{user.firstName} is asking for Help!</p>
+        {/* <p className="help">{user.firstName} is asking for Help!</p> */}
         <p className='icon'><BsGeoAlt/> Location</p>
         <p>{user.user_city}</p>
         <p className='icon'><BsEnvelope/> Email Address</p>
