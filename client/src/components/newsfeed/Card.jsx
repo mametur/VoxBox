@@ -1,6 +1,8 @@
 import React from 'react'
-import { Card } from "react-bootstrap"
+import { Card, Button } from "react-bootstrap"
 import { Link } from 'react-router-dom';
+import { HiCheckCircle } from "react-icons/hi";
+import { useSelector } from 'react-redux';
 
 export const Box = ({post}) => {
 
@@ -17,7 +19,26 @@ export const Box = ({post}) => {
         return desc;
     }
 
-    
+    const userId = useSelector(state => state.user.user_id);
+
+    // const updatePublished = () => {
+    //     fetch(`/api/posts/${post.post_id}`, {
+    //         method: 'PUT',
+    //         headers: {
+    //           'Content-Type': 'application/json',
+    //         },
+    //         body: {
+    //             published: !post.published,
+    //         },
+    //     })
+    // }
+
+
+    const markRender = () => {
+        if (userId === post.user.user_id) {
+            return <Button className="mark" >Mark as Done <HiCheckCircle className="icon-done"/></Button>
+        }
+    }
 
     return (
         <Card className="card-div">
@@ -45,12 +66,9 @@ export const Box = ({post}) => {
                     state: {post: post}
                 }} className="see-more">see more</Link>
                 </Card.Text>
+                {markRender()}
             </Card.Body>
         </Card>
             
     )
 }
-
-
-{/* <h2>asdasdas dasdasdasda sdasdasdas dasdasd</h2>
-<p className="card-desc">asdasd</p> */}

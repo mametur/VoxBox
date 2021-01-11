@@ -43,7 +43,9 @@ export const Cards = (props) => {
                                             <span className="sr-only">Loading...</span>
                                         </div> :
                filteredData.map(
-                   post => <Box key={post.post_id} post={post} />
+                   post => {
+                       return post.published === true ? <Box key={post.post_id} post={post}/> : null ; 
+                   }
                )
         }
         </Container>
