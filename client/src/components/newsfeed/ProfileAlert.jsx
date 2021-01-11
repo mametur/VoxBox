@@ -3,7 +3,7 @@ import { Container, Alert, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
-export const ProfileAlert = () => {
+export const ProfileAlert = (props) => {
 
   const user_id = useSelector(state => state.user.user_id)
 
@@ -20,7 +20,8 @@ export const ProfileAlert = () => {
            Please complete your profile by clicking edit button on your profile page and let us know more about you before you post a help request!
            <br></br>
 
-           <Link to={`/profile/${user_id}`}><Button style={{marginTop: '20px'}}>Go to your profile</Button></Link>
+           <Link to={`/profile/${user_id}`}><Button style={{marginTop: '20px', display: 'inline-block', color: 'white'}}>Go to your profile</Button></Link>
+           <Button style={{backgroundColor: 'gray', color: 'white', display: 'inline-block', marginTop: '20px', marginLeft: '10px'}} onClick={props.formToggle} >Cancel</Button>
           </p>
       </Alert>
     </Container>

@@ -4,7 +4,7 @@ import { Navbar, Image, Container, Row, Col} from 'react-bootstrap'
 import { SignedOut } from './signedOut.jsx'
 import { SignedIn } from './signedIn.jsx'
 import { NavLink } from 'react-router-dom'
-import Logo from '../../assets/Logo_Long-removebg.png'
+import Logo from '../../assets/newlogo.png'
 
 const NavBar = () => {
 

@@ -16,10 +16,15 @@ export const SignedIn = () =>{
     dispatch(logOut())
   }
 
+  const style = {
+    marginLeft: '10px',
+    marginTop: '10px'
+  }
+
   return (
     <Nav >
-      <NavLink to={`/profile/${currentUser_id}`}><Button variant="outline-primary" className="navbar-button" block >My Profile</Button></NavLink>
-      <NavLink to="/"> <Button variant="outline-primary" className="logout-button" block onClick={logOutHanler}>Logout</Button></NavLink>
+      <NavLink style={style} to={`/profile/${currentUser_id}`}><Button  variant="outline-primary" className="navbar-button" block >My Profile</Button></NavLink>
+      <NavLink style={style} to="/"> <Button  variant="outline-primary" className="logout-button" block onClick={logOutHanler}>Logout</Button></NavLink>
     </Nav>
 
   )

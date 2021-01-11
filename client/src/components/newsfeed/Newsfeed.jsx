@@ -30,7 +30,7 @@ export const Newsfeed = () => {
     return (
         <div>
             <NewsfeedHeader formToggle={handlePostFormToggle}/>
-            {postFormState.status? isProfileComplete ? <CreatePost formToggle={handlePostFormToggle}/> : <ProfileAlert /> : null}
+            {postFormState.status? isProfileComplete ? <CreatePost formToggle={handlePostFormToggle}/> : <ProfileAlert formToggle={handlePostFormToggle}/> : null}
             <SearchBar searching={setSearchedValue}/>
             <Cards searchedValue={searchedValue} postFormState={postFormState}/>
         </div>
