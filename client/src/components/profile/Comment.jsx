@@ -4,15 +4,20 @@ import { Button } from 'react-bootstrap'
 import { useSelector } from "react-redux"
 
 const Comment = ({ post, setCommentFlag }) => {
+
   const [comment, setComment] = useState('');
+  const [comments, setComments] = useState([])
+  const [errorMessage, setErrorMessage] = useState('')
 
   const userId = useSelector(state => state.user.user_id)
-
-  const [comments, setComments] = useState([])
 
   const submitComment = (e) => {
 
     e.preventDefault();
+    console.log(comment)
+
+    if(comment !== '') {
+
     // post on b/e routes
 
     setCommentFlag(state => !state)
@@ -30,6 +35,11 @@ const Comment = ({ post, setCommentFlag }) => {
       .then(data => {
        const checkData =data
       });
+
+      setComment('')
+    } else {
+      setErrorMessage("Please fill out this field!")
+    }
   }
 
   return (
@@ -41,9 +51,10 @@ const Comment = ({ post, setCommentFlag }) => {
           <label style={{ color: '#FCA73D' }}>
             Leave a Reply?
         </label><br />
-          <textarea  rows="4" cols="50" type="text" name="comment" onChange={(e) => {
-            setComment(e.target.value)}
-          } onKeyDown={(event) => {
+          <textarea style={{fontSize:"16px"}} value={comment} rows="4" cols="50" type="text" name="comment" onChange={(e) => {
+            setComment(e.target.value)
+            setErrorMessage("")
+          }} onKeyDown={(event) => {
             if(event.keyCode == 13 && !event.shiftKey) {
               submitComment(event);
               event.target.value = '';
@@ -51,6 +62,7 @@ const Comment = ({ post, setCommentFlag }) => {
               return null
             }
           }} />
+          <p>{errorMessage}</p>
           <Button type="submit" style={{ margin: 'auto', marginTop: '10px', color: 'white' }} >Post A Comment</Button>
         </form>
 
