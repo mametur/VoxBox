@@ -9,7 +9,7 @@ const HelpDetails = (props) => {
 
   const post = props.location.state.post;
 
-  console.log('here is post from HelpDetails with state is: ', post);
+  
 
   const [commentFlag, setCommentFlag] = useState(false);
 
@@ -21,7 +21,7 @@ const HelpDetails = (props) => {
       .then(data => setCommentData(data.threads));
   }
 
-  console.log(commentData)
+  
 
   useEffect(() => {
     fetchData();

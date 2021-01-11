@@ -28,7 +28,7 @@ const Comment = ({ post, setCommentFlag }) => {
     })
       .then(response => response.json())
       .then(data => {
-        console.log(data);
+       const checkData =data
       });
   }
 
