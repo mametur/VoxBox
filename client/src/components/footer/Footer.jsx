@@ -27,7 +27,7 @@ function Footer() {
             </ul>
             </div> 
 
-            <div className = "col-4 " style={{backgroundColor: '#397e6b'}}>
+            <div className = "col-4 " style={{textAlign:'center',backgroundColor: '#397e6b'}}>
             <ul className='footer-list' style={{paddingTop:'20px'}}>
             <li> Copyright © 2020 </li>
             </ul>
