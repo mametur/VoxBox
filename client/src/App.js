@@ -36,7 +36,7 @@ function App() {
 					<Route exact path="/help/:id" component={HelpDetails} />
 					<Route exact path="/profile/:id" component={ProfileDetails} />
 					<Route exact path="/forgot" component={ForgotPassword} />
-					<Route exact path="/verify" component={VerifyEmail} />
+					<Route exact path="/verify/:token" component={VerifyEmail} />
 					<Route exact path="/update_password" component={VerifyEmail} />
 				</Switch>
 

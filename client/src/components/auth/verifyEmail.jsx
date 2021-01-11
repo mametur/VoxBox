@@ -12,7 +12,7 @@ import SweetAlert from 'react-bootstrap-sweetalert';
 const VerifyEmail =(props)=>{
   
 const token = new URLSearchParams(props.location.search).get('token');
-
+console.log(token);
   const [state, setState] = useState({
     token:token,
     password: '',
