@@ -36,7 +36,7 @@ const updateBioData = async (event) => {
 
 useEffect(() => {
   fetchBioData();
-}, [props.editMode]);
+}, [props.editMode, user_id]);
 
 const handleChange = (event)=>{
   setProfileBio({

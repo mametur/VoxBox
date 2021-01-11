@@ -26,7 +26,7 @@ const Profile = (props) => {
   
     useEffect(() => {
       fetchUser();
-    }, []);
+    }, [user_id]);
 
     console.log('profile comp', user)
 
