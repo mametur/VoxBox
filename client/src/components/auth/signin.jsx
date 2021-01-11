@@ -32,12 +32,13 @@ const SignIn = () => {
     dispatch(login(data))
    
   }
+  
   const style = {
     boxShadow: '2px 2px 10px 2px #F2F2F2',
     borderRadius: '10px', 
     padding: '25px', 
     maxWidth: '400px',
-    height: '300px',
+    height: '370px',
     marginBottom: '6%',
     marginTop: '6%'
   }
@@ -52,15 +53,18 @@ const SignIn = () => {
     <h2 className="text-primary row justify-content-center">Login</h2>
       <Form>
       <Form.Group><Form.Control type="email" placeholder="Email" id="email" onChange={handleChange} /></Form.Group>
-      <Form.Group><Form.Control type="password" placeholder="Password" id="password" onChange={handleChange} /></Form.Group>
+      <Form.Group><Form.Control type="password"  placeholder="Password" id="password" onChange={handleChange} /></Form.Group>
+     
       <Form.Group >
+        
 
       {(loginError)? <Alert variant="danger">{loginError}</Alert> : null}
 
-      <Button style={{marginTop: '80px'}} variant="primary" type="submit" block onClick={handleSubmit} >
+      <Button style={{marginTop: '50px'}} variant="primary" type="submit" block onClick={handleSubmit} >
             Login
         </Button>
       </Form.Group>
+      <Alert.Link href='/forgot' style={{display:'flex',justifyContent:"center"}}>forgot password?</Alert.Link>
     </Form>
     </Col>
     </Row>
