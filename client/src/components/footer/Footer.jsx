@@ -12,6 +12,7 @@ function Footer() {
     const [state, setState] = useState({
         email: "mailto:voxbox@gmail.com",
         repoUrl: "https://github.com/gelilaa/VoxBox",
+        hyfUrl: "https://hackyourfuture.be",
         homePage: 'https://voxbox.herokuapp.com'
      });
 
@@ -36,7 +37,7 @@ function Footer() {
             <div className = "col-4 " style={{textAlign:'right', backgroundColor: '#397e6b'}}>
             <ul className='footer-list apart'>
             <li><img src = {logoVox} alt = "Voxbox logo" className='rounded'/></li>
-            <li ><img src = {logo_HYF} alt = "HYF logo" /></li>
+            <li><a href = { state.hyfUrl } ><img src = {logo_HYF} alt = "HYF logo" /></a></li>
             </ul>
             </div>
 
