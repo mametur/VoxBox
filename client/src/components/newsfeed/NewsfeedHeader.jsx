@@ -17,7 +17,7 @@ export const NewsfeedHeader = (props) => {
             <div className="overlay">
                 <div className="header-div">
                     <Col xs={12} sm={2} >
-                        <Image src={require(`../../assets/${userAvatar}`)} roundedCircle />
+                        <Image src={require(`../../assets/${userAvatar}.jpg`)} roundedCircle />
                     </Col>
                     <Col xs={12} sm={10}>
                         <p className="user-name">Welcome, {userFirstName} {userLastName}</p>

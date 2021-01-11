@@ -34,6 +34,11 @@ const userReducer = (state = initialState, action) => {
         ...state,
         isProfileComplete: true
       }
+    case 'Avatar_Changed':
+      return{
+        ...state,
+        avatar: action.payload.avatar
+      }
     
     default:
       return state

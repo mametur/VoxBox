@@ -4,8 +4,15 @@ import axios from 'axios';
 import './Profile.css';
 import { BsChat,BsGeoAlt } from 'react-icons/bs';
 import { BiBulb,  BiRocket, BiWine} from "react-icons/bi";
-import { Form, Button } from 'react-bootstrap'
+import { MdFace } from 'react-icons/md'
+import { Form, Button, Image } from 'react-bootstrap'
 import { checkProfile } from '../../store/actions/userActions'
+import avatar1 from '../../assets/avatar_1.jpg'
+import avatar2 from '../../assets/avatar_2.jpg'
+import avatar3 from '../../assets/avatar_3.jpg'
+import avatar4 from '../../assets/avatar_4.jpg'
+import avatar5 from '../../assets/avatar_5.jpg'
+import avatar6 from '../../assets/avatar_6.jpg'
 
 const Bio = (props) => {
 
@@ -49,11 +56,29 @@ const handleChange = (event)=>{
   })
 }
 
+const handleAvatarChooser = (event) => {
+  setProfileBio({
+    ...profileBio,
+    avatar: event.target.id
+  })
+
+  dispatch({
+    type: 'Avatar_Changed',
+    payload: {avatar: event.target.id}
+  })
+}
+
 
 const buttonStyle = {
   marginTop: '20px',
   color: 'white',
   marginLeft: '10px'
+}
+
+const imgStyle = {
+  width: '70px',
+  marginLeft: '15px',
+  cursor: 'pointer'
 }
 
 return (
@@ -107,6 +132,21 @@ return (
     </div>
   </div> : null
   }
+  {
+    props.editMode ?  <div className="media pt-3">
+    <p className='mr-2 rounded bio-icon'><MdFace/></p>
+    <div className='media-body pb-1 mb-0 small border-gray'>
+      <h2 className="d-flex justify-content-between align-items-center w-100 bio-h2">chose your avatar</h2>
+      <Image id="avatar_1" style={imgStyle} src={avatar1} onClick={handleAvatarChooser} rounded className="logo"/>
+      <Image id="avatar_2" style={imgStyle} src={avatar2} onClick={handleAvatarChooser} rounded className="logo"/>
+      <Image id="avatar_3" style={imgStyle} src={avatar3} onClick={handleAvatarChooser} rounded className="logo"/>
+      <Image id="avatar_4" style={imgStyle} src={avatar4} onClick={handleAvatarChooser} rounded className="logo"/>
+      <Image id="avatar_5" style={imgStyle} src={avatar5} onClick={handleAvatarChooser} rounded className="logo"/>
+      <Image id="avatar_6" style={imgStyle} src={avatar6} onClick={handleAvatarChooser} rounded className="logo"/>
+    </div>
+  </div> : null
+  }
+
   {props.editMode ? <Button style={buttonStyle} variant="primary" onClick={updateBioData} type="submit" >Submit</Button> : null}
  
 </div>

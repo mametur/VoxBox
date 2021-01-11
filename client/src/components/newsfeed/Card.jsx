@@ -29,7 +29,7 @@ export const Box = ({post}) => {
                         pathname: `/profile/${post.user.user_id}`,
                         state: {post:post}
                     }}><Card.Img className="card-img" variant="top" src=
-                    {require(`../../assets/${post.user.avatar}`)} rounded/>  </Link>
+                    {require(`../../assets/${post.user.avatar}.jpg`)} rounded/>  </Link>
                     <Card.Text className="card-name">{post.user.firstName} {post.user.lastName}</Card.Text>
                 </Card.Body>
                 <Card.Body className="card-up-right">

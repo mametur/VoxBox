@@ -39,7 +39,7 @@ return (
 
     {
       user.avatar ?  <div className="card-profile">
-        <img  src= {require(`../../assets/${user.avatar}`)} style={{ width: "50%", borderRadius: '50%', marginTop:'-25%'}} />
+        <img  src= {require(`../../assets/${user.avatar}.jpg`)} style={{ width: "50%", borderRadius: '50%', marginTop:'-25%'}} />
         <h1 className="title-name">{user.firstName + ' ' + user.lastName}</h1>
         {/* <p className="help">{user.firstName} is asking for Help!</p> */}
         <p className='icon'><BsGeoAlt/> Location</p>
