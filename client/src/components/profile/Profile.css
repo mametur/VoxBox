@@ -87,7 +87,7 @@
 	margin: 10px;
 	background: #f2f2f2;
 	font-size: 0.8em;
-	padding: 30px;
+	padding: 20px;
 	word-break: break-word;
 }
 
@@ -105,6 +105,23 @@
 	flex-direction: column;
 	border-color: white;
 	width: 60%;
+}
+
+/* mark as done button */
+
+.mark {
+    font-weight: 600;
+	font-size: 14px;
+    line-height: 27px;
+    color: #FFFFFF;
+    background: #FCA73D;
+	border-radius: 100px;
+	
+}
+
+.icon-done {
+    font-size: 18px;
+    margin-left: 5px;
 }
 
 .form-comment textarea {
@@ -195,4 +212,14 @@
 	font-size: 16px;
 	line-height: 30px;
 	color: #333333;
+}
+
+.error-message {
+	font-family: Open Sans;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 19px;
+	color: #CC0A0A;
+	margin-top: 8px;
 }

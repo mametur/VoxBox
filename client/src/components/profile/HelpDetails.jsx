@@ -9,8 +9,6 @@ const HelpDetails = (props) => {
 
   const post = props.location.state.post;
 
-  
-
   const [commentFlag, setCommentFlag] = useState(false);
 
   const [commentData, setCommentData] = useState([]);
@@ -19,10 +17,7 @@ const HelpDetails = (props) => {
     fetch(`/api/posts/${post.post_id}`)
       .then(res => res.json())
       .then(data => setCommentData(data.threads.reverse()));
-  }
-
-  console.log(commentData)
-  
+  }  
 
   useEffect(() => {
     fetchData();

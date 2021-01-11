@@ -9,13 +9,15 @@ const Help = (props) => {
 
   const post = props.post;
 
-  // const userId = useSelector(state => state.user.user_id);
+  const userId = useSelector(state => state.user.user_id);
 
-  // const markRender = () => {
-  //   if (userId === post.user.user_id) {
-  //       return <Button className="mark">Mark as Done <HiCheckCircle className="icon-done"/></Button>
-  //   }
-  // }
+  console.log(post.user.user_id, userId)
+
+  const markRender = () => {
+    if (userId === post.user.user_id) {
+        return <Button className="mark">Mark as Done <HiCheckCircle className="icon-done"/></Button>
+    }
+  }
 
   function convert(date) {
     let datearray = date.split("T");
@@ -31,7 +33,7 @@ const Help = (props) => {
         <p className='icon right'><BsCalendar /> {convert(post.createdAt)}</p>
         <h1 className="title-help">{post.topic}</h1>
         <p className="help-description">{post.description}</p>
-        {/* {markRender} */}
+        {markRender()}
       </div>
     </div>
   );

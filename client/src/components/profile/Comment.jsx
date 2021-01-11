@@ -48,7 +48,7 @@ const Comment = ({ post, setCommentFlag }) => {
       <div className="card-comment">
 
         <form className='form-comment' onSubmit={submitComment}>
-          <label style={{ color: '#FCA73D' }}>
+          <label style={{ color: '#FCA73D', fontSize:"16px" }}>
             Leave a Reply?
         </label><br />
           <textarea style={{fontSize:"16px"}} value={comment} rows="4" cols="50" type="text" name="comment" onChange={(e) => {
@@ -62,8 +62,8 @@ const Comment = ({ post, setCommentFlag }) => {
               return null
             }
           }} />
-          <p>{errorMessage}</p>
-          <Button type="submit" style={{ margin: 'auto', marginTop: '10px', color: 'white' }} >Post A Comment</Button>
+          <p className="error-message">{errorMessage}</p>
+          <Button type="submit" style={{ margin: 'auto', marginTop: '5px', color: 'white' }} >Post A Comment</Button>
         </form>
 
       </div>
