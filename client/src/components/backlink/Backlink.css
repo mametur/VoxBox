@@ -1,5 +1,5 @@
 .backlink {
-  position: fixed;
+  position: absolute;
   top: 20px;
   padding-top:100px;
   font-size: 0.7em;
