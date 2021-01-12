@@ -1,8 +1,8 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const cookieParser = require("cookie-parser");
-const path = require("path");
-const sequelize = require("./db/db.js");
+const express = require('express');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const path = require('path');
+const sequelize = require('./db/db.js');
 
 const app = express();
 
@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, 'public')));
 sequelize
   .sync()
   .then(() =>
@@ -25,6 +25,6 @@ app.use('/', require('./routes/users.js'));
 app.use('/', require('./routes/comments.js'));
 app.use('/', require('./routes/userProfile.js'));
 app.use("/", require("./routes/forgot.js"));
-
+app.use('/', require('./routes/logout.js'));
 
 module.exports = app;
