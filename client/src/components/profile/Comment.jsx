@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import './Profile.css';
 import { Button } from 'react-bootstrap'
 import { useSelector } from "react-redux"
+import { useDispatch } from 'react-redux'
+import { logOut } from '../../store/actions/loginActions'
+import { useHistory } from 'react-router-dom'
 
 const Comment = ({ post, setCommentFlag }) => {
   const [comment, setComment] = useState('');
@@ -9,6 +12,10 @@ const Comment = ({ post, setCommentFlag }) => {
   const userId = useSelector(state => state.user.user_id)
 
   const [comments, setComments] = useState([])
+
+
+  const dispatch = useDispatch()
+  const history = useHistory()
 
   const submitComment = (e) => {
 
@@ -28,7 +35,12 @@ const Comment = ({ post, setCommentFlag }) => {
     })
       .then(response => response.json())
       .then(data => {
-       const checkData =data
+        if(data.auth === false){ 
+          history.push('/session_expired')
+          dispatch(logOut())
+           return
+          }else{ const checkData =data}
+      
       });
   }
 

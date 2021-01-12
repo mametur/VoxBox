@@ -4,23 +4,31 @@ import { Button } from 'react-bootstrap';
 import { BsEnvelope, BsGeoAlt } from 'react-icons/bs';
 import {Link} from 'react-router-dom';
 import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import axios from 'axios';
+import { useHistory } from 'react-router-dom'
+import { logOut } from '../../store/actions/loginActions'
 
 const Profile = (props) => {
 
     const user_id = props.user_id
     const currentUser_id = useSelector(state => state.user.user_id)
 
+    const history = useHistory()
+    const dispatch = useDispatch()
+
     const [user, setUser] = useState({});
 
     const fetchUser = async () => {
         try {
             const res = await axios.get("/api/users/" + user_id);
+            console.log('data', res.data)
             setUser(res.data);
-            
+     
         } catch (error) {
-            console.log(error);
+            console.log('error', error);
+            history.push('/session_expired')
+            dispatch(logOut())
         }
     };
   
