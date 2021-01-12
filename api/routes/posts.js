@@ -137,4 +137,29 @@ app.delete('/posts/:id', authenticated, (req, res) => {
 		});
 });
 
+//Updating the post status in the database when it solved
+// check by post id and update solved status true or false
+
+app.put('/post/solved/:id', authenticated, (req, res) => {
+	const postId = req.params.id;
+	const solved = req.body.solved;
+	console.log(solved);
+
+	const where = { where: { post_id: postId } };
+
+	Post.update({ solved: solved }, where)
+		.then((data) => {
+			res.status(200).send({
+				status: 200,
+				message: 'Your post status has been changed',
+			});
+		})
+		.catch((err) => {
+			res.status(501).send({
+				status: 501,
+				message: err.message,
+			});
+		});
+});
+
 module.exports = app;
