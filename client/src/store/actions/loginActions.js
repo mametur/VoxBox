@@ -1,4 +1,4 @@
-import store from '../store';
+
 
 export const login = (credentials) => {
 	return function loginThunk(dispatch, getState) {
@@ -42,6 +42,7 @@ export const login = (credentials) => {
 
 export const logOut = () => {
 	return function logOutThunk(dispatch, getState) {
+		
 		fetch('/api/user/logout').then(response =>{
 			return response.json()
 		}
