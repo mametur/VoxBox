@@ -61,6 +61,13 @@ const CreatePost = (props) => {
     marginLeft: '10px'
   }
 
+  const cancelButtonStyle = {
+    marginTop: '20px',
+    color: 'white',
+    marginLeft: '10px',
+    backgroundColor: 'gray', 
+  }
+
   const titleStyle = {
     marginTop: '20px',
     marginBottom: '20px'
@@ -79,7 +86,7 @@ const CreatePost = (props) => {
           
           <Form.Group >
             <Button style={buttonStyle} variant="primary" type="submit" onClick={handleSubmit}>Post Help</Button>
-            <Button style={buttonStyle} variant="primary" type="submit" onClick={props.formToggle}>Cancel</Button>
+            <Button style={cancelButtonStyle} variant="primary" type="submit" onClick={props.formToggle}>Cancel</Button>
           </Form.Group>
         </Form>
       </Col>

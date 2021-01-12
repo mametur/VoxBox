@@ -11,19 +11,20 @@ const { JWT_SECRET } = require('../config.js');
  */
 
 const withAuth = function (req, res, next) {
-
 	const token = req.cookies.token || req.headers['x-access-token'];
 
 	if (!token) {
 		return res.status(401).send({
-			message: 'Unauthorized: No token provided',
+			status: 401,
+			message: 'Unauthorized user',
 			auth: false,
 		});
 	} else {
 		jwt.verify(token, JWT_SECRET, function (err, decoded) {
 			if (err) {
 				return res.status(401).send({
-					message: 'Unauthorized: Invalid token ' + err,
+					status: 401,
+					message: 'Unauthorized user',
 					auth: false,
 				});
 			} else {

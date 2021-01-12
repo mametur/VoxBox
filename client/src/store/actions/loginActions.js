@@ -42,9 +42,16 @@ export const login = (credentials) => {
 
 export const logOut = () => {
 	return function logOutThunk(dispatch, getState) {
-		localStorage.clear();
-		dispatch({ type: 'Logged_Out' });
-		dispatch({ type: 'User_LoogedOut' });
+		fetch('/api/user/logout').then(response =>{
+			return response.json()
+		}
+
+		).then(data=>{
+			localStorage.clear();
+			dispatch({ type: 'Logged_Out' });
+			dispatch({ type: 'User_LoogedOut' });
+		})
+		
 	};
 };
 

@@ -1,11 +1,11 @@
-const express = require("express");
-const validator = require("validator");
-const sendEmail = require("../utils/sendEmail");
-const User = require("../models/User");
-const jwt = require("jsonwebtoken");
-const { JWT_SECRET } = require("../config.js");
-const bcrypt = require("bcrypt");
-const jwt_decode = require("jwt-decode");
+const express = require('express');
+const validator = require('validator');
+const sendEmail = require('../utils/sendEmail');
+const User = require('../models/User');
+const jwt = require('jsonwebtoken');
+const { JWT_SECRET, HOST_NAME } = require('../config.js');
+const bcrypt = require('bcrypt');
+const jwt_decode = require('jwt-decode');
 
 //const { verifyToken } = require("../utils/encryption");
 
@@ -21,33 +21,33 @@ const jwt_decode = require("jwt-decode");
 
 const app = express();
 
-app.post("/forgot", async (req, res, next) => {
-  try {
-    const { email } = req.body;
-    console.log(email);
-    const user = await User.findOne({ where: { email } });
-    if (!email) {
-      return res.status(400).send({ error: "Email is required" });
-    }
-    if (!validator.isEmail(email)) {
-      return res.status(400).send({ error: "Invalid email" });
-    }
-    if (!user) {
-      return res.status(404).send({ error: "User not found" });
-    }
-    const id = user.user_id;
-    const payload = { email, id };
-    const token = jwt.sign(payload, JWT_SECRET, {
-      expiresIn: "1h",
-    });
-    const link = `${req.protocol}://localhost:3000/verify/?token=${token}`;
-    // for heroku please use ${req.headers.host}  instead of localhost:3000 ;
+app.post('/forgot', async (req, res, next) => {
+	try {
+		const { email } = req.body;
+		console.log(email);
+		const user = await User.findOne({ where: { email } });
+		if (!email) {
+			return res.status(400).send({ error: 'Email is required' });
+		}
+		if (!validator.isEmail(email)) {
+			return res.status(400).send({ error: 'Invalid email' });
+		}
+		if (!user) {
+			return res.status(404).send({ error: 'User not found' });
+		}
+		const id = user.user_id;
+		const payload = { email, id };
+		const token = jwt.sign(payload, JWT_SECRET, {
+			expiresIn: '1h',
+		});
+		const link = `${req.protocol}://${HOST_NAME}/verify/?token=${token}`;
+		// for heroku please use ${req.headers.host}  instead of localhost:3000 ;
 
-    await sendEmail(
-      email,
-      "info.voxbox@gmail.com",
-      "Reset Password",
-      `  
+		await sendEmail(
+			email,
+			'info.voxbox@gmail.com',
+			'Reset Password',
+			`  
 <!doctype html>
 <html lang="en-US">
 
@@ -125,61 +125,61 @@ app.post("/forgot", async (req, res, next) => {
 
 </html>   
         `
-    );
-    return res.status(200).send({
-      message: "Password reset link has been successfully sent to your inbox",
-    });
-  } catch (e) {
-    return res.status(400).send({
-      error: "VOX0001",
-      message: "Unable to send the e-mail",
-    });
-  }
+		);
+		return res.status(200).send({
+			message: 'Password reset link has been successfully sent to your inbox',
+		});
+	} catch (e) {
+		return res.status(400).send({
+			error: 'VOX0001',
+			message: 'Unable to send the e-mail',
+		});
+	}
 });
 
-app.get("/reset", async (req, res) => {
-  const token = req.query.token;
-  console.log("token", token);
-  const decoded = jwt_decode(token);
-
-  User.findOne({
-    where: { user_id: decoded.id },
-  })
-    .then((data) => {
-      res.status(200).send({ status: 200, message: "the token is working" });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(400).send({ status: 400, message: "Token can't be found!" });
-    });
+app.get('/reset', async (req, res) => {
+	const token = req.query.token;
+	//console.log("token", token);
+	const decoded = jwt.verify(token, JWT_SECRET);
+	// console.log(decoded);
+	User.findOne({
+		where: { user_id: decoded.id },
+	})
+		.then((data) => {
+			res.status(200).send({ status: 200, message: 'the token is working' });
+		})
+		.catch((err) => {
+			console.log(err);
+			res.status(400).send({ status: 400, message: "Token can't be found!" });
+		});
 });
 
-app.post("/update_password", (req, res) => {
-  const { password, token } = req.body;
-  const decoded = jwt_decode(token);
-
-  if (Date.now() <= decoded.exp * 1000) {
-    console.log(true, "token is not expired");
-  } else {
-    res.status(400).send({ status: 400, message: "The token has expried!" });
-    return;
-  }
-
-  User.findOne({ where: { user_id: decoded.id } }).then((user) => {
-    if (!user) {
-      return res.status(404).send({ error: "User not found" });
-    }
-    bcrypt
-      .hash(password, 12)
-      .then((hash) => {
-        user.password = hash;
-        user.save().then((saveduser) => {
-          res.send({ message: "password updated success!" });
-        });
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  });
+app.post('/update_password', (req, res) => {
+	const { password, token } = req.body;
+	console.log('token', token);
+	const decoded = jwt.verify(token, JWT_SECRET);
+	console.log(decoded);
+	if (Date.now() <= decoded.exp * 1000) {
+		console.log(true, 'token is not expired');
+	} else {
+		res.status(400).send({ status: 400, message: 'The token has expried!' });
+		return;
+	}
+	User.findOne({ where: { user_id: decoded.id } }).then((user) => {
+		if (!user) {
+			return res.status(404).send({ error: 'User not found' });
+		}
+		bcrypt
+			.hash(password, 12)
+			.then((hash) => {
+				user.password = hash;
+				user.save().then((saveduser) => {
+					res.send({ message: 'password updated success!' });
+				});
+			})
+			.catch((e) => {
+				console.log(e);
+			});
+	});
 });
 module.exports = app;

@@ -43,7 +43,7 @@ const Comment = ({ post, setCommentFlag }) => {
   }
 
   return (
-    <div> 
+    <div className="column"> 
 
       <div className="card-comment">
 

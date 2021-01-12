@@ -9,9 +9,10 @@ import { Newsfeed } from './components/newsfeed/Newsfeed';
 import './App.scss';
 import './index.css';
 
-import { checkAuthState } from './store/actions/loginActions';
-import { checkUserState } from './store/actions/userActions';
-import { useDispatch } from 'react-redux';
+
+import { checkAuthState } from './store/actions/loginActions'
+import { checkUserState, checkProfile } from './store/actions/userActions'
+import { useDispatch, useSelector } from 'react-redux'
 import HelpDetails from './components/profile/HelpDetails.jsx';
 import ProfileDetails from './components/profile/ProfileDetails.jsx';
 
@@ -19,9 +20,12 @@ import ForgotPassword from './components/auth/forgot.jsx';
 import VerifyEmail from './components/auth/verifyEmail.jsx';
 
 function App() {
-	const dispatch = useDispatch();
-	dispatch(checkAuthState());
-	dispatch(checkUserState());
+	const user_id = useSelector(state => state.user.user_id)
+	const dispatch = useDispatch()
+		dispatch(checkAuthState())
+		dispatch(checkUserState());
+		dispatch(checkProfile(user_id))
+		
 
 	return (
 		<BrowserRouter>

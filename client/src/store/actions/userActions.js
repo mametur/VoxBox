@@ -1,4 +1,4 @@
-import store from '../store'
+import axios from 'axios'
 
 export const checkUserState = () => {
   return function checkAuthStateThunk(dispatch, getState){
@@ -17,6 +17,20 @@ export const checkUserState = () => {
   }
 }
 
+export const checkProfile = (user_id) => {
+  return async function checProfileThunk(dispatch, getState){
+
+    try{
+      const res = await axios.get('/api/user/complete/profile/'+user_id)
+      if(res.data.status === 200)dispatch({type: 'Profile_Complete'})
+      console.log('response', res)
+    }catch(error) {
+      console.log('error', error)
+    }
+    
+  
+}
+}
 
 
 

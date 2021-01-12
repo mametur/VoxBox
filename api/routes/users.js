@@ -54,6 +54,8 @@ app.put("/users/:id", authenticated, (req, res) => {
     language: req.body.language,
     user_city: req.body.user_city,
     avatar: req.body.avatar,
+    hobbies: req.body.hobbies,
+    reason: req.body.reason
   };
   const where = { where: { user_id: user.id } };
 
