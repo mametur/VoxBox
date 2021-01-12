@@ -43,7 +43,7 @@ const SignIn = () => {
     marginTop: '6%'
   }
 
-  if(userLoggedIn) return (<Redirect to="/newsfeed" />)
+  if(userLoggedIn) return (<Redirect push to="/newsfeed" />)
   
   
   return (

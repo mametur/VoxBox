@@ -11,16 +11,12 @@ const api = require('./api/server');
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
+// add middlewares
+app.use(express.static(path.join(__dirname, 'client', 'build')));
+app.use(express.static('client/build'));
 
 app.use((req, res, next) => {
-	console.log(req.method + ': ' + req.path);
-	next();
-});
-
-app.use('/', express.static(__dirname + '/client/build/'));
-
-app.get('*', (req, res) => {
-	res.sendFile(__dirname + '/client/build/index.html');
+	res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 });
 app.use('/api', api);
 
