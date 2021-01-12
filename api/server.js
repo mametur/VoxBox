@@ -12,11 +12,9 @@ app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'public')));
 sequelize
-  .sync()
-  .then(() =>
-    console.log("tables has been successfully created, if one doesn't exist")
-  )
-  .catch((error) => console.log("This error occurred", error));
+	.sync()
+	.then(() => console.log("tables has been successfully created, if one doesn't exist"))
+	.catch((error) => console.log('This error occurred', error));
 
 app.use('/', require('./routes/signup.js'));
 app.use('/', require('./routes/posts.js'));
@@ -24,7 +22,7 @@ app.use('/', require('./routes/signin.js'));
 app.use('/', require('./routes/users.js'));
 app.use('/', require('./routes/comments.js'));
 app.use('/', require('./routes/userProfile.js'));
-app.use("/", require("./routes/forgot.js"));
+app.use('/', require('./routes/forgot.js'));
 app.use('/', require('./routes/logout.js'));
 
 module.exports = app;
