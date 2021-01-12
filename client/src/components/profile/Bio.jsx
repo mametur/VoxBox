@@ -88,6 +88,13 @@ const buttonStyle = {
   marginLeft: '10px'
 }
 
+const cancelButtonStyle = {
+  marginTop: '20px',
+  color: 'white',
+  marginLeft: '10px',
+  backgroundColor: 'gray'
+}
+
 const imgStyle = {
   width: '65px',
   marginLeft: '15px',
@@ -103,7 +110,7 @@ return (
   <p className='mr-2 rounded bio-icon'><BiWine/></p>     
   <div className='media-body pb-1 mb-0 small border-gray'>
   <h2 className="d-flex justify-content-between align-items-center lh-125 w-100 bio-h2">Get to know me</h2>
-  {props.editMode ?  <Form.Group><Form.Control type="text"  id="introduction" onChange={handleChange} required/></Form.Group> :
+  {props.editMode ?  <Form.Group><Form.Control type="text"  id="introduction" onChange={handleChange} value={profileBio.introduction} required/></Form.Group> :
   <p className="d-block">{profileBio.introduction}</p>}
   
   </div>
@@ -113,7 +120,7 @@ return (
   <p className='mr-2 rounded bio-icon'><BiBulb/></p>
   <div className='media-body pb-1 mb-0 small border-gray'>
   <h2 className="d-flex justify-content-between align-items-center w-100 bio-h2">Why are you joining VoxBox?</h2>
-  {props.editMode ?  <Form.Group><Form.Control type="text" id="reason" onChange={handleChange} required/></Form.Group> :
+  {props.editMode ?  <Form.Group><Form.Control type="text" id="reason" onChange={handleChange} value={profileBio.reason} required/></Form.Group> :
   <p className="d-block">{profileBio.reason}</p>}
   </div>
   </div>
@@ -122,7 +129,7 @@ return (
   <p className='mr-2 rounded bio-icon'><BiRocket/></p>
   <div className='media-body pb-1 mb-0 small border-gray'>
   <h2 className="d-flex justify-content-between align-items-center w-100 bio-h2">Hobbies or skills that you want to do or use in VoxBox?</h2>
-  {props.editMode ?  <Form.Group><Form.Control type="text"  id="hobbies" onChange={handleChange} required/></Form.Group> :
+  {props.editMode ?  <Form.Group><Form.Control type="text"  id="hobbies" onChange={handleChange} value={profileBio.hobbies} required/></Form.Group> :
   <p className="d-block">{profileBio.hobbies}</p>}
   </div>
   </div>
@@ -131,7 +138,7 @@ return (
     <p className='mr-2 rounded bio-icon'><BsChat/></p>
     <div className='media-body pb-1 mb-0 small border-gray'>
       <h2 className="d-flex justify-content-between align-items-center w-100 bio-h2">What language(s) do you speak, or wish to practice?</h2>
-       {props.editMode ?  <Form.Group><Form.Control type="text" id="language" onChange={handleChange} required/></Form.Group> :
+       {props.editMode ?  <Form.Group><Form.Control type="text" id="language" onChange={handleChange} value={profileBio.language} required/></Form.Group> :
       <p className="d-block">{profileBio.language}</p>}
     </div>
   </div>
@@ -141,7 +148,7 @@ return (
     <p className='mr-2 rounded bio-icon'><BsGeoAlt/></p>
     <div className='media-body pb-1 mb-0 small border-gray'>
       <h2 className="d-flex justify-content-between align-items-center w-100 bio-h2">Which city do you live?</h2>
-       <Form.Group><Form.Control type="text" id="user_city" onChange={handleChange} required/></Form.Group>
+       <Form.Group><Form.Control type="text" id="user_city" onChange={handleChange} value={profileBio.user_city} required/></Form.Group>
     </div>
   </div> : null
   }
@@ -162,7 +169,8 @@ return (
   </div> : null
   }
 
-  {props.editMode ? <Button style={buttonStyle} variant="primary" onClick={updateBioData} type="submit" >Submit</Button> : null}
+  {props.editMode ? <Button style={buttonStyle} variant="primary" onClick={updateBioData} type="submit" >Submit</Button>  : null}
+  {props.editMode ? <Button style={cancelButtonStyle} onClick={props.editModeToggle} type="submit" >Cancel</Button>  : null}
  
 </div>
   );
