@@ -23,7 +23,7 @@ const Bio = (props) => {
 
   const [profileBio, setProfileBio] = useState({});
 
- const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
 const fetchBioData = async () => {
     try {
@@ -59,6 +59,17 @@ const handleChange = (event)=>{
 }
 
 const handleAvatarChooser = (event) => {
+ 
+  let classes = 'avatar';
+  let els = document.getElementsByClassName('avatar selected');
+  if(els){
+      while (els[0]) {
+          els[0].classList.remove('selected')
+      }
+  }
+  event.target.className = classes.replace('avatar','avatar selected');
+
+ 
   setProfileBio({
     ...profileBio,
     avatar: event.target.id
@@ -85,7 +96,7 @@ const imgStyle = {
 
 return (
 
-<div className="w-50 my-3 p-3 bg-white rounded box-shadow">
+<div className="w-50 my-3 p-3 bg-white rounded box-shadow bio">
   <h1 className="title-about pb-2 mb-0">About Me</h1>    
 
 <div className="media pt-3">
@@ -139,14 +150,14 @@ return (
     <p className='mr-2 rounded bio-icon'><MdFace/></p>
     <div className='media-body pb-1 mb-0 small border-gray'>
       <h2 className="d-flex justify-content-between align-items-center w-100 bio-h2">chose your avatar</h2>
-      <Image id="avatar_1" style={imgStyle} src={avatar1} onClick={handleAvatarChooser} rounded className="logo"/>
-      <Image id="avatar_2" style={imgStyle} src={avatar2} onClick={handleAvatarChooser} rounded className="logo"/>
-      <Image id="avatar_3" style={imgStyle} src={avatar3} onClick={handleAvatarChooser} rounded className="logo"/>
-      <Image id="avatar_4" style={imgStyle} src={avatar4} onClick={handleAvatarChooser} rounded className="logo"/>
-      <Image id="avatar_5" style={imgStyle} src={avatar5} onClick={handleAvatarChooser} rounded className="logo"/>
-      <Image id="avatar_6" style={imgStyle} src={avatar6} onClick={handleAvatarChooser} rounded className="logo"/>
-      <Image id="avatar_7" style={imgStyle} src={avatar7} onClick={handleAvatarChooser} rounded className="logo"/>
-      <Image id="avatar_8" style={imgStyle} src={avatar8} onClick={handleAvatarChooser} rounded className="logo"/>
+      <Image id="avatar_1" style={imgStyle} src={avatar1} onClick={handleAvatarChooser} rounded className="avatar"/>
+      <Image id="avatar_2" style={imgStyle} src={avatar2} onClick={handleAvatarChooser} rounded className="avatar"/>
+      <Image id="avatar_3" style={imgStyle} src={avatar3} onClick={handleAvatarChooser} rounded className="avatar"/>
+      <Image id="avatar_4" style={imgStyle} src={avatar4} onClick={handleAvatarChooser} rounded className="avatar"/>
+      <Image id="avatar_5" style={imgStyle} src={avatar5} onClick={handleAvatarChooser} rounded className="avatar"/>
+      <Image id="avatar_6" style={imgStyle} src={avatar6} onClick={handleAvatarChooser} rounded className="avatar"/>
+      <Image id="avatar_7" style={imgStyle} src={avatar7} onClick={handleAvatarChooser} rounded className="avatar"/>
+      <Image id="avatar_8" style={imgStyle} src={avatar8} onClick={handleAvatarChooser} rounded className="avatar"/>
     </div>
   </div> : null
   }

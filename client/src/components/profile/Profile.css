@@ -108,10 +108,11 @@
     display: flex;
     flex-direction: row;
     margin-left: 8%;
-    margin-top: 8%;
+    margin-top: auto;
     padding: 10px;
     align-items: center;
     justify-content: center;
+    
 }
 
 .colR {
@@ -140,4 +141,17 @@
     float: right;
     color: #333333;
     margin: 20px 0;
+}
+
+.avatar{
+border-radius: 50%;
+}
+
+.avatar:hover {
+border: 3px solid #0D7E6A;
+border-radius: 50%;
+}
+
+.selected {
+border: 3px solid #0D7E6A;
 }
