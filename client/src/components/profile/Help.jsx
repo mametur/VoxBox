@@ -5,7 +5,6 @@ import { BsGeoAlt, BsCalendar } from 'react-icons/bs';
 const Help = (props) => {
     
     const post = props.post;
-    
 
     function convert(date){
       let datearray = date.split("T");
@@ -15,12 +14,12 @@ const Help = (props) => {
   }
   
 return (
-    <div>
+    <div className="column">
       <div className="card-help">
       <p className='icon left'><BsGeoAlt/> {post.post_city}</p>
       <p className='icon right'><BsCalendar/> {convert(post.createdAt)}</p>
       <h1 className="title-help">{post.topic}</h1>
-      <p>{post.description}</p>
+      <p className="help-description">{post.description}</p>
       </div>
     </div>
   );

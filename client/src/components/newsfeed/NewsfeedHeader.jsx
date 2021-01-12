@@ -19,7 +19,7 @@ export const NewsfeedHeader = (props) => {
                     <Col xs={12} sm={2} >
                         <Image src={require(`../../assets/${userAvatar}.jpg`)} roundedCircle />
                     </Col>
-                    <Col xs={12} sm={10}>
+                    <Col xs={12} sm={11}>
                         <p className="user-name">Welcome, {userFirstName} {userLastName}</p>
                     </Col>
                     <Col xs={12} sm={6}>

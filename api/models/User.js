@@ -1,6 +1,6 @@
-const bcrypt = require('bcrypt');
-const Sequelize = require('sequelize');
-const sequelize = require('../db/db.js');
+const bcrypt = require("bcrypt");
+const Sequelize = require("sequelize");
+const sequelize = require("../db/db.js");
 
 const User = sequelize.define('user', {
 	user_id: {
@@ -64,14 +64,24 @@ const User = sequelize.define('user', {
 });
 
 User.beforeCreate((user, options) => {
-	return bcrypt
-		.hash(user.password, 10)
-		.then((hash) => {
-			user.password = hash;
-		})
-		.catch((err) => {
-			throw new Error(err);
-		});
+  return bcrypt
+    .hash(user.password, 10)
+    .then((hash) => {
+      user.password = hash;
+    })
+    .catch((err) => {
+      throw new Error(err);
+    });
 });
+// User.beforeUpdate((user, options) => {
+//   return bcrypt
+//     .hash(user.password, 10)
+//     .then((hash) => {
+//       user.password = hash;
+//     })
+//     .catch((err) => {
+//       throw new Error(err);
+//     });
+// });
 
 module.exports = User;

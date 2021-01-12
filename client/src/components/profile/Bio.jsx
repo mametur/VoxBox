@@ -103,7 +103,8 @@ const imgStyle = {
 
 return (
 
-<div className="w-50 my-3 p-3 bg-white rounded box-shadow bio">
+<div className="w-50 my-3 p-3 bg-white rounded box-shadow column bio">
+
   <h1 className="title-about pb-2 mb-0">About Me</h1>    
 
 <div className="media pt-3">

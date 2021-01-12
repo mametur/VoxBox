@@ -15,7 +15,7 @@ export const Box = ({post}) => {
     }
 
     function cutDescription(arr) {
-        let desc =arr.slice(0, 200);
+        let desc =arr.slice(0, 100);
         return desc;
     }
 
@@ -39,7 +39,7 @@ export const Box = ({post}) => {
                 </Card.Body>    
             </Card.Body>
            
-           <Card.Body>
+           <Card.Body className="card-down">
                 <Card.Title className="card-title">{post.topic}</Card.Title>
                 <Card.Text className="card-desc">
                 {cutDescription(post.description)}...<Link to ={{
