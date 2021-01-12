@@ -137,7 +137,8 @@ app.delete('/posts/:id', authenticated, (req, res) => {
 		});
 });
 
-// update post
+//Updating the post status in the database when it solved
+// check by post id and update solved status true or false
 
 app.put('/post/solved/:id', authenticated, (req, res) => {
 	const postId = req.params.id;
@@ -146,7 +147,6 @@ app.put('/post/solved/:id', authenticated, (req, res) => {
 
 	const where = { where: { post_id: postId } };
 
-	//Updating the comment in the database
 	Post.update({ solved: solved }, where)
 		.then((data) => {
 			res.status(200).send({
