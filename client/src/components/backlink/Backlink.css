@@ -10,9 +10,12 @@
 
 @media screen and (max-width: 600px) {
     .backlink {
-  /* top: 40px; */
-    padding-top:100px;
+    padding-top:120px;
+    }
+}
 
-
+@media screen and (max-width: 800px) {
+    .backlink {
+    /* padding-top:300px; */
     }
 }

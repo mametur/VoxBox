@@ -1,15 +1,29 @@
 html, body {
   margin: 0;
   padding: 0;
+  height:100%;
 }
+
 .footer-outer {
   height: 50px;
   background-color: #397e6b;
   width: 100vw;
   margin-bottom: 0;
+  /* margin-top: -7em; */
   margin-top: 7em;
   margin-right: 2em;
+  /* overflow:hidden; */
+      /* visibility: visible; */
 }
+
+ /* .footer-outer:after {
+  clear:both;
+}
+
+ .footer-outer:after, .footer-outer:before {
+content:" ";
+display:table;
+} */
 
 .footer-outer a {
   color: white;
@@ -50,6 +64,8 @@ html, body {
 
 .footer-outer {
   height: 19vh;
+         /* margin-top: auto; */
+
 }
 
 .footer-list {
@@ -61,6 +77,10 @@ html, body {
 
  @media (orientation: landscape) {
    .footer-outer {
-     height: 23vh;
+     height: 70px;
+       margin-top: auto;
+        position: relative;
+clear: both;
+/* margin-top: -3em;  */
    }
  }

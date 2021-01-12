@@ -14,10 +14,10 @@ const NavBar = () => {
 
   
   return (
-    <Container fluid>
+    <Container fluid >
     <Row>
       <Col xs={12} md={12}> 
-        <Navbar className="brand" collapseOnSelect expand="md" bg="transparent">
+        <Navbar className="brand" collapseOnSelect expand="md" bg="transparent" >
         <NavLink to="/newsfeed"><div className="align-middle mr-3 img-wrapper"><Image src={Logo} rounded className="logo"/></div></NavLink>
          
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
