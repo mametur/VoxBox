@@ -116,13 +116,32 @@
     color: #FFFFFF;
     background: #FCA73D;
 	border-radius: 100px;
-	
 }
 
 .icon-done {
     font-size: 18px;
     margin-left: 5px;
 }
+
+/* mark done label on post page */
+
+.done-label {
+	font-weight: 600;
+	font-size: 14px;
+    line-height: 27px;
+    color: #FFFFFF;
+	background: #0D7E6A;
+	border-radius: 100px;
+	padding: 8px;
+}
+
+.done-icon {
+	font-size: 18px;
+    margin-left: 7px;
+}
+
+
+
 
 .form-comment textarea {
 	width: 100%;

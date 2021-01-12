@@ -7,6 +7,7 @@ export const Cards = (props) => {
 
     const [data, setData] = useState([])
     const [filteredData, setFilteredData] = useState([])
+    const [updatePost, setUpdatePost] = useState(true)
 
     const getData = async () => {
         
@@ -24,7 +25,7 @@ export const Cards = (props) => {
 
     useEffect(()=>{
         getData();
-    }, [props.postFormState]);
+    }, [props.postFormState, updatePost]);
 
     useEffect(()=>{
         const filtering = data.filter(item=>{
@@ -35,6 +36,8 @@ export const Cards = (props) => {
         setFilteredData(filtering)
      }, [props.searchedValue])
 
+
+     //console.log(filteredData[0].solved)
     // setData(response);
     return (
         
@@ -44,7 +47,7 @@ export const Cards = (props) => {
                                         </div> :
                filteredData.map(
                    post => {
-                       return post.published === true ? <Box key={post.post_id} post={post}/> : null ; 
+                       return post.solved === true ? <Box key={post.post_id} post={post} setUpdatePost={setUpdatePost}/> : null ; 
                    }
                )
         }

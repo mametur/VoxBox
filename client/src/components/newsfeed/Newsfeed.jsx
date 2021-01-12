@@ -29,7 +29,7 @@ export const Newsfeed = () => {
             <NewsfeedHeader formToggle={handlePostFormToggle}/>
             {postFormState.status? <CreatePost formToggle={handlePostFormToggle}/> : null}
             <SearchBar searching={setSearchedValue}/>
-            <Cards searchedValue={searchedValue} postFormState={postFormState}/>
+            <Cards searchedValue={searchedValue} postFormState={postFormState} />
         </div>
     )
 }

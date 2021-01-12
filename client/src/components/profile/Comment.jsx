@@ -38,7 +38,7 @@ const Comment = ({ post, setCommentFlag }) => {
 
       setComment('')
     } else {
-      setErrorMessage("Please fill out this field!")
+      setErrorMessage("Please write something before leaving a comment!")
     }
   }
 
