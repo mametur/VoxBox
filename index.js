@@ -26,13 +26,13 @@ app.use(bodyParser.json());
 // app.get('/', (req, res) => {
 //   res.sendFile(__dirname + '/client/build/index.html');
 // });
+app.use('/api', api);
+
 app.use(express.static(path.join(__dirname, '/client/build')));
 
-app.get('/', function (req, res) {
+app.get('*', function (req, res) {
 	res.sendFile(path.join(__dirname, '/client/build', 'index.html'));
 });
-
-app.use('/api', api);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`listening at http://localhost:${port}`));
