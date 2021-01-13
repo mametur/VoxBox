@@ -1,342 +1,334 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* Newsfeed Header */
 
 .header {
-    height: 200px;
-    position: relative;
-    background-image: url("../../assets/pexels-gustavo-fring.jpg");
-    background-position: 50% 50%;
-    background-size: cover;
+  height: 200px;
+  position: relative;
+  background-image: url("../../assets/pexels-gustavo-fring.jpg");
+  background-position: 50% 50%;
+  background-size: cover;
 }
 
 .overlay {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
 }
 
 .header-div {
-  display: flex;  
+  display: flex;
   flex-wrap: wrap;
 }
 
 .user-name {
-    font-family: Open Sans;
-    font-style: normal;
-    font-weight: 600;
-    color: #FFFFFF;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600;
+  color: #ffffff;
 }
 
-.btn-post {  
-    background: #FCA73D;
-    border-radius: 100px;
-    font-family: Open Sans;
-    font-style: normal;
-    font-weight: 600;
-    color: #FFFFFF;
+.btn-post {
+  background: #fca73d;
+  border-radius: 100px;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600;
+  color: #ffffff;
 }
 
 /* Search Bar */
 
 .search {
-    text-align: center;
-    align-items: center;
+  text-align: center;
+  align-items: center;
 }
 
 .search-title {
-    background: #0D7E6A;
-    font-family: Open Sans;
-    font-style: normal;
-    font-weight: bold;
-    color: #FFFFFF;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background: #0d7e6a;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: bold;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .search-form {
-    box-sizing: border-box;
-    border-radius: 10px;
+  box-sizing: border-box;
+  border-radius: 10px;
 }
 
 /* Card and Cards*/
 
 .card {
-    box-shadow: 0px 15px 10px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 15px 10px 10px rgba(0, 0, 0, 0.4);
 }
 .card-div {
-    margin-top: 15px;  
-    height: 100%;
+  margin-top: 15px;
+  height: 100%;
 }
 
 .card-up {
-    display: flex;
-    flex-direction: row;
-    background: #F2F2F2;
+  display: flex;
+  flex-direction: row;
+  background: #f2f2f2;
 }
 
 .card-img {
-    width: 80px;
-    mix-blend-mode: multiply;
+  width: 80px;
+  mix-blend-mode: multiply;
 }
 
 .card-name {
-    font-family: Open Sans;
-    font-style: normal;
-    font-weight: 600;
-    color: #0D7E6A; 
-    margin-top: 15px;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600;
+  color: #0d7e6a;
+  margin-top: 15px;
 }
 
 .card-up-right {
-    font-family: Open Sans;
-    font-style: italic;
-    font-weight: 400;
-    text-align: right;
-    color: rgba(51, 51, 51, 1);
+  font-family: Open Sans;
+  font-style: italic;
+  font-weight: 400;
+  text-align: right;
+  color: rgba(51, 51, 51, 1);
 }
 
 .card-title {
-    font-family: Open Sans;
-    font-style: normal;
-    font-weight: 600;
-    color: #0D7E6A;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600;
+  color: #0d7e6a;
 }
 
 .card-desc {
-    font-family: Open Sans;
-    font-style: normal;
-    font-weight: 600;
-    color: #333333;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600;
+  color: #333333;
 }
 
 .see-more {
-    color: #FCA73D;
-    cursor: pointer;
+  color: #fca73d;
+  cursor: pointer;
 }
 
 /* Portrait phones and smaller */
 @media (max-width: 575px) {
-    
-    /* Newsfeed Header */
+  /* Newsfeed Header */
 
-    .header-div {
-        align-items: center;
-        text-align: center;
-        padding: 5px;
-    }
+  .header-div {
+    align-items: center;
+    text-align: center;
+    padding: 5px;
+  }
 
-    .header-div img {
-        width: 20%;
-        height: 50%;
-    }
+  .header-div img {
+    width: 20%;
+    height: 50%;
+  }
 
-    .user-name {
-        font-size: 20px;
-        line-height: 24px;
-    }
+  .user-name {
+    font-size: 20px;
+    line-height: 24px;
+  }
 
-    .btn-post {
-        width: 180px;
-        height: 35px;   
-        box-shadow: 0px 1px 5px #BDBDBD;
-        font-size: 17px;
-        line-height: 24px;
-        margin-bottom: 5px;
-    }
+  .btn-post {
+    width: 180px;
+    height: 35px;
+    box-shadow: 0px 1px 5px #bdbdbd;
+    font-size: 17px;
+    line-height: 24px;
+    margin-bottom: 5px;
+  }
 
-    /* Search Bar */
+  /* Search Bar */
 
-    
-    .search-title {
-        height: 73px;
-        font-size: 25px;
-        line-height: 34px;
-    }
+  .search-title {
+    height: 73px;
+    font-size: 25px;
+    line-height: 34px;
+  }
 
-    .search-input {
-        padding: 15px 50px 15px;
-    }
-    .search-form {
-        background: #FFFFFF;
-        border: 2px solid #FCA73D;
-    }
+  .search-input {
+    padding: 15px 50px 15px;
+  }
+  .search-form {
+    background: #ffffff;
+    border: 2px solid #fca73d;
+  }
 
-    /* Card */
+  /* Card */
 
-    .card-name {
-        font-size: 17px;
-        line-height: 23px;
-    }
+  .card-name {
+    font-size: 17px;
+    line-height: 23px;
+  }
 
-    .card-up-right {
-        font-size: 17px;
-        line-height: 20px;
-    }
+  .card-up-right {
+    font-size: 17px;
+    line-height: 20px;
+  }
 
-    .card-title {
-        font-size: 20px;
-        line-height: 27px;
-    }
+  .card-title {
+    font-size: 20px;
+    line-height: 27px;
+  }
 
-    .card-desc {
-        font-size: 17px;
-        line-height: 23px;
-    }
-   
+  .card-desc {
+    font-size: 17px;
+    line-height: 23px;
+  }
 }
 
 /* Tablets and Computer */
 @media (min-width: 576px) {
-    
-    /* Newsfeed Header */
+  /* Newsfeed Header */
 
-    .header-div {
-        align-items: center;
-        padding-top: 20px;
-        padding-left: 100px;
-    }
-    
-    .header-div img {
-        width: 50%;
-        height: 50%;
-        min-width: 80px;
-        min-height: 80px;
-    }
+  .header-div {
+    align-items: center;
+    padding-top: 20px;
+    padding-left: 100px;
+  }
 
-    .user-name {
-        font-size: 30px;
-        line-height: 24px;
-        margin-left: 40px;
-    }
+  .header-div img {
+    width: 50%;
+    height: 50%;
+    min-width: 80px;
+    min-height: 80px;
+  }
 
-    .btn-post {
-        margin-top: 20px;
-        width: 30%;
-        height: 25%;
-        min-width: 200px;
-    }
+  .user-name {
+    font-size: 30px;
+    line-height: 24px;
+    margin-left: 40px;
+  }
 
-    /* Search Bar */
+  .btn-post {
+    margin-top: 20px;
+    width: 30%;
+    height: 25%;
+    min-width: 200px;
+  }
 
-    .search {
-        background: #0D7E6A;
-        height: 100px;
-    }
+  /* Search Bar */
 
-    .search-title {
-        font-size: 36px;
-        line-height: 49px;
-        display: flex;
-        justify-content: left;
-        padding-left: 100px;
-    }
+  .search {
+    background: #0d7e6a;
+    height: 100px;
+  }
 
-    .search-input {
-        padding: 15px 20px 15px;
-    }
+  .search-title {
+    font-size: 36px;
+    line-height: 49px;
+    display: flex;
+    justify-content: left;
+    padding-left: 100px;
+  }
 
-    .search-form {
-        min-width: 180px;
-        max-width: 450px;
-    }
+  .search-input {
+    padding: 15px 20px 15px;
+  }
 
-    /* Card-Cards */
+  .search-form {
+    min-width: 180px;
+    max-width: 450px;
+  }
 
-    .card-wrap {
-        display: flex;
-        flex-wrap: wrap;
+  /* Card-Cards */
 
-    }
+  .card-wrap {
+    display: flex;
+    flex-wrap: wrap;
+  }
 
-    .card-div {
-        width: 45%;
-        height: fit-content;
-        margin: 10px;
-    }
+  .card-div {
+    width: 45%;
+    height: fit-content;
+    margin: 10px;
+  }
 
-    .card-name {
-        font-size: 20px;
-        line-height: 27px;
-    }
+  .card-name {
+    font-size: 20px;
+    line-height: 27px;
+  }
 
-    .card-up-right {
-        width: 60%;
-        font-size: 20px;
-        line-height: 36px;
-    }
+  .card-up-right {
+    width: 60%;
+    font-size: 20px;
+    line-height: 36px;
+  }
 
-    .card-title {
-        font-size: 22px;
-        line-height: 30px;
-    }
+  .card-title {
+    font-size: 22px;
+    line-height: 30px;
+  }
 
-    .card-desc {
-        font-size: 20px;
-        line-height: 27px;
-    }
+  .card-desc {
+    font-size: 20px;
+    line-height: 27px;
+  }
 }
 
-@media (min-width : 769px) {
-    /* Card */
+@media (min-width: 769px) {
+  /* Card */
 
-    .card-wrap {
-        display: flex;
-        flex-wrap: wrap;
-        min-height: calc(100vh-50px);
-    }
+  .card-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: calc(100vh-50px);
+  }
 
-    .card-div {
-        width: 45%;
-        height: fit-content;
-        margin: 10px;
-    }
+  .card-div {
+    width: 45%;
+    height: fit-content;
+    margin: 10px;
+  }
 }
 
-@media (min-width : 992px) {
-    /* Card */
+@media (min-width: 992px) {
+  /* Card */
 
-    .card-wrap {
-        display: flex;
-        flex-wrap: wrap;
-        height: 100%;
-        min-height: calc(100vh-70px);
-        margin-bottom: 50px;
+  .card-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    /* height: 100%; */
+    min-height: calc(100vh-70px);
+    margin-bottom: 100px;
+  }
 
-    }
+  .card-div {
+    width: 30%;
+    height: fit-content;
+    margin: 10px;
+  }
 
-    .card-div {
-        width: 30%;
-        height: fit-content;
-        margin: 10px;
-    }
+  .header-div img {
+    width: 50%;
+    height: 50%;
+    min-width: 80px;
+    min-height: 80px;
+  }
 
-    .header-div img {
-        width: 50%;
-        height: 50%;
-        min-width: 80px;
-        min-height: 80px;
-    }
+  .user-name {
+    font-size: 30px;
+    line-height: 24px;
+    margin-left: 30px;
+  }
 
-    .user-name {
-        font-size: 30px;
-        line-height: 24px;
-        margin-left: 30px;
-    }
-
-    .btn-post {
-        margin-top: 20px;
-        width: 30%;
-        height: 25%;
-        min-width: 200px;
-    }
+  .btn-post {
+    margin-top: 20px;
+    width: 30%;
+    height: 25%;
+    min-width: 200px;
+  }
 }
-

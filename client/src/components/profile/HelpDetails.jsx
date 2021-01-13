@@ -4,7 +4,7 @@ import Help from './Help';
 import Comment from './Comment';
 import './Profile.css';
 import { NewComment } from './NewComment';
-
+import { Col, Container, Row } from 'react-bootstrap'
 const HelpDetails = (props) => {
 
   const post = props.location.state.post;
@@ -27,16 +27,20 @@ const HelpDetails = (props) => {
   }, [commentFlag])
 
   return (
-    <div className ='rowMore'>
-    <Profile user_id={user_id} post={post} onpost={true}/>
-    <div className='help-comment'>
-    <Help user={post.user} post={post} />
+    <Container >
+      <Row className="justify-content-md-center">  
+     <Col xs={12} sm={4} style={{marginTop:"100px"}} > <Profile user_id={user_id} post={post} onpost={true}/></Col>
+   
+    <Col xs={12} sm={8}style={{marginTop:"100px"}} >  <Help  user={post.user} post={post} /> <div xs={12} sm={8}>
         {commentData.map(
           comment => <NewComment thread={comment}/>
         )}  
-        <Comment setCommentFlag={setCommentFlag} post={post} />
-      </div>
-    </div>
+      <Comment  setCommentFlag={setCommentFlag} post={post} /></div>
+      </Col>
+      </Row>
+   
+   
+    </Container>
   );
 
 };
