@@ -107,6 +107,39 @@
   font-size: 1em;
 }
 
+/* mark as done button */
+
+.mark {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 27px;
+  color: #ffffff;
+  background: #fca73d;
+  border-radius: 100px;
+}
+
+.icon-done {
+  font-size: 18px;
+  margin-left: 5px;
+}
+
+/* mark done label on post page */
+
+.done-label {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 27px;
+  color: #ffffff;
+  background: #0d7e6a;
+  border-radius: 100px;
+  padding: 8px;
+}
+
+.done-icon {
+  font-size: 18px;
+  margin-left: 7px;
+}
+
 .form-comment textarea {
   width: 100%;
   font-size: 1em;
@@ -222,6 +255,16 @@
   color: #333333;
 }
 
+.error-message {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 19px;
+  color: #cc0a0a;
+  margin-top: 8px;
+}
+
 /* MEDIA QUERIES -SMALLER DEVICES*/
 
 @media screen and (max-width: 600px) {
@@ -234,7 +277,7 @@
   .rowC {
     display: flex;
     flex-direction: column;
-    margin-top: 500px;
+    margin-top: 100px;
     margin-right: 10px;
     align-items: center;
     justify-content: center;

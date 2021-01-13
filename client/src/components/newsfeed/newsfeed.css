@@ -122,6 +122,23 @@
   cursor: pointer;
 }
 
+.mark {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 27px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    background: #FCA73D;
+    border-radius: 100px;
+}
+
+.icon-done {
+    font-size: 18px;
+    margin-left: 5px;
+}
+
 /* Portrait phones and smaller */
 @media (max-width: 575px) {
   /* Newsfeed Header */
@@ -153,11 +170,12 @@
 
   /* Search Bar */
 
-  .search-title {
-    height: 73px;
-    font-size: 25px;
-    line-height: 34px;
-  }
+    
+    .search-title {
+        height: 60px;
+        font-size: 25px;
+        line-height: 34px;
+    }
 
   .search-input {
     padding: 15px 50px 15px;

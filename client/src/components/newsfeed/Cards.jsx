@@ -7,6 +7,7 @@ export const Cards = (props) => {
 
     const [data, setData] = useState([])
     const [filteredData, setFilteredData] = useState([])
+    const [updatePost, setUpdatePost] = useState(true)
 
     const getData = async () => {
         
@@ -24,7 +25,7 @@ export const Cards = (props) => {
 
     useEffect(()=>{
         getData();
-    }, [props.postFormState]);
+    }, [props.postFormState, updatePost]);
 
     useEffect(()=>{
         const filtering = data.filter(item=>{
@@ -35,17 +36,21 @@ export const Cards = (props) => {
         setFilteredData(filtering)
      }, [props.searchedValue])
 
+
+     //console.log(filteredData[0].solved)
     // setData(response);
     return (
         
-        <Container fluid className="card-wrap justify-content-center">
+        <div className="card-wrap justify-content-center">
             {filteredData.length === 0 ? <div className="spinner-border text-success m-5" role="status">
                                             <span className="sr-only">Loading...</span>
                                         </div> :
                filteredData.map(
-                   post => <Box key={post.post_id} post={post} />
+                   post => {
+                       return post.solved === true ? <Box key={post.post_id} post={post} setUpdatePost={setUpdatePost}/> : null ; 
+                   }
                )
         }
-        </Container>
+        </div>
     )
 }

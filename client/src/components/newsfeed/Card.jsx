@@ -1,8 +1,10 @@
 import React from 'react'
-import { Card } from "react-bootstrap"
+import { Card, Button, Col } from "react-bootstrap"
 import { Link } from 'react-router-dom';
+import { HiCheckCircle } from "react-icons/hi";
+import { useSelector } from 'react-redux';
 
-export const Box = ({post}) => {
+export const Box = ({post, setUpdatePost}) => {
 
     console.log('hello')
 
@@ -19,10 +21,42 @@ export const Box = ({post}) => {
         return desc;
     }
 
-    
+    const userId = useSelector(state => state.user.user_id);
 
+
+    const updateSolved = () => {
+        fetch(`/api/post/solved/${post.post_id}`, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                solved: false
+            })
+        })
+        .then(response => response.json())
+        .then(result => {
+        console.log('Success:', result);
+        })
+        .catch(error => {
+        console.error('Error:', error);
+        });
+
+        setUpdatePost(state => !state)
+    }
+
+    const markRender = () => {
+        if (userId === post.user.user_id) {
+            return <Button className="mark" onClick={updateSolved}>Mark as Done <HiCheckCircle className="icon-done"/></Button>
+        }
+    }
+  const style={
+      width: '25rem',
+      padding:"10px",
+       margin:"10px 10px 20px 10px",
+  }
     return (
-        <Card className="card-div">
+   <Col  xs={12} sm={4} > <Card style={style}>
             <Card.Body className="card-up">
                 <Card.Body>
                     <Link to ={{
@@ -44,11 +78,17 @@ export const Box = ({post}) => {
                 <Card.Text className="card-desc">
                 {cutDescription(post.description)}...<Link to ={{
                     pathname: `/help/${post.post_id}`,
-                    state: {post: post}
+                    state: {
+                        post: post,
+
+                        }
                 }} className="see-more">see more</Link>
                 </Card.Text>
+                {markRender()}
             </Card.Body>
         </Card>
-            
+        </Col>
     )
+
 }
+

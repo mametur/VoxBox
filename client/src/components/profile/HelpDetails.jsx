@@ -8,9 +8,7 @@ import { Col, Container, Row } from 'react-bootstrap'
 const HelpDetails = (props) => {
 
   const post = props.location.state.post;
-
   const user_id = post.user.user_id
-
 
   const [commentFlag, setCommentFlag] = useState(false);
 
@@ -19,7 +17,7 @@ const HelpDetails = (props) => {
   const fetchData = () => {
     fetch(`/api/posts/${post.post_id}`)
       .then(res => res.json())
-      .then(data => setCommentData(data.threads));
+      .then(data => setCommentData(data.threads.reverse()));
   }
 
   useEffect(() => {
@@ -46,3 +44,4 @@ const HelpDetails = (props) => {
 };
 
 export default HelpDetails;
+//merged
