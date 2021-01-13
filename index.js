@@ -5,10 +5,14 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
+let cookieParser = require('cookie-parser');
+//setup express app
+let app = express();
+
+app.use(cookieParser());
 
 const api = require('./api/server');
 
-const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 // add middlewares
