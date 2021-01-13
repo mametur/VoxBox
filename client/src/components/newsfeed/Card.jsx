@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 
 export const Box = ({post}) => {
 
+    console.log('hello')
+
     function convert(date){
         let datearray = date.split("T");
         let newdate = datearray[0].split("-");
@@ -27,7 +29,7 @@ export const Box = ({post}) => {
                         pathname: `/profile/${post.user.user_id}`,
                         state: {post:post}
                     }}><Card.Img className="card-img" variant="top" src=
-                    {require(`../../assets/${post.user.avatar}`)} rounded/>  </Link>
+                    {require(`../../assets/${post.user.avatar}.jpg`)} rounded/>  </Link>
                     <Card.Text className="card-name">{post.user.firstName} {post.user.lastName}</Card.Text>
                 </Card.Body>
                 <Card.Body className="card-up-right">
@@ -50,7 +52,3 @@ export const Box = ({post}) => {
             
     )
 }
-
-
-{/* <h2>asdasdas dasdasdasda sdasdasdas dasdasd</h2>
-<p className="card-desc">asdasd</p> */}

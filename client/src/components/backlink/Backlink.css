@@ -1,0 +1,21 @@
+.backlink {
+  position: absolute;
+  top: 20px;
+  padding-top:90px;
+  margin-bottom: 50px;
+  font-size: 0.7em;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 600px) {
+    .backlink {
+    padding-top:120px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .backlink {
+    /* padding-top:300px; */
+    }
+}

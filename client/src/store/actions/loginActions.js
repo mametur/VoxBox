@@ -1,4 +1,4 @@
-import store from '../store';
+
 
 export const login = (credentials) => {
 	return function loginThunk(dispatch, getState) {
@@ -45,6 +45,15 @@ export const logOut = () => {
 		localStorage.clear();
 		dispatch({ type: 'Logged_Out' });
 		dispatch({ type: 'User_LoogedOut' });
+
+		fetch('/api/user/logout').then(response =>{
+			return response.json()
+		}
+
+		).then(data=>{
+			return data
+		})
+		
 	};
 };
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { Form, Button, Container, Row, Col, Alert} from 'react-bootstrap'
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect, NavLink  } from 'react-router-dom'
+import { Redirect, NavLink } from 'react-router-dom'
 import { login } from '../../store/actions/loginActions'
 
 
