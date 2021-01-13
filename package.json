@@ -10,6 +10,7 @@
     "test": "cd api && jest --collectCoverage=true --forceExit",
     "test:watch": "cd api && jest --watch --collectCoverage=true --runInBand --detectOpenHandles"
   },
+  "homepage": ".",
   "license": "MIT",
   "dependencies": {
     "@sendgrid/mail": "^7.4.0",
