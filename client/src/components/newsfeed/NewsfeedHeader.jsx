@@ -9,7 +9,7 @@ export const NewsfeedHeader = (props) => {
     const userLastName = useSelector(state => state.user.lastName)
     const userAvatar = useSelector(state => state.user.avatar)
 
-    
+   
 
     return (
 
@@ -17,9 +17,9 @@ export const NewsfeedHeader = (props) => {
             <div className="overlay">
                 <div className="header-div">
                     <Col xs={12} sm={1} >
-                        <Image src={require(`../../assets/${userAvatar}`)} roundedCircle />
+                        <Image src={require(`../../assets/${userAvatar}.jpg`)} roundedCircle />
                     </Col>
-                    <Col xs={12} sm={11}>
+                    <Col xs={12} sm={11} style={{paddingLeft:"0"}}>
                         <p className="user-name">Welcome, {userFirstName} {userLastName}</p>
                     </Col>
                     <Col xs={12} sm={6}>
