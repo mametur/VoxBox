@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import { Container } from 'react-bootstrap'
 import {useSelector} from "react-redux"
 import {Redirect} from "react-router-dom"
 import { Cards } from './Cards'

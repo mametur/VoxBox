@@ -1,4 +1,4 @@
-html{
+html {
   width: 100%;
   height: 100%;
 }
@@ -12,20 +12,16 @@ body {
   background-color: black;
   overflow-x: hidden;
   box-sizing: border-box;
-  display:flex; 
-  flex-direction:column
+  display: flex;
+  flex-direction: column;
 }
 
-div.App{
-  display:flex;
+div.App {
+  display: flex;
   flex-direction: column;
   width: 100vw;
   height: 100vh;
- 
-  
 }
-
-
 
 /* Cta section */
 
@@ -36,7 +32,7 @@ div.App{
 }
 
 .cta-title {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-style: normal;
   font-weight: bold;
 }
@@ -57,8 +53,8 @@ div.App{
 }
 
 .cta button {
-  background: #FCA73D;
-  color: #FFFFFF;
+  background: #fca73d;
+  color: #ffffff;
   font-weight: bold;
   border-radius: 100px;
   border-style: none;
@@ -66,8 +62,8 @@ div.App{
 
 .cta button:hover {
   transform: scale(1.1);
-  background: #FCA73D;
-  color: #FFFFFF;
+  background: #fca73d;
+  color: #ffffff;
 }
 
 /* About us section */
@@ -77,12 +73,11 @@ div.App{
   font-weight: bold;
   text-align: center;
   line-height: 27px;
-  color: #0D7E6A;
+  color: #0d7e6a;
 }
 
 .span1 {
-  color: #FCA73D;
-  font-weight: bold;
+  color: #fca73d;
 }
 
 .span2 {
@@ -98,39 +93,39 @@ div.App{
     background-image: url("./assets/pexels-anna-shvets.jpg");
     background-position: 50% 50%;
     background-size: cover;
-   }
+  }
 
-   .home-img {
-     display: none;
-   }
+  .home-img {
+    display: none;
+  }
 
-   .cta-section {
-     position: absolute;
-     height: 100%;
-     width: 100%;
-     background: rgba(0, 0, 0, 0.5);
-     justify-content: center;
-   }
+  .cta-section {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+  }
 
-   .cta {
+  .cta {
     text-align: center;
-   }
+  }
 
-   .cta-title {
+  .cta-title {
     font-size: 60px;
     line-height: 82px;
     text-align: center;
-    color: #FFFFFF;
-   }
+    color: #ffffff;
+  }
 
-   .cta-quote {
+  .cta-quote {
     font-size: 26px;
     line-height: 35px;
-    color: #FFFFFF;
-   }
+    color: #ffffff;
+  }
 
-   .cta-quote span {
-    color: #FCA73D;
+  .cta-quote span {
+    color: #fca73d;
   }
 
   .cta button {
@@ -172,7 +167,6 @@ div.App{
 
 /* Portrait phones and smaller */
 @media (max-width: 575px) {
- 
   .home-img-mob {
     margin: 0;
     width: 100%;
@@ -180,8 +174,8 @@ div.App{
   }
 
   .cta-section {
-    background: #FFFFFF;
-    box-shadow: 0px 4px 4px #E5E5E5;
+    background: #ffffff;
+    box-shadow: 0px 4px 4px #e5e5e5;
     border-radius: 15px;
     padding: 10px;
   }
@@ -193,25 +187,25 @@ div.App{
     display: flex;
     align-items: center;
     text-align: center;
-    color: #0D7E6A;
+    color: #0d7e6a;
     padding: 0 15px 0;
   }
 
   .cta {
     padding: 15px;
     margin: 15px;
-    background: #FFF0DE;
+    background: #fff0de;
     border-radius: 10px;
   }
 
   .cta-quote {
     font-size: 17px;
     line-height: 23px;
-    color: #FCA73D;
+    color: #fca73d;
   }
 
   .cta-quote span {
-    color: #0D7E6A;
+    color: #0d7e6a;
   }
 
   .cta button {
@@ -243,21 +237,20 @@ div.App{
     font-size: 27px;
   }
 }
-  /* Navbar */
-  
-.logo{
+/* Navbar */
+
+.logo {
   width: 10rem;
   margin-left: auto 10px;
-  
 }
 
 .brand-name {
   width: 100px;
-  color: #FCA73D;
+  color: #fca73d;
   display: inline-block;
 }
-.img-wrapper{
-  display: inline-block
+.img-wrapper {
+  display: inline-block;
 }
 
 .btn-logout {

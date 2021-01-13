@@ -56,7 +56,7 @@ export const Cards = (props) => {
     // setData(response);
     return (
         
-        <Container fluid className="card-wrap justify-content-center">
+        <div className="card-wrap justify-content-center">
             {filteredData.length === 0 ? <div className="spinner-border text-success m-5" role="status">
                                             <span className="sr-only">Loading...</span>
                                         </div> :
@@ -66,6 +66,6 @@ export const Cards = (props) => {
                    }
                )
         }
-        </Container>
+        </div>
     )
 }

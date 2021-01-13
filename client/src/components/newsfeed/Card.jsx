@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Button } from "react-bootstrap"
+import { Card, Button, Col } from "react-bootstrap"
 import { Link } from 'react-router-dom';
 import { HiCheckCircle } from "react-icons/hi";
 import { useSelector } from 'react-redux';
@@ -50,9 +50,13 @@ export const Box = ({post, setUpdatePost}) => {
             return <Button className="mark" onClick={updateSolved}>Mark as Done <HiCheckCircle className="icon-done"/></Button>
         }
     }
-
+  const style={
+      width: '25rem',
+      padding:"10px",
+       margin:"10px 10px 20px 10px",
+  }
     return (
-        <Card className="card-div">
+   <Col  xs={12} sm={4} > <Card style={style}>
             <Card.Body className="card-up">
                 <Card.Body>
                     <Link to ={{
@@ -83,7 +87,7 @@ export const Box = ({post, setUpdatePost}) => {
                 {markRender()}
             </Card.Body>
         </Card>
-            
+        </Col>
     )
 
 }
