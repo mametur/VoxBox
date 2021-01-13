@@ -7,6 +7,9 @@ import { BiBulb,  BiRocket, BiWine} from "react-icons/bi";
 import { MdFace } from 'react-icons/md'
 import { Form, Button, Image } from 'react-bootstrap'
 import { checkProfile } from '../../store/actions/userActions'
+import { useHistory } from 'react-router-dom'
+import { logOut } from '../../store/actions/loginActions'
+
 import avatar1 from '../../assets/avatar_1.jpg'
 import avatar2 from '../../assets/avatar_2.jpg'
 import avatar3 from '../../assets/avatar_3.jpg'
@@ -24,26 +27,31 @@ const Bio = (props) => {
   const [profileBio, setProfileBio] = useState({});
 
   const dispatch = useDispatch();
+  const history = useHistory()
 
 const fetchBioData = async () => {
     try {
         const res = await axios.get("/api/users/" + user_id);
         setProfileBio(res.data);
-        
+ 
     } catch (error) {
         console.log(error);
+        history.push('/session_expired')
+        dispatch(logOut())
     }
 };
 
 const updateBioData = async (event) => {
   event.preventDefault()
   try {
-      await axios.put("/api/users/" + currentUser_id, profileBio);
-      props.editModeToggle()
-      dispatch(checkProfile(user_id))
+      const res = await axios.put("/api/users/" + currentUser_id, profileBio);
+        props.editModeToggle()
+        dispatch(checkProfile(user_id))
       
   } catch (error) {
       console.log(error);
+      history.push('/session_expired')
+      dispatch(logOut())
   }
 };
 
@@ -79,6 +87,7 @@ const handleAvatarChooser = (event) => {
     type: 'Avatar_Changed',
     payload: {avatar: event.target.id}
   })
+  localStorage.setItem('avatar', event.target.id)
 }
 
 

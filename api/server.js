@@ -12,7 +12,7 @@ app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'public')));
 sequelize
-	.sync()
+	.sync({ force: true })
 	.then(() => console.log("tables has been successfully created, if one doesn't exist"))
 	.catch((error) => console.log('This error occurred', error));
 

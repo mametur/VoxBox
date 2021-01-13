@@ -1,6 +1,9 @@
 import React, {useEffect, useState} from 'react'
 import { Container } from 'react-bootstrap'
 import { Box} from "./Card"
+import { useDispatch } from 'react-redux'
+import { logOut } from '../../store/actions/loginActions'
+import { useHistory } from 'react-router-dom'
 
 
 export const Cards = (props) => {
@@ -9,17 +12,29 @@ export const Cards = (props) => {
     const [filteredData, setFilteredData] = useState([])
     const [updatePost, setUpdatePost] = useState(true)
 
+    const dispatch = useDispatch()
+    const history = useHistory()
+
     const getData = async () => {
         
         fetch("/api/posts")
         .then((response)=>{
+           console.log('response', response)
             return response.json()
         })
         .then((data)=>{
-            setData(data);
-            setFilteredData(data);
+            console.log('data', data)
+            if(data.auth === false){ 
+                history.push('/session_expired')
+                dispatch(logOut())
+                 return
+                }else{
+                    setData(data);
+                    setFilteredData(data);
+                }
         }).catch((err)=>{
             console.log(err)
+           
         })
     }
 
