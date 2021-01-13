@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { Form, Button, Container, Row, Col, Alert} from 'react-bootstrap'
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom'
+import { Redirect, NavLink } from 'react-router-dom'
 import { login } from '../../store/actions/loginActions'
 
 
@@ -64,7 +64,7 @@ const SignIn = () => {
             Login
         </Button>
       </Form.Group>
-      <Alert.Link href='/forgot' style={{display:'flex',justifyContent:"center"}}>forgot password?</Alert.Link>
+      <NavLink to='/forgot' style={{display:'flex',justifyContent:"center"}}>forgot password?</NavLink>
     </Form>
     </Col>
     </Row>

@@ -3,7 +3,8 @@ const initialState = {
   lastName: null,
   user_id: null,
   avatar: null,
-  userLoggedIn: null
+  userLoggedIn: null,
+  isProfileComplete: null
 }
 
 const userReducer = (state = initialState, action) => {
@@ -25,8 +26,20 @@ const userReducer = (state = initialState, action) => {
         lastName: null,
         user_id: null,
         avatar: null,
-        userLoggedIn: null
+        userLoggedIn: null,
+        isProfileComplete: null
       }
+    case 'Profile_Complete':
+      return{
+        ...state,
+        isProfileComplete: true
+      }
+    case 'Avatar_Changed':
+      return{
+        ...state,
+        avatar: action.payload.avatar
+      }
+    
     default:
       return state
     
