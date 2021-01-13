@@ -40,3 +40,4 @@ const HelpDetails = (props) => {
 };
 
 export default HelpDetails;
+//merged
