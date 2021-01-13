@@ -35,7 +35,7 @@ const User = sequelize.define('user', {
 		type: Sequelize.STRING,
 		allowNull: false,
 		validate: {
-			len: [5, 15],
+			len: [5, 1500],
 		},
 	},
 	introduction: {

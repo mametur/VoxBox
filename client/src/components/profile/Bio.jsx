@@ -87,6 +87,7 @@ const handleAvatarChooser = (event) => {
     type: 'Avatar_Changed',
     payload: {avatar: event.target.id}
   })
+  localStorage.setItem('avatar', event.target.id)
 }
 
 
