@@ -22,10 +22,10 @@ import VerifyEmail from './components/auth/verifyEmail.jsx';
 
 function App() {
 	const user_id = useSelector(state => state.user.user_id)
-	const dispatch = useDispatch()
-		dispatch(checkAuthState())
+	const dispatch = useDispatch();
+		dispatch(checkAuthState());
 		dispatch(checkUserState());
-		dispatch(checkProfile(user_id))
+		if(user_id) dispatch(checkProfile(user_id));
 		
 
 	return (
