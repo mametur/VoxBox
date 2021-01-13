@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { Container } from 'react-bootstrap'
+import { Row } from 'react-bootstrap'
 import { Box} from "./Card"
 import { useDispatch } from 'react-redux'
 import { logOut } from '../../store/actions/loginActions'
@@ -56,7 +56,7 @@ export const Cards = (props) => {
     // setData(response);
     return (
         
-        <div className="card-wrap justify-content-center">
+        <Row className="">
             {filteredData.length === 0 ? <div className="spinner-border text-success m-5" role="status">
                                             <span className="sr-only">Loading...</span>
                                         </div> :
@@ -66,6 +66,6 @@ export const Cards = (props) => {
                    }
                )
         }
-        </div>
+        </Row>
     )
 }

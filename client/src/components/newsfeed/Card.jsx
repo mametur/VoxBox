@@ -51,12 +51,12 @@ export const Box = ({post, setUpdatePost}) => {
         }
     }
   const style={
-      width: '25rem',
+      width: '10rem',
       padding:"10px",
-       margin:"10px 10px 20px 10px",
+       margin:"10px 0px 20px 0px",
   }
     return (
-   <Col  xs={12} sm={4} > <Card style={style}>
+   <Col  xs={12} sm={4}style={style} > <Card style ={{padding:"10px"}}>
             <Card.Body className="card-up">
                 <Card.Body>
                     <Link to ={{
