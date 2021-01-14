@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState, useEffect} from 'react'
 import { Form, Button, Container, Row, Col, Alert} from 'react-bootstrap'
-import { Redirect } from 'react-router-dom'
 import SweetAlert from 'react-bootstrap-sweetalert';
 
 

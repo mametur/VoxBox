@@ -23,7 +23,7 @@ export const NewsfeedHeader = (props) => {
                         <p className="user-name">Welcome, {userFirstName} {userLastName}</p>
                     </Col>
                     <Col xs={12} sm={6}>
-                        <Button className="btn-post" onClick={props.formToggle}>Request A Help</Button>
+                        <Button className="btn-post" onClick={props.formToggle}>Request Help</Button>
                     </Col>
                 </div>
             </div>
