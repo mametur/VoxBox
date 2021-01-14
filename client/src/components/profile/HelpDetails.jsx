@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux'
 import { logOut } from '../../store/actions/loginActions'
 import { useHistory } from 'react-router-dom'
 import { Col, Container, Row } from 'react-bootstrap'
+import Backlink from '../backlink/Backlink';
 const HelpDetails = (props) => {
 
   const post = props.location.state.post;
@@ -36,9 +37,11 @@ const HelpDetails = (props) => {
   }, [commentFlag])
 
   return (
-    <Container >
+    <Container fluid style={{marginBottom:"100px"}} >
+       <Backlink />
       <Row className="justify-content-md-center">  
-     <Col xs={12} sm={4} style={{marginTop:"100px"}} > <Profile user_id={user_id} post={post} onpost={true}/></Col>
+     
+     <Col xs={12} sm={4} style={{marginTop:"150px"}} > <Profile user_id={user_id} post={post} onpost={true}/></Col>
    
     <Col xs={12} sm={8}style={{marginTop:"100px"}} >  <Help  user={post.user} post={post} /> <div xs={12} sm={8}>
         {commentData.map(

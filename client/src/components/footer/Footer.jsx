@@ -18,52 +18,28 @@ function Footer() {
      });
 
         return ( 
-            <Container fluid style={{backgroundColor: '#397e6b'}}>
+            <Container fluid  className="con">
             <footer className="navbar-fixed-bottom">
-					<div className="container">
-						<div className="row">
-						<Col  xs={12} sm={5}>
-                        <ul className="footer-list">
+					
+						 <Col xs={12} sm={4}>
+		         <ul className="footer-list">
              <li ><a href = { state.homePage } >VoxBox</a></li>
              <li><a href = { state.repoUrl } > <FaGithub /> </a></li>
              <li><a href = { state.email } > <BsEnvelope /> </a></li>
             </ul>
             </Col>
-            <Col  xs={12} sm={5}><ul className='footer-list'>
+             <Col xs={12} sm={4}>
+            <ul className='footer-list'>
             <li> Copyright © 2020 </li>
             </ul></Col>
-            <Col xs={12} sm={5}><ul className='footer-list'>
+            <Col xs={12} sm={4} style={{marginRight:"-194px"}}><ul className='footer-list' >
             <li><img src = {logoVox} alt = "Voxbox logo" className='rounded'/></li>
             <li><a href = { state.hyfUrl } ><img src = {logo_HYF} alt = "HYF logo" /></a></li>
-            </ul></Col>
-						</div>
-					</div>
+            </ul>
+					</Col>
 				</footer>
 </Container>
-            // <div className = "footer-outer row text-center text-md-left" style={{backgroundColor: '#397e6b'}}>
             
-            // <div className = "col-4 " style={{backgroundColor: '#397e6b'}}>
-            // <ul className='footer-list' style={{paddingTop:'20px'}}>
-            // <li ><a href = { state.homePage } >VoxBox</a></li>
-            // <li><a href = { state.repoUrl } > <FaGithub /> </a></li>
-            // <li><a href = { state.email } > <BsEnvelope /> </a></li>
-            // </ul>
-            // </div> 
-
-            // <div className = "col-4 " style={{textAlign:'center',backgroundColor: '#397e6b'}}>
-            // <ul className='footer-list' style={{paddingTop:'20px'}}>
-            // <li> Copyright © 2020 </li>
-            // </ul>
-            // </div>
-
-            // <div className = "col-4 " style={{textAlign:'right', backgroundColor: '#397e6b'}}>
-            // <ul className='footer-list apart'>
-            // <li><img src = {logoVox} alt = "Voxbox logo" className='rounded'/></li>
-            // <li><a href = { state.hyfUrl } ><img src = {logo_HYF} alt = "HYF logo" /></a></li>
-            // </ul>
-            // </div>
-
-            // </div>
         );
 };
 
