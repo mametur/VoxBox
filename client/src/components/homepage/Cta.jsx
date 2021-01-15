@@ -13,7 +13,7 @@ export const Cta = () => {
                 <Col xs={12} className="cta-section">
                     <p className="cta-title">Nothing is as strong as the heart of a volunteer</p>
                     <div className="cta">
-                        <p className="cta-quote">The strong of the community is reflected by the passionate action of its members. Together with <span>VoxBox</span>, find a volunteer activity in your area or call for a help from your community.</p>
+                        <p className="cta-quote">The strength of the community is reflected by the passionate action of its members. Together with <span>VoxBox</span>, find a volunteer activity in your area or call for a help from your community.</p>
                         <Link to ={"/signup"} className="see-more"><Button>Join VoxBox Now</Button></Link>
                     </div>
                 </Col>
