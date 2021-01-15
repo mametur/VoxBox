@@ -310,7 +310,6 @@
     margin: auto;
     min-width: 200px;
     max-width: 320px;
-    min-width: calc(100vh-70px);
     width: 100%;
   }
   .card-help {

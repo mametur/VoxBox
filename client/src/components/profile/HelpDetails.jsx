@@ -37,15 +37,17 @@ const HelpDetails = (props) => {
   }, [commentFlag])
 
   return (
-    <Container fluid style={{marginBottom:"100px"}} >
-       <Backlink />
+    <Container style={{marginBottom:"100px"}} >
+      
+      <Row> <Backlink /></Row>
       <Row className="justify-content-md-center">  
      
-     <Col xs={12} sm={4} style={{marginTop:"150px"}} > <Profile user_id={user_id} post={post} onpost={true}/></Col>
+     
+     <Col xs={12} sm={4} style={{marginTop:"100px"}} > <Profile user_id={user_id} post={post} onpost={true}/></Col>
    
     <Col xs={12} sm={8}style={{marginTop:"100px"}} >  <Help  user={post.user} post={post} /> <div xs={12} sm={8}>
         {commentData.map(
-          comment => <NewComment thread={comment}/>
+          comment => <NewComment key={commentData.comment_id} thread={comment}/>
         )}  
       <Comment  setCommentFlag={setCommentFlag} post={post} /></div>
       </Col>
