@@ -59,7 +59,7 @@ return (
                 }}>
         <Button style={buttonStyle}>{user.firstName}'s profile</Button></Link> : null}
 
-        {(user.user_id === currentUser_id && props.onpost === false) ? <Button style={buttonStyle} onClick={props.editModeToggle}>Edit Profile</Button> : null}
+        {(user.user_id === currentUser_id && props.onpost === false) ? <Button style={buttonStyle} onClick={props.editModeToggle} disabled={props.editMode}>Edit Profile</Button> : null}
         </p>
       </div>:
       <div className="spinner-border text-success m-5" role="status"> <span className="sr-only">Loading...</span></div>
