@@ -17,10 +17,15 @@ export const Box = ({post, setUpdatePost}) => {
     }
 
     function cutDescription(arr) {
-        let desc =arr.slice(0, 100);
+        let desc =arr.slice(0, 70);
+        return desc;
+    }
+ function cutTitle(arr) {
+        let desc =arr.slice(0, 25);
         return desc;
     }
 
+    
     const userId = useSelector(state => state.user.user_id);
 
 
@@ -74,8 +79,8 @@ export const Box = ({post, setUpdatePost}) => {
             </Card.Body>
            
            <Card.Body className="card-down">
-                <Card.Title className="card-title">{post.topic}</Card.Title>
-                <Card.Text className="card-desc">
+                <Card.Title className="card-title">{cutTitle(post.topic)}...</Card.Title>
+                <Card.Text className="card-desc" style={{height:"70px"}}>
                 {cutDescription(post.description)}...<Link to ={{
                     pathname: `/help/${post.post_id}`,
                     state: {

@@ -1,7 +1,7 @@
 import React from 'react';
 import Profile from './Profile';
 import Bio from './Bio';
-
+import Backlink from '../backlink/Backlink';
 import './Profile.css';
 import { useState } from 'react';
 
@@ -22,9 +22,13 @@ const ProfileDetails = (props) => {
   }
 console.log(editModeOn)
 return (
+ <div>
+   <Backlink />
   <div className ='rowC'>
+     
     <Profile user_id={user_id} onpost={false} editModeToggle={handleEditMode} editMode={editModeOn.status}/>
     <Bio editMode={editModeOn.status} editModeToggle={handleEditMode} user_id={user_id}/>
+  </div>
   </div>
 );
 

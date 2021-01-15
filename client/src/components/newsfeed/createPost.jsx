@@ -86,9 +86,9 @@ const CreatePost = (props) => {
       <Col xs sm md lg xl>
       <h2 style={titleStyle} className="text-secondary row justify-content-center">Make a help request</h2>
         <Form>
-          <Form.Group><Form.Control type="text" placeholder="Title for help" id="topic" onChange={handleChange} required/></Form.Group>
-          <Form.Group><Form.Control type="text" placeholder="Location where the help is needed" id="post_city" onChange={handleChange} required/></Form.Group>
-          <Form.Group><Form.Control type="text" placeholder="Category of the help request" id="category" onChange={handleChange} required/></Form.Group>
+          <Form.Group><Form.Control type="text"  placeholder="Title for help" id="topic" onChange={handleChange} required/></Form.Group>
+          <Form.Group><Form.Control type="text" maxLength="12" placeholder="Location where the help is needed" id="post_city" onChange={handleChange} required/></Form.Group>
+          <Form.Group><Form.Control type="text"   maxLength="12" placeholder="Category of the help request" id="category" onChange={handleChange} required/></Form.Group>
           <Form.Group><Form.Control as="textarea" rows={3} placeholder="Description" id="description" onChange={handleChange} required/></Form.Group>
           
           <Form.Group >
