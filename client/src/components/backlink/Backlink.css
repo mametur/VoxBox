@@ -1,5 +1,4 @@
 .backlink {
-  position: absolute;
   top: 20px;
   padding-top: 90px;
   margin-bottom: 50px;
@@ -11,13 +10,15 @@
 
 @media screen and (max-width: 600px) {
   .backlink {
-    padding-top: 120px;
+    padding-top: 50px;
+    margin-bottom: 0;
   }
 }
 
 @media screen and (max-width: 800px) {
   .backlink {
-    padding-top: 60px;
+    padding-top: 50px;
     margin-left: 0;
+    margin-bottom: 0;
   }
 }
