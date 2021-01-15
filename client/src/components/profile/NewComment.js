@@ -18,6 +18,7 @@ export const NewComment = ({ thread }) => {
     // marginLeft: "15px",
     cursor: "pointer",
     marginLeft: "0",
+    borderRadius: '50%'
   };
 
   return (
@@ -34,7 +35,6 @@ export const NewComment = ({ thread }) => {
             id="avatar"
             style={imgStyle}
             src={require(`../../assets/${thread.user.avatar}.jpg`)}
-            rounded
             className="avatar"
           />
 
