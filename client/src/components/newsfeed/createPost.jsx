@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { Form, Container, Button, Row, Col } from 'react-bootstrap'
+import { logOut } from '../../store/actions/loginActions'
+import { useHistory } from 'react-router-dom'
 
 const CreatePost = (props) => {
 
@@ -20,6 +22,8 @@ const CreatePost = (props) => {
       [event.target.id]: event.target.value
     }
     )}
+    const dispatch = useDispatch()
+    const history = useHistory()
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -35,8 +39,11 @@ const CreatePost = (props) => {
       })
       .then(response => response.json())
       .then(data => {
-        
-        if(data.status < 200 || data.status > 300){
+          if(data.auth === false){ 
+                history.push('/session_expired')
+                dispatch(logOut())
+                 return
+                }else if(data.status < 200 || data.status > 300){
           console.log('errors', data.message) 
         }
       })
@@ -61,6 +68,13 @@ const CreatePost = (props) => {
     marginLeft: '10px'
   }
 
+  const cancelButtonStyle = {
+    marginTop: '20px',
+    color: 'white',
+    marginLeft: '10px',
+    backgroundColor: 'gray', 
+  }
+
   const titleStyle = {
     marginTop: '20px',
     marginBottom: '20px'
@@ -72,14 +86,14 @@ const CreatePost = (props) => {
       <Col xs sm md lg xl>
       <h2 style={titleStyle} className="text-secondary row justify-content-center">Make a help request</h2>
         <Form>
-          <Form.Group><Form.Control type="text" placeholder="Title for help" id="topic" onChange={handleChange} required/></Form.Group>
-          <Form.Group><Form.Control type="text" placeholder="Location where the help is needed" id="post_city" onChange={handleChange} required/></Form.Group>
-          <Form.Group><Form.Control type="text" placeholder="Category of the help request" id="category" onChange={handleChange} required/></Form.Group>
+          <Form.Group><Form.Control type="text"  placeholder="Title for help" id="topic" onChange={handleChange} required/></Form.Group>
+          <Form.Group><Form.Control type="text" maxLength="12" placeholder="Location where the help is needed" id="post_city" onChange={handleChange} required/></Form.Group>
+          <Form.Group><Form.Control type="text"   maxLength="12" placeholder="Category of the help request" id="category" onChange={handleChange} required/></Form.Group>
           <Form.Group><Form.Control as="textarea" rows={3} placeholder="Description" id="description" onChange={handleChange} required/></Form.Group>
           
           <Form.Group >
             <Button style={buttonStyle} variant="primary" type="submit" onClick={handleSubmit}>Post Help</Button>
-            <Button style={buttonStyle} variant="primary" type="submit" onClick={props.formToggle}>Cancel</Button>
+            <Button style={cancelButtonStyle} variant="primary" type="submit" onClick={props.formToggle}>Cancel</Button>
           </Form.Group>
         </Form>
       </Col>
