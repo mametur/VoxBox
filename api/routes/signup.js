@@ -38,7 +38,7 @@ app.post('/signup', verifyEmail, async (req, res) => {
 					res.status(401).send({ status: 401, message: ' Your email is not valid' });
 					break;
 				case 'password':
-					res.status(401).send({ status: 401, message: 'Password length has to be between 5 and 15 characters' });
+					res.status(401).send({ status: 401, message: 'Password length has to be at least 5 characters' });
 					break;
 				case 'firstName':
 					res.status(401).send({ status: 401, message: 'First name is too short' });
