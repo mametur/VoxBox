@@ -1,4 +1,5 @@
 import React from "react";
+import { Col, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export const NewComment = ({ thread }) => {
@@ -12,26 +13,40 @@ export const NewComment = ({ thread }) => {
 
     return result;
   }
+  const imgStyle = {
+    width: "65px",
+    // marginLeft: "15px",
+    cursor: "pointer",
+    marginLeft: "0",
+  };
 
   return (
-    <div>
-      <div className="comment-box">
-        <div className="comment-up">
-          <Link
-            className="link"
-            to={{
-              pathname: `/profile/${thread.user.user_id}`,
-              state: { post: thread },
-            }}
-          >
-            <h2 className="comment-user-name">
-              {thread.user.firstName} {thread.user.lastName}
-            </h2>
-          </Link>
-          <p>replied on {convert(thread.createdAt)}</p>
-        </div>
-        <div className="comment-text">{thread.comment_content}</div>
+    <Col xs={12} sm={10} className="comment-box">
+      <div className="comment-up">
+        <Link
+          className="link"
+          to={{
+            pathname: `/profile/${thread.user.user_id}`,
+            state: { post: thread },
+          }}
+        >
+          <Image
+            id="avatar"
+            style={imgStyle}
+            src={require(`../../assets/${thread.user.avatar}.jpg`)}
+            rounded
+            className="avatar"
+          />
+
+          <h2 className="comment-user-name">
+            {thread.user.firstName} {thread.user.lastName}
+          </h2>
+        </Link>
+        <p>
+          replied on {"\n"} {convert(thread.createdAt)}
+        </p>
       </div>
-    </div>
+      <div className="comment-text">{thread.comment_content}</div>
+    </Col>
   );
 };
