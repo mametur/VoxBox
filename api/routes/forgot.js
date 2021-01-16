@@ -3,7 +3,7 @@ const validator = require('validator');
 const sendEmail = require('../utils/sendEmail');
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
-const { JWT_SECRET, HOST_NAME } = require('../config.js');
+const { JWT_SECRET, HOST_NAME, Protocol } = require('../config.js');
 const bcrypt = require('bcrypt');
 const jwt_decode = require('jwt-decode');
 
@@ -40,7 +40,7 @@ app.post('/forgot', async (req, res, next) => {
 		const token = jwt.sign(payload, JWT_SECRET, {
 			expiresIn: '1h',
 		});
-		const link = `${req.protocol}://${HOST_NAME}/verify/?token=${token}`;
+		const link = `${Protocol}://${HOST_NAME}/verify/?token=${token}`;
 		// for heroku please use ${req.headers.host}  instead of localhost:3000 ;
 
 		await sendEmail(
@@ -139,9 +139,9 @@ app.post('/forgot', async (req, res, next) => {
 
 app.get('/reset', async (req, res) => {
 	const token = req.query.token;
-	console.log('token', token);
-	const decoded = jwt_decode(token);
-
+	//console.log("token", token);
+	const decoded = jwt.verify(token, JWT_SECRET);
+	// console.log(decoded);
 	User.findOne({
 		where: { user_id: decoded.id },
 	})
@@ -156,15 +156,15 @@ app.get('/reset', async (req, res) => {
 
 app.post('/update_password', (req, res) => {
 	const { password, token } = req.body;
-	const decoded = jwt_decode(token);
-
+	console.log('token', token);
+	const decoded = jwt.verify(token, JWT_SECRET);
+	console.log(decoded);
 	if (Date.now() <= decoded.exp * 1000) {
 		console.log(true, 'token is not expired');
 	} else {
 		res.status(400).send({ status: 400, message: 'The token has expried!' });
 		return;
 	}
-
 	User.findOne({ where: { user_id: decoded.id } }).then((user) => {
 		if (!user) {
 			return res.status(404).send({ error: 'User not found' });

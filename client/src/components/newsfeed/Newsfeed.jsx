@@ -1,10 +1,13 @@
 import React, {useState} from 'react'
+import { Col, Container } from 'react-bootstrap'
 import {useSelector} from "react-redux"
 import {Redirect} from "react-router-dom"
 import { Cards } from './Cards'
 import CreatePost from './createPost'
 import { NewsfeedHeader } from './NewsfeedHeader'
+import { ProfileAlert } from './ProfileAlert.jsx'
 import { SearchBar } from './SearchBar'
+
 
 export const Newsfeed = () => {
 
@@ -14,6 +17,7 @@ export const Newsfeed = () => {
     })
 
     const isLoggedIn = useSelector(state => state.auth.isLoggedIn)
+    const isProfileComplete = useSelector(state => state.user.isProfileComplete)
 
     const handlePostFormToggle = () =>{
         setPostFormState({
@@ -27,9 +31,9 @@ export const Newsfeed = () => {
     return (
         <div>
             <NewsfeedHeader formToggle={handlePostFormToggle}/>
-            {postFormState.status? <CreatePost formToggle={handlePostFormToggle}/> : null}
-            <SearchBar searching={setSearchedValue}/>
-            <Cards searchedValue={searchedValue} postFormState={postFormState}/>
+         <Col>  {postFormState.status? isProfileComplete ? <CreatePost formToggle={handlePostFormToggle}/> : <ProfileAlert formToggle={handlePostFormToggle}/> : null}</Col> 
+         <Col> <SearchBar searching={setSearchedValue}/></Col>
+           <Container fluid > <Cards searchedValue={searchedValue} postFormState={postFormState} /></Container>
         </div>
     )
 }
