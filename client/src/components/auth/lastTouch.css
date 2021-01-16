@@ -1,0 +1,9 @@
+.form_control {
+	border-right-style: none;
+}
+.passwordVis {
+	border-left-style: none;
+	background-color: white;
+	border-top-right-radius: 0.25rem !important;
+	border-bottom-right-radius: 0.25rem !important;
+}

@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from 'react';
+
 import './Backlink.css';
+import React from 'react'
 import { BsChevronLeft } from 'react-icons/bs';
-import {Link} from 'react-router-dom';
+import {Link, useHistory } from 'react-router-dom';
+import { Button } from 'react-bootstrap'
 
 
 const Backlink = () => {
 
+  const history = useHistory()
+
 return (
-  <p className="backlink"><Link to ='/newsfeed'><BsChevronLeft /> Back to All Help Requests</Link></p>
+  <p className="backlink"><Button onClick={()=> history.goBack()}><BsChevronLeft /> Back</Button></p>
 );
 };
 

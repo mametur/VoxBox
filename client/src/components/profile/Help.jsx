@@ -52,7 +52,7 @@ const Help = (props) => {
 
 return (
     <div className="column">
-      <div className="card-help">
+      <div className="card-help" style={{marginBottom:"30px"}}>
         <p className='icon left'><BsGeoAlt /> {post.post_city}</p>
         <p className='icon right'><BsCalendar /> {convert(post.createdAt)}</p>
         <h1 className="title-help">{post.topic}</h1>
