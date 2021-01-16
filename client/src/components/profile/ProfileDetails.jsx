@@ -4,7 +4,7 @@ import Bio from './Bio';
 import Backlink from '../backlink/Backlink';
 import './Profile.css';
 import { useState } from 'react';
-import { Col, Container, Row } from 'react-bootstrap'
+import { Col, Container, Jumbotron, Row } from 'react-bootstrap'
 
 
 
@@ -25,14 +25,18 @@ const ProfileDetails = (props) => {
   }
 console.log(editModeOn)
 return (
- <Container  style={{marginBottom:"100px"}}>
-   <Backlink />
-  <div className ='rowC'>
-     
-    <Profile user_id={user_id} onpost={false} editModeToggle={handleEditMode} editMode={editModeOn.status}/>
-    <Bio editMode={editModeOn.status} editModeToggle={handleEditMode} user_id={user_id}/>
-  </div>
-  </Container>
+  
+ 
+   <Container>
+       
+     <Row >
+       <Col  xs={12} sm={12}  style={{ marginBottom:"40px"}}><Backlink /></Col>  
+     <Col xs={12} sm={5}  style={{ marginLeft:"auto"}}><Profile  user_id={user_id} onpost={false} editModeToggle={handleEditMode} editMode={editModeOn.status}/></Col>
+     <Col xs={12} sm={7}className="text-left"> <Bio editMode={editModeOn.status} editModeToggle={handleEditMode} user_id={user_id}/></Col>
+     </Row>
+     </Container>
+ 
+  
 );
 
 };

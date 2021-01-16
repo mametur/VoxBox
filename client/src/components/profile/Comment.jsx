@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Profile.css';
-import { Button, Form, Col, Container, Row } from 'react-bootstrap'
+import { Button, Form, Col, } from 'react-bootstrap'
 import { useSelector } from "react-redux"
 import { useDispatch } from 'react-redux'
 import { logOut } from '../../store/actions/loginActions'
@@ -55,9 +55,9 @@ const Comment = ({ post, setCommentFlag }) => {
   }
 
   return (
-    <Row className=""> 
+    
 
-      <div className="card-comment">
+      <Col xs={12} sm={10} className="card-comment">
 
         <Form className='form-comment' onSubmit={submitComment}>
           <label style={{ color: '#FCA73D', fontSize:"16px" }}>
@@ -78,9 +78,9 @@ const Comment = ({ post, setCommentFlag }) => {
           <Button type="submit" style={{ margin: 'auto', marginTop: '5px', color: 'white' }} >Post A Comment</Button>
         </Form>
 
-      </div>
+      </Col>
 
-    </Row>
+   
   );
 };
 
