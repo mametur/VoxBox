@@ -47,7 +47,7 @@ const HelpDetails = (props) => {
    
     <Col xs={12} sm={8}style={{marginTop:"100px"}} >  <Help  user={post.user} post={post} /> <Container>
         {commentData.map(
-          comment => <NewComment key={commentData.comment_id} thread={comment}/>
+          comment => <NewComment key={comment.comment_id} thread={comment}/>
         )}  
       <Comment  setCommentFlag={setCommentFlag} post={post} /></Container>
       </Col>
