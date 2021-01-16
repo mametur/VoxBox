@@ -6,6 +6,7 @@ import { Redirect, NavLink } from 'react-router-dom'
 import { login } from '../../store/actions/loginActions'
 import {FaRegEye} from 'react-icons/fa'
 import {showHidePassword} from './showPassword.js'
+import './lastTouch.css'; 
 
 
 const SignIn = () => {
@@ -42,8 +43,9 @@ const SignIn = () => {
     maxWidth: '400px',
     height: '370px',
     marginBottom: '6%',
-    marginTop: '6%'
+    marginTop: '6%',
   }
+
 
   if(userLoggedIn) return (<Redirect to="/newsfeed" />)
   
@@ -56,9 +58,9 @@ const SignIn = () => {
       <Form>
       <Form.Group><Form.Control type="email" placeholder="Email" id="email" onChange={handleChange} /></Form.Group>
       <InputGroup className="mb-3">
-              <Form.Control type="password" placeholder="Password" id="password" onChange={handleChange}  required/>
-               <InputGroup.Prepend >
-                  <InputGroup.Text><FaRegEye onClick={showHidePassword}/></InputGroup.Text>
+              <Form.Control className="form_control" type="password" placeholder="Password" id="password" onChange={handleChange}  required/>
+               <InputGroup.Prepend className= "visfocus" >
+                  <InputGroup.Text className="passwordVis"><FaRegEye onClick={showHidePassword}/></InputGroup.Text>
                </InputGroup.Prepend>  
             </InputGroup>
      
