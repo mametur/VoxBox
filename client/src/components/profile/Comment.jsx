@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './Profile.css';
-import { Button } from 'react-bootstrap'
+import { Button, Form, Col, Container, Row } from 'react-bootstrap'
 import { useSelector } from "react-redux"
 import { useDispatch } from 'react-redux'
 import { logOut } from '../../store/actions/loginActions'
 import { useHistory } from 'react-router-dom'
+
 
 const Comment = ({ post, setCommentFlag }) => {
 
@@ -54,11 +55,11 @@ const Comment = ({ post, setCommentFlag }) => {
   }
 
   return (
-    <div className="column"> 
+    <Row className=""> 
 
       <div className="card-comment">
 
-        <form className='form-comment' onSubmit={submitComment}>
+        <Form className='form-comment' onSubmit={submitComment}>
           <label style={{ color: '#FCA73D', fontSize:"16px" }}>
             Leave a Reply?
         </label><br />
@@ -75,11 +76,11 @@ const Comment = ({ post, setCommentFlag }) => {
           }} />
           <p className="error-message">{errorMessage}</p>
           <Button type="submit" style={{ margin: 'auto', marginTop: '5px', color: 'white' }} >Post A Comment</Button>
-        </form>
+        </Form>
 
       </div>
 
-    </div>
+    </Row>
   );
 };
 
