@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import { Col, Container } from 'react-bootstrap'
 import {useSelector} from "react-redux"
 import {Redirect} from "react-router-dom"
 import { Cards } from './Cards'
@@ -30,9 +31,9 @@ export const Newsfeed = () => {
     return (
         <div>
             <NewsfeedHeader formToggle={handlePostFormToggle}/>
-            {postFormState.status? isProfileComplete ? <CreatePost formToggle={handlePostFormToggle}/> : <ProfileAlert formToggle={handlePostFormToggle}/> : null}
-            <SearchBar searching={setSearchedValue}/>
-            <Cards searchedValue={searchedValue} postFormState={postFormState}/>
+         <Col>  {postFormState.status? isProfileComplete ? <CreatePost formToggle={handlePostFormToggle}/> : <ProfileAlert formToggle={handlePostFormToggle}/> : null}</Col> 
+         <Col> <SearchBar searching={setSearchedValue}/></Col>
+           <Container fluid > <Cards searchedValue={searchedValue} postFormState={postFormState} /></Container>
         </div>
     )
 }

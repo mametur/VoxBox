@@ -1,21 +1,23 @@
 .backlink {
-  position: absolute;
-  top: 20px;
-  padding-top:90px;
-  margin-bottom: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   font-size: 0.7em;
+  margin-left: 100px;
 }
 
 /* MEDIA QUERIES */
 
 @media screen and (max-width: 600px) {
-    .backlink {
-    padding-top:120px;
-    }
+  .backlink {
+    padding-top: 50px;
+    margin-bottom: 0;
+  }
 }
 
 @media screen and (max-width: 800px) {
-    .backlink {
-    /* padding-top:300px; */
-    }
+  .backlink {
+    padding-top: 50px;
+    margin-left: 0;
+    margin-bottom: 0;
+  }
 }
