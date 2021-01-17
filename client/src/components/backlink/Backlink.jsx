@@ -11,7 +11,7 @@ const Backlink = () => {
   const history = useHistory()
 
 return (
-  <p className="backlink"><Button style={{width:"100px"}} onClick={()=> history.goBack()}><BsArrowReturnLeft/></Button></p>
+  <div className="backlink"><Button variant="outline-primary" style={{width:"75px"}} onClick={()=> history.goBack()}><BsArrowReturnLeft/></Button></div>
 );
 };
 

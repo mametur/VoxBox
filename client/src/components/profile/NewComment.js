@@ -18,7 +18,7 @@ export const NewComment = ({ thread }) => {
     // marginLeft: "15px",
     cursor: "pointer",
     marginLeft: "0",
-    borderRadius: '50%'
+    borderRadius: "50%",
   };
 
   return (

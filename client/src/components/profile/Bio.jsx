@@ -115,7 +115,7 @@ const wordBreak={
 
 return (
 
-<div className="w-50 my-3 p-3 bg-white rounded box-shadow column bio" >
+<div className="w-80 my-3 p-3 bg-white rounded box-shadow column bio" >
 
   <h1 className="title-about pb-2 mb-0">About Me</h1>    
 
@@ -161,7 +161,7 @@ return (
     <p className='mr-2 rounded bio-icon'><BsGeoAlt/></p>
     <div className='media-body pb-1 mb-0 small border-gray'>
       <h2 className="d-flex justify-content-between align-items-center w-100 bio-h2">Which city do you live?</h2>
-       <Form.Group><Form.Control type="text" id="user_city" onChange={handleChange} value={profileBio.user_city} required/></Form.Group>
+       <Form.Group><Form.Control   type="text" id="user_city" onChange={handleChange} value={profileBio.user_city} required/></Form.Group>
     </div>
   </div> : null
   }
