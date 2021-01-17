@@ -17,7 +17,7 @@ export const Box = ({post, setUpdatePost}) => {
     }
 
     function cutDescription(arr) {
-        let desc =arr.slice(0, 70);
+        let desc =arr.slice(0, 60);
         return desc;
     }
  function cutTitle(arr) {
@@ -58,10 +58,10 @@ export const Box = ({post, setUpdatePost}) => {
   const style={
       width: '10rem',
       padding:"10px",
-       margin:"10px 0px 20px 0px",
+     margin:"10px 0px 20px 0px",
   }
     return (
-   <Col  xs={12} sm={4}style={style} > <Card style ={{padding:"10px"}}>
+   <Col  xs={12} sm={4}style={style} > <Card style ={{padding:"10px", height:"430px"}}>
             <Card.Body className="card-up">
                 <Card.Body>
                     <Link to ={{
@@ -80,7 +80,7 @@ export const Box = ({post, setUpdatePost}) => {
            
            <Card.Body className="card-down">
                 <Card.Title className="card-title">{cutTitle(post.topic)}...</Card.Title>
-                <Card.Text className="card-desc" style={{height:"70px"}}>
+                <Card.Text className="card-desc " style={{height:"70px", marginBottom:"px"}}>
                 {cutDescription(post.description)}...<Link to ={{
                     pathname: `/help/${post.post_id}`,
                     state: {
