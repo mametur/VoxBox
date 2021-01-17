@@ -33,6 +33,7 @@ const HelpDetails = (props) => {
   }
 
   useEffect(() => {
+    console.log("comments",commentData)
     fetchData();
   }, [commentFlag])
 
@@ -43,13 +44,13 @@ const HelpDetails = (props) => {
       <Row className="justify-content-md-center">  
      
      
-     <Col xs={12} sm={4} style={{marginTop:"100px"}} > <Profile user_id={user_id} post={post} onpost={true}/></Col>
+     <Col xs={12} sm={5} style={{marginTop:"100px"}} > <Profile user_id={user_id} post={post} onpost={true}/></Col>
    
-    <Col xs={12} sm={8}style={{marginTop:"100px"}} >  <Help  user={post.user} post={post} /> <Container>
+    <Col xs={12} sm={7}style={{marginTop:"100px"}} >  <Help  user={post.user} post={post} /> 
         {commentData.map(
           comment => <NewComment key={comment.comment_id} thread={comment}/>
         )}  
-      <Comment  setCommentFlag={setCommentFlag} post={post} /></Container>
+      <Comment  setCommentFlag={setCommentFlag} post={post} />
       </Col>
       </Row>
    
