@@ -21,18 +21,18 @@ function Footer() {
             <Container fluid  className="con">
             <footer className="navbar-fixed-bottom">
 					
-						 <Col xs={12} sm={4}>
-		         <ul className="footer-list">
+			 <Col xs={12} sm={4} className="text-center">
+		    <ul className="footer-list">
              <li ><a href = { state.homePage } >VoxBox</a></li>
              <li><a href = { state.repoUrl } > <FaGithub /> </a></li>
              <li><a href = { state.email } > <BsEnvelope /> </a></li>
             </ul>
             </Col>
-             <Col xs={12} sm={4}>
+             <Col xs={12} sm={4} className="text-center">
             <ul className='footer-list'>
             <li> Copyright © 2020 </li>
             </ul></Col>
-            <Col xs={12} sm={4} style={{marginRight:"-194px"}}><ul className='footer-list' >
+            <Col  xs={12} sm={4} style={{marginRight:"-194px"}} className="text-center" ><ul className='footer-list' >
             <li><img src = {logoVox} alt = "Voxbox logo" className='rounded'/></li>
             <li><a href = { state.hyfUrl } ><img src = {logo_HYF} alt = "HYF logo" /></a></li>
             </ul>

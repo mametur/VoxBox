@@ -1,6 +1,9 @@
 const express = require('express');
 const User = require('../models/User');
 const verifyEmail = require('../middleware/verifyEmail.js');
+const sendEmail = require('../utils/sendEmail');
+const welcome = require('../utils/welcome.js');
+const { HOST_NAME, Protocol } = require('../config.js');
 
 const app = express();
 
@@ -26,6 +29,9 @@ app.post('/signup', verifyEmail, async (req, res) => {
 			password: password,
 			email: email,
 		});
+		const link = `${Protocol}://${HOST_NAME}/signin`;
+		await sendEmail(email, 'info.voxbox@gmail.com', 'Welcome to VoxBox community', welcome(firstName, link));
+
 		res.status(200).send({
 			status: 200,
 			message: 'Data Save Successfully',
