@@ -59,7 +59,7 @@ const SignIn = () => {
       <Form.Group><Form.Control type="email" placeholder="Email" id="email" onChange={handleChange} /></Form.Group>
       <InputGroup className="mb-3">
               <Form.Control className="form_control" type="password" placeholder="Password" id="password" onChange={handleChange}  required/>
-               <InputGroup.Prepend className= "visfocus" >
+               <InputGroup.Prepend >
                   <InputGroup.Text className="passwordVis"><FaRegEye onClick={showHidePassword}/></InputGroup.Text>
                </InputGroup.Prepend>  
             </InputGroup>
