@@ -12,6 +12,10 @@ const Help = (props) => {
 
   const userId = useSelector(state => state.user.user_id);
   const [updatedSolved, setUpdatedSolved] =useState(true)
+  // const [count, setCount] = useState(0);
+  //  const add1 = () => {
+  //   setCount(count + 1);
+  // };
 
   const updateSolved = () => {
       fetch(`/api/post/solved/${post.post_id}`, {
@@ -60,6 +64,7 @@ return (
         <div style={{display:"flex", justifyContent:"flex-end"}}>
         {markRender()}
         </div>
+        {/* <Button variant="outline-secondary"style={{border:"none"}}  onClick={() => add1()}><span role="img" aria-label="hand">✋</span>{count}</Button> */}
       </div>
     </div>
   );
