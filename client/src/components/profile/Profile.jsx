@@ -51,7 +51,7 @@ return (
         <h1 className="title-name">{user.firstName + ' ' + user.lastName}</h1>
          {/* <p className="help">{user.firstName} is asking for Help!</p>  */}
         <p className='icon'><BsGeoAlt/> Location</p>
-        <p>{user.user_city}</p>
+        <p style={{wordBreak:"break-all"}}>{user.user_city}</p>
         <p className='icon'><BsEnvelope/> Email Address</p>
         <p>{user.email}</p>
         <p>{props.onpost ? <Link to ={{

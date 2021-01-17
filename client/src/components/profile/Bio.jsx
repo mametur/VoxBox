@@ -109,10 +109,13 @@ const imgStyle = {
   marginLeft: '15px',
   cursor: 'pointer'
 }
+const wordBreak={
+  wordBreak: "break-all"
+}
 
 return (
 
-<div className="w-50 my-3 p-3 bg-white rounded box-shadow column bio" >
+<div className="w-80 my-3 p-3 bg-white rounded box-shadow column bio" >
 
   <h1 className="title-about pb-2 mb-0">About Me</h1>    
 
@@ -121,7 +124,7 @@ return (
   <div className='media-body pb-1 mb-0 small border-gray'>
   <h2 className="d-flex justify-content-between align-items-center lh-125 w-100 bio-h2">Get to know me</h2>
   {props.editMode ?  <Form.Group><Form.Control type="text"  id="introduction" onChange={handleChange} value={profileBio.introduction} required/></Form.Group> :
-  <p className="d-block">{profileBio.introduction}</p>}
+  <p className="d-block" style={wordBreak}>{profileBio.introduction}</p>}
   
   </div>
 </div>
@@ -131,7 +134,7 @@ return (
   <div className='media-body pb-1 mb-0 small border-gray'>
   <h2 className="d-flex justify-content-between align-items-center w-100 bio-h2">Why are you joining VoxBox?</h2>
   {props.editMode ?  <Form.Group><Form.Control type="text" id="reason" onChange={handleChange} value={profileBio.reason} required/></Form.Group> :
-  <p className="d-block">{profileBio.reason}</p>}
+  <p className="d-block" style={wordBreak}>{profileBio.reason}</p>}
   </div>
   </div>
 
@@ -140,7 +143,7 @@ return (
   <div className='media-body pb-1 mb-0 small border-gray'>
   <h2 className="d-flex justify-content-between align-items-center w-100 bio-h2">Hobbies or skills that you want to do or use in VoxBox?</h2>
   {props.editMode ?  <Form.Group><Form.Control type="text"  id="hobbies" onChange={handleChange} value={profileBio.hobbies} required/></Form.Group> :
-  <p className="d-block">{profileBio.hobbies}</p>}
+  <p className="d-block" style={wordBreak}>{profileBio.hobbies}</p>}
   </div>
   </div>
 
@@ -149,7 +152,7 @@ return (
     <div className='media-body pb-1 mb-0 small border-gray'>
       <h2 className="d-flex justify-content-between align-items-center w-100 bio-h2">What language(s) do you speak, or wish to practice?</h2>
        {props.editMode ?  <Form.Group><Form.Control type="text" id="language" onChange={handleChange} value={profileBio.language} required/></Form.Group> :
-      <p className="d-block">{profileBio.language}</p>}
+      <p className="d-block"style={wordBreak}>{profileBio.language}</p>}
     </div>
   </div>
 
@@ -158,7 +161,7 @@ return (
     <p className='mr-2 rounded bio-icon'><BsGeoAlt/></p>
     <div className='media-body pb-1 mb-0 small border-gray'>
       <h2 className="d-flex justify-content-between align-items-center w-100 bio-h2">Which city do you live?</h2>
-       <Form.Group><Form.Control type="text" id="user_city" onChange={handleChange} value={profileBio.user_city} required/></Form.Group>
+       <Form.Group><Form.Control   type="text" id="user_city" onChange={handleChange} value={profileBio.user_city} required/></Form.Group>
     </div>
   </div> : null
   }
