@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import './Profile.css';
-import { Button } from 'react-bootstrap'
+import { Button, Form, Col, Container, Row } from 'react-bootstrap'
 import { useSelector } from "react-redux"
 import { useDispatch } from 'react-redux'
 import { logOut } from '../../store/actions/loginActions'
 import { useHistory } from 'react-router-dom'
 
+
 const Comment = ({ post, setCommentFlag }) => {
+
   const [comment, setComment] = useState('');
+  const [comments, setComments] = useState([])
+  const [errorMessage, setErrorMessage] = useState('')
 
   const userId = useSelector(state => state.user.user_id)
-
-  const [comments, setComments] = useState([])
-
 
   const dispatch = useDispatch()
   const history = useHistory()
@@ -20,6 +21,10 @@ const Comment = ({ post, setCommentFlag }) => {
   const submitComment = (e) => {
 
     e.preventDefault();
+    console.log(comment)
+
+    if(comment !== '') {
+
     // post on b/e routes
 
     setCommentFlag(state => !state)
@@ -42,20 +47,26 @@ const Comment = ({ post, setCommentFlag }) => {
           }else{ const checkData =data}
       
       });
+
+      setComment('')
+    } else {
+      setErrorMessage("Please write something before leaving a comment!")
+    }
   }
 
   return (
-    <div className="column"> 
+    <Row className=""> 
 
       <div className="card-comment">
 
-        <form className='form-comment' onSubmit={submitComment}>
-          <label style={{ color: '#FCA73D' }}>
+        <Form className='form-comment' onSubmit={submitComment}>
+          <label style={{ color: '#FCA73D', fontSize:"16px" }}>
             Leave a Reply?
         </label><br />
-          <textarea  rows="4" cols="50" type="text" name="comment" onChange={(e) => {
-            setComment(e.target.value)}
-          } onKeyDown={(event) => {
+          <textarea style={{fontSize:"16px"}} value={comment} rows="4" cols="50" type="text" name="comment" onChange={(e) => {
+            setComment(e.target.value)
+            setErrorMessage("")
+          }} onKeyDown={(event) => {
             if(event.keyCode == 13 && !event.shiftKey) {
               submitComment(event);
               event.target.value = '';
@@ -63,12 +74,13 @@ const Comment = ({ post, setCommentFlag }) => {
               return null
             }
           }} />
-          <Button type="submit" style={{ margin: 'auto', marginTop: '10px', color: 'white' }} >Post A Comment</Button>
-        </form>
+          <p className="error-message">{errorMessage}</p>
+          <Button type="submit" style={{ margin: 'auto', marginTop: '5px', color: 'white' }} >Post A Comment</Button>
+        </Form>
 
       </div>
 
-    </div>
+    </Row>
   );
 };
 

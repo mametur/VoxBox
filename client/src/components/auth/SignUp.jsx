@@ -1,7 +1,9 @@
 import React from 'react'
 import { useState } from 'react'
-import { Form, Button, Container, Row, Col, Alert} from 'react-bootstrap'
+import { Form, InputGroup, Button, Container, Row, Col, Alert} from 'react-bootstrap'
 import { Redirect } from 'react-router-dom'
+import {FaRegEye} from 'react-icons/fa'
+import {showHidePassword} from './showPassword.js'
 
 const SignUp = () => {
 
@@ -22,6 +24,7 @@ const SignUp = () => {
       [event.target.id]: event.target.value
     })
   }
+
   const handleSubmit = (event) => {
     event.preventDefault()
 
@@ -60,6 +63,7 @@ const SignUp = () => {
     marginTop: '6%'
   }
 
+
   if(signedUp) return (<Redirect to="signin" />)
 
   return (
@@ -71,7 +75,12 @@ const SignUp = () => {
             <Form.Group><Form.Control type="text" placeholder="Name" id="firstName" onChange={handleChange} required/></Form.Group>
             <Form.Group><Form.Control type="text" placeholder="Last Name" id="lastName" onChange={handleChange} required/></Form.Group>
             <Form.Group><Form.Control type="email" placeholder="Email" id="email" onChange={handleChange} required/></Form.Group>
-            <Form.Group><Form.Control type="password" placeholder="Password" id="password" onChange={handleChange} required/></Form.Group>
+            <InputGroup className="mb-3">
+              <Form.Control type="password" placeholder="Password" id="password" onChange={handleChange}  required/>
+               <InputGroup.Prepend >
+                  <InputGroup.Text><FaRegEye onClick={showHidePassword}/></InputGroup.Text>
+               </InputGroup.Prepend>  
+            </InputGroup>
 
             {(signUpErrors)? <Alert variant="danger">{signUpErrors}</Alert> : null}
 
@@ -86,3 +95,5 @@ const SignUp = () => {
 }
 
 export default SignUp
+
+       

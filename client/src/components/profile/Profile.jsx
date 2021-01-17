@@ -49,7 +49,7 @@ return (
       user.avatar ?  <div className="card-profile">
         <img  src= {require(`../../assets/${user.avatar}.jpg`)} style={{ width: "50%", borderRadius: '50%', marginTop:'-25%'}} />
         <h1 className="title-name">{user.firstName + ' ' + user.lastName}</h1>
-        {/* <p className="help">{user.firstName} is asking for Help!</p> */}
+         {/* <p className="help">{user.firstName} is asking for Help!</p>  */}
         <p className='icon'><BsGeoAlt/> Location</p>
         <p>{user.user_city}</p>
         <p className='icon'><BsEnvelope/> Email Address</p>
@@ -59,7 +59,7 @@ return (
                 }}>
         <Button style={buttonStyle}>{user.firstName}'s profile</Button></Link> : null}
 
-        {(user.user_id === currentUser_id && props.onpost === false) ? <Button style={buttonStyle} onClick={props.editModeToggle}>Edit Profile</Button> : null}
+        {(user.user_id === currentUser_id && props.onpost === false) ? <Button style={buttonStyle} onClick={props.editModeToggle} disabled={props.editMode}>Edit Profile</Button> : null}
         </p>
       </div>:
       <div className="spinner-border text-success m-5" role="status"> <span className="sr-only">Loading...</span></div>
