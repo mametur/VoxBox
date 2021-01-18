@@ -3,7 +3,8 @@ import { useState, useEffect} from 'react'
 import { Form, InputGroup, Button, Container, Row, Col, Alert} from 'react-bootstrap'
 import SweetAlert from 'react-bootstrap-sweetalert';
 import {FaRegEye} from 'react-icons/fa'
-import {showHidePassword} from './showPassword.js'
+import {showHidePassword,showHidePassword2} from './showPassword.js'
+import './lastTouch.css'; 
 
 
 
@@ -115,15 +116,15 @@ const token = new URLSearchParams(props.location.search).get('token');
     <h2 className="text-primary row justify-content-center">Reset Password</h2>
       <Form>
       <InputGroup className="mb-3">
-          <Form.Control type="password" placeholder="New password" id="password" onChange={handleChange} required/>
+          <Form.Control  className="form_control"  type="password" placeholder="New password" id="password" onChange={handleChange} required/>
             <InputGroup.Prepend >
-                <InputGroup.Text><FaRegEye onClick={showHidePassword}/></InputGroup.Text>
+                <InputGroup.Text  className="passwordVis"><FaRegEye onClick={showHidePassword}/></InputGroup.Text>
             </InputGroup.Prepend>  
       </InputGroup>
       <InputGroup className="mb-3">
-         <Form.Control type="password"  placeholder="confirm-Password" id="confirmPassword" onChange={handleChange} required/>
+         <Form.Control className="form_control" type="password"  placeholder="confirm-Password" id="confirmPassword" onChange={handleChange} required/>
          <InputGroup.Prepend >
-              <InputGroup.Text><FaRegEye onClick={showHidePassword}/></InputGroup.Text>
+              <InputGroup.Text className="passwordVis"><FaRegEye onClick={showHidePassword2}/></InputGroup.Text>
          </InputGroup.Prepend>    
       </InputGroup>
 
