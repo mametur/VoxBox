@@ -4,6 +4,7 @@ import { Form, Container, Button, Row, Col } from 'react-bootstrap'
 import { logOut } from '../../store/actions/loginActions'
 import { useHistory } from 'react-router-dom'
 
+
 const CreatePost = (props) => {
 
   const [state, setState] = useState({
@@ -17,6 +18,7 @@ const CreatePost = (props) => {
   const user_id = useSelector(state => state.user.user_id)
 
   const handleChange = (event) => {
+   
     
     setState({
       ...state,
@@ -31,6 +33,13 @@ const CreatePost = (props) => {
         const post = {
           ...state,
         }
+       // console.log("here you are",state)
+        if(!state.topic||!state.category||!state.post_city||!state.description){
+          const error1= "All fields are required"
+         setErrorMessage(error1);
+          return;
+        }
+        else{ 
         fetch(`/api/posts/${user_id}`, {
           method: 'POST',
           headers: {
@@ -53,8 +62,11 @@ const CreatePost = (props) => {
         console.error('Error:', error);
       });
 
-      props.formToggle()
+    
+     props.formToggle()
+      
   }
+}
 
   const style = {
     backgroundColor: '#E5E5E5',

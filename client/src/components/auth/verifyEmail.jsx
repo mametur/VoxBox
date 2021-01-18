@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState, useEffect} from 'react'
 import { Form, InputGroup, Button, Container, Row, Col, Alert} from 'react-bootstrap'
-import { Redirect } from 'react-router-dom'
 import SweetAlert from 'react-bootstrap-sweetalert';
 import {FaRegEye} from 'react-icons/fa'
 import {showHidePassword,showHidePassword2} from './showPassword.js'
@@ -95,8 +94,8 @@ const token = new URLSearchParams(props.location.search).get('token');
    
   }
   useEffect(() => {
-        console.log("state now:",state)
-        console.log ('token', token)
+        // console.log("state now:",state)
+        // console.log ('token', token)
     }, [])
   const style = {
     boxShadow: '2px 2px 10px 2px #F2F2F2',
