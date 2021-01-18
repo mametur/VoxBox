@@ -33,7 +33,7 @@ const HelpDetails = (props) => {
   }
 
   useEffect(() => {
-    console.log("comments",commentData)
+   // console.log("comments",commentData)
     fetchData();
   }, [commentFlag])
 
