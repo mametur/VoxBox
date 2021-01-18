@@ -12,6 +12,7 @@ const CreatePost = (props) => {
     description: null,
     category: null
   })
+   const [errorMessage, setErrorMessage] = useState('')
 
   const user_id = useSelector(state => state.user.user_id)
 
@@ -43,8 +44,9 @@ const CreatePost = (props) => {
                 history.push('/session_expired')
                 dispatch(logOut())
                  return
-                }else if(data.status < 200 || data.status > 300){
+                }else if(data.status < 200 || data.status >= 300){
           console.log('errors', data.message) 
+          setErrorMessage(data.message)
         }
       })
       .catch((error) => {
@@ -86,11 +88,11 @@ const CreatePost = (props) => {
       <Col xs sm md lg xl>
       <h2 style={titleStyle} className="text-secondary row justify-content-center">Make a help request</h2>
         <Form>
-          <Form.Group><Form.Control type="text"  placeholder="Title for help" id="topic" onChange={handleChange} required/></Form.Group>
-          <Form.Group><Form.Control type="text" maxLength="12" placeholder="Location where the help is needed" id="post_city" onChange={handleChange} required/></Form.Group>
-          <Form.Group><Form.Control type="text"   maxLength="12" placeholder="Category of the help request" id="category" onChange={handleChange} required/></Form.Group>
-          <Form.Group><Form.Control as="textarea" rows={3} placeholder="Description" id="description" onChange={handleChange} required/></Form.Group>
-          
+          <Form.Group><Form.Control type="text"  placeholder="Title for help" id="topic" onChange={handleChange} required={true}/></Form.Group>
+          <Form.Group><Form.Control type="text" maxLength="12" placeholder="Location where the help is needed" id="post_city" onChange={handleChange}  required={true}/></Form.Group>
+          <Form.Group><Form.Control type="text"   maxLength="12" placeholder="Category of the help request" id="category" onChange={handleChange}   required={true}/></Form.Group>
+          <Form.Group><Form.Control as="textarea" rows={3} placeholder="Description" id="description" onChange={handleChange} required={true}/></Form.Group>
+           <p className="error-message">{errorMessage}</p>
           <Form.Group >
             <Button style={buttonStyle} variant="primary" type="submit" onClick={handleSubmit}>Post Help</Button>
             <Button style={cancelButtonStyle} variant="primary" type="submit" onClick={props.formToggle}>Cancel</Button>

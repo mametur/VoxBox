@@ -18,7 +18,8 @@ export const SignedIn = () =>{
 
   const style = {
     marginLeft: '10px',
-    marginTop: '10px'
+    marginTop: '10px',
+    textDecoration: 'none'
   }
 
   return (

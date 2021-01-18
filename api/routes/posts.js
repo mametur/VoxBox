@@ -52,6 +52,7 @@ app.get("/posts/:id", authenticated, (req, res) => {
         ],
       },
     ],
+    order: [[Comment, "createdAt", "ASC"]],
   })
     .then((data) => {
       console.log(data);

@@ -5,7 +5,6 @@ const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const { JWT_SECRET, HOST_NAME, Protocol } = require('../config.js');
 const bcrypt = require('bcrypt');
-const jwt_decode = require('jwt-decode');
 
 //const { verifyToken } = require("../utils/encryption");
 
