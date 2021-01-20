@@ -40,6 +40,7 @@ const Comment = ({ post, setCommentFlag }) => {
     })
       .then(response => response.json())
       .then(data => {
+        setCommentFlag(state => !state)
         if(data.auth === false){ 
           history.push('/session_expired')
           dispatch(logOut())

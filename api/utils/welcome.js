@@ -1,13 +1,16 @@
 const welcome = (firstName, link) => {
-	return ` <!doctype html>
+  return `
+    <!doctype html>
 <html lang="en-US">
 
 <head>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-    <title>Reset Password Email Template</title>
+    <title>Welcome Email Template</title>
     <meta name="description" content="Reset Password Email Template.">
     <style type="text/css">
-        a:hover {text-decoration: underline !important;}
+        a:hover {
+            text-decoration: underline !important;
+        }
     </style>
 </head>
 
@@ -23,9 +26,10 @@ const welcome = (firstName, link) => {
                     </tr>
                     <tr>
                         <td style="text-align:center;">
-                          <a href="https://voxbox.herokuapp.com/" title="logo" target="_blank">
-                            <img width="60" src="https://voxbox.herokuapp.com/static/media/logoVox.0a50ddd3.png" title="logo" alt="logo">
-                          </a>
+                            <a href="https://voxbox.herokuapp.com/" title="logo" target="_blank">
+                                <img width="60" src="https://voxbox.herokuapp.com/static/media/logoVox.0a50ddd3.png"
+                                    title="logo" alt="logo">
+                            </a>
                         </td>
                     </tr>
                     <tr>
@@ -40,15 +44,21 @@ const welcome = (firstName, link) => {
                                 </tr>
                                 <tr>
                                     <td style="padding:0 35px;">
-                                    <h1> Hello ${firstName}
-                                        <h4 style="color:#1e1e2d; font-weight:500; margin:0;font-size:16px;font-family:'Rubik',sans-serif;">Thanks for signing up and being a part of VoxBox community!<br>As a new member, you'll enjoy</h4>
-                                        <span
-                                            style="display:inline-block; vertical-align:middle; margin:29px 0 26px; border-bottom:1px solid #cecece; width:100px;"></span>
-                                        <p style="color:#455056; font-size:15px;line-height:24px; margin:0;">
-                                            
-                                        </p>
-                                        <a href =${link}
-                                            style="background:#20e277;text-decoration:none !important; font-weight:500; margin-top:35px; color:#fff;text-transform:uppercase; font-size:14px;padding:10px 24px;display:inline-block;border-radius:50px;">Visit VoxBox</a>
+                                        <h1> Hello ${firstName}
+                                            <h2
+                                                style="color:#1e1e2d; font-weight:500; margin:0;font-size:32px;font-family:'Rubik',sans-serif;">
+                                                Welcome to VoxBox!</h2>
+                                            <div
+                                                style="display:inline-block; vertical-align:middle; margin:29px 0; border-bottom:1px solid #cecece;"><img src="https://image.freepik.com/free-vector/multicultural-people-standing-together_74855-6583.jpg"alt='together'></div>
+                                            <p style="color:#455056; font-size:15px;line-height:24px; margin:0;">
+                                                    <h2>Thank you for being part of a community of fellow volunteers!</h2>
+                                                    <h3> And for Joining us as we do what we can for a good cause!</h3>
+                                                    <p style="text-align: center;word-wrap: break-word;">As a volunteer-based, charitable non-profit organization,
+                                                        we gratefully accept volunteers from all backgrounds!</p>
+
+                                            </p>
+                                            <a href=${link}
+                                                style="background:#20e277;text-decoration:none !important; font-weight:500; margin-top:35px; color:#fff;text-transform:uppercase; font-size:14px;padding:10px 24px;display:inline-block;border-radius:50px;">Visit VoxBox</a>
                                     </td>
                                 </tr>
                                 <tr>
@@ -59,7 +69,7 @@ const welcome = (firstName, link) => {
                     <tr>
                         <td style="height:20px;">&nbsp;</td>
                     </tr>
-                    
+
                     <tr>
                         <td style="height:80px;">&nbsp;</td>
                     </tr>
@@ -70,7 +80,7 @@ const welcome = (firstName, link) => {
     <!--/100% body table-->
 </body>
 
-</html>   
+</html>
         `;
 };
 module.exports = { welcome };

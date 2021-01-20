@@ -94,7 +94,7 @@ const handleAvatarChooser = (event) => {
 const buttonStyle = {
   marginTop: '20px',
   color: 'white',
-  marginLeft: '10px'
+  marginLeft: '70px'
 }
 
 const cancelButtonStyle = {
